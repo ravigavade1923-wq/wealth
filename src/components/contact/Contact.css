@@ -1,0 +1,343 @@
+.legacy-contact-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #efe8dc;
+  padding: 32px 20px 28px;
+  overflow: hidden;
+  margin-top: 70px;
+}
+
+.legacy-contact-container {
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+.legacy-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 58px;
+  align-items: start;
+}
+
+.legacy-contact-left,
+.legacy-contact-right {
+  position: relative;
+}
+
+.legacy-contact-heading {
+  margin: 0 0 34px;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(2.3rem, 4vw, 4.2rem);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -1px;
+  color: #18244a;
+}
+
+.legacy-contact-info-list {
+  border-top: 1px solid rgba(162, 124, 81, 0.22);
+}
+
+.legacy-contact-info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(162, 124, 81, 0.18);
+  transition: transform 0.35s ease, background 0.35s ease;
+}
+
+.legacy-contact-info-card:hover {
+  transform: translateX(6px);
+}
+
+.legacy-icon-box {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(162, 124, 81, 0.28);
+  background: rgba(255, 255, 255, 0.45);
+  color: #d45b9c;
+  box-shadow: 0 8px 18px rgba(34, 24, 16, 0.04);
+}
+
+.legacy-info-content span,
+.legacy-offices-block h3,
+.legacy-follow-block h3,
+.legacy-form-group label,
+.legacy-block-label {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: #9b6e47;
+  margin-bottom: 8px;
+}
+
+.legacy-info-content p {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: #655748;
+}
+
+.legacy-offices-block {
+  margin-top: 20px;
+}
+
+.legacy-offices-list {
+  border-top: 1px solid rgba(162, 124, 81, 0.18);
+}
+
+.legacy-office-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  border-bottom: 1px solid rgba(162, 124, 81, 0.18);
+}
+
+.legacy-office-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  color: #665847;
+  font-size: 0.98rem;
+  transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.legacy-office-item:hover {
+  color: #18244a;
+  transform: translateX(4px);
+}
+
+.legacy-office-item svg {
+  color: #9b6e47;
+  font-size: 0.75rem;
+}
+
+.legacy-follow-block {
+  margin-top: 24px;
+}
+
+.legacy-socials {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.legacy-socials a {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(162, 124, 81, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7d6a58;
+  background: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: all 0.35s ease;
+}
+
+.legacy-socials a:hover {
+  color: #fff;
+  background: #18244a;
+  transform: translateY(-3px);
+}
+
+.legacy-contact-form {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(162, 124, 81, 0.16);
+  padding: 18px 0 0;
+}
+
+.legacy-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.legacy-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.legacy-form-group.full {
+  width: 100%;
+}
+
+.legacy-form-group input,
+.legacy-form-group textarea {
+  width: 100%;
+  border: 1px solid rgba(162, 124, 81, 0.28);
+  background: rgba(255, 255, 255, 0.72);
+  color: #18244a;
+  padding: 12px 14px;
+  font-size: 0.96rem;
+  outline: none;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+  box-sizing: border-box;
+}
+
+.legacy-form-group input {
+  height: 46px;
+}
+
+.legacy-form-group textarea {
+  resize: vertical;
+  min-height: 92px;
+}
+
+.legacy-form-group input::placeholder,
+.legacy-form-group textarea::placeholder {
+  color: #8b7c6b;
+}
+
+.legacy-form-group input:focus,
+.legacy-form-group textarea:focus {
+  border-color: #18244a;
+  box-shadow: 0 0 0 4px rgba(24, 36, 74, 0.06);
+}
+
+.legacy-radio-block {
+  margin-bottom: 14px;
+}
+
+.legacy-radio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legacy-radio-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  color: #655748;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.legacy-radio-item input {
+  margin-top: 3px;
+  accent-color: #18244a;
+}
+
+.legacy-submit-btn {
+  width: 100%;
+  height: 48px;
+  border: none;
+  background: #18244a;
+  color: #ffffff;
+  font-size: 0.82rem;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  margin-top: 8px;
+}
+
+.legacy-submit-btn:hover {
+  background: #121c39;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(24, 36, 74, 0.18);
+}
+
+.legacy-submit-btn span {
+  margin-left: 6px;
+}
+
+.legacy-form-note {
+  margin: 10px 0 0;
+  font-size: 0.74rem;
+  color: #8a7b69;
+}
+
+/* luxury subtle depth */
+.legacy-contact-left,
+.legacy-contact-form {
+  animation: legacyFloat 5.8s ease-in-out infinite;
+}
+
+@keyframes legacyFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* responsive */
+@media (max-width: 1100px) {
+  .legacy-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .legacy-contact-heading {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .legacy-contact-page {
+    padding: 24px 16px 26px;
+  }
+
+  .legacy-contact-grid {
+    gap: 24px;
+  }
+
+  .legacy-contact-heading {
+    font-size: 2.1rem;
+  }
+
+  .legacy-form-row,
+  .legacy-office-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .legacy-form-group {
+    margin-bottom: 12px;
+  }
+
+  .legacy-form-group input,
+  .legacy-form-group textarea {
+    font-size: 0.95rem;
+  }
+
+  .legacy-radio-item {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .legacy-contact-page {
+    padding: 18px 14px 22px;
+  }
+
+  .legacy-contact-heading {
+    font-size: 1.8rem;
+  }
+
+  .legacy-info-content p,
+  .legacy-office-item,
+  .legacy-radio-item {
+    font-size: 0.88rem;
+  }
+
+  .legacy-submit-btn {
+    height: 46px;
+    font-size: 0.78rem;
+  }
+}
