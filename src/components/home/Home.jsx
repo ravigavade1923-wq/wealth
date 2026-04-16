@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./Home.css";
 
 import { gsap } from "gsap";
@@ -10,6 +10,22 @@ import {
   FaLinkedinIn,
   FaFacebookF,
 } from "react-icons/fa";
+
+import {
+  FaCreditCard,
+  FaChartLine,
+  FaCarSide,
+  FaHeart,
+  FaHome,
+  FaUserMd,
+  FaGraduationCap,
+  FaShieldAlt,
+  FaUmbrella,
+} from "react-icons/fa";
+
+import { GiBigDiamondRing } from "react-icons/gi";
+import { MdFamilyRestroom } from "react-icons/md";
+
 import { Link } from "react-router-dom";
 
 import featuresImg from "../../assets/feature/features.png";
@@ -427,8 +443,10 @@ const useCountUp = (end, duration = 2200, suffix = "", prefix = "") => {
 const Home = () => {
   const heroLines = [
     "It all begins with you.",
-    "Built around your goals and vision.",
-    "Guiding wealth with clarity and purpose.",
+    "Attaining Financial Freedom.",
+    "Making Your Money Work For You.",
+    "Saving Taxes.",
+    "Meeting Your Goals.",
   ];
 
   const homeRef = useRef(null);
@@ -546,7 +564,6 @@ const Home = () => {
         { opacity: 1, y: 0, duration: 1.05, ease: "power3.out" },
       );
 
-
       gsap.to(heroTitleRef.current, {
         yPercent: -12,
         ease: "none",
@@ -569,7 +586,7 @@ const Home = () => {
             ease: "power3.out",
             scrollTrigger: {
               trigger: section,
-              start: "top 82%",
+              start: "top 88%",
               once: true,
             },
           },
@@ -873,9 +890,170 @@ const Home = () => {
     }
   };
 
+  const [sipData, setSipData] = useState({
+    amount: "",
+    frequency: "monthly",
+    years: "",
+    expectedReturn: "",
+    inflationMode: "none",
+    inflationRate: "",
+  });
+
+  const [sipResult, setSipResult] = useState(null);
+
+  const handleSipChange = (e) => {
+    const { name, value } = e.target;
+    setSipData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const formatCurrency = (value) => {
+    if (!Number.isFinite(value)) return "₹ 0";
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    }).format(value);
+  };
+
+  const getPeriodsPerYear = (frequency) => {
+    switch (frequency) {
+      case "weekly":
+        return 52;
+      case "quarterly":
+        return 4;
+      case "yearly":
+        return 1;
+      case "monthly":
+      default:
+        return 12;
+    }
+  };
+
+  const calculateSipReturns = () => {
+    const amount = parseFloat(sipData.amount);
+    const years = parseFloat(sipData.years);
+    const expectedReturn = parseFloat(sipData.expectedReturn);
+    const inflationRate =
+      sipData.inflationMode === "custom"
+        ? parseFloat(sipData.inflationRate || 0)
+        : 0;
+
+    if (
+      !Number.isFinite(amount) ||
+      !Number.isFinite(years) ||
+      !Number.isFinite(expectedReturn) ||
+      amount <= 0 ||
+      years <= 0 ||
+      expectedReturn < 0
+    ) {
+      setSipResult({
+        error:
+          "Please enter valid values for investment amount, period, and return.",
+      });
+      return;
+    }
+
+    const periodsPerYear = getPeriodsPerYear(sipData.frequency);
+    const totalPeriods = Math.round(years * periodsPerYear);
+    const periodicRate = expectedReturn / 100 / periodsPerYear;
+
+    let futureValue = 0;
+
+    if (periodicRate === 0) {
+      futureValue = amount * totalPeriods;
+    } else {
+      futureValue =
+        amount *
+        (((Math.pow(1 + periodicRate, totalPeriods) - 1) / periodicRate) *
+          (1 + periodicRate));
+    }
+
+    const investedAmount = amount * totalPeriods;
+    const profitEarned = futureValue - investedAmount;
+
+    const realFutureValue =
+      inflationRate > 0
+        ? futureValue / Math.pow(1 + inflationRate / 100, years)
+        : futureValue;
+
+    const projectionDurations = [2, 5, 8, 10, 12, 15, 18, 20, 25, 30]
+      .filter((yr) => yr <= Math.max(30, Math.ceil(years)))
+      .map((yr) => {
+        const periods = yr * periodsPerYear;
+        let projectedFV = 0;
+
+        if (periodicRate === 0) {
+          projectedFV = amount * periods;
+        } else {
+          projectedFV =
+            amount *
+            (((Math.pow(1 + periodicRate, periods) - 1) / periodicRate) *
+              (1 + periodicRate));
+        }
+
+        return {
+          year: yr,
+          invested: amount * periods,
+          futureValue: projectedFV,
+        };
+      });
+
+    setSipResult({
+      error: "",
+      investedAmount,
+      futureValue,
+      profitEarned,
+      realFutureValue,
+      projectionDurations,
+    });
+  };
+
+  const resetSipCalculator = () => {
+    setSipData({
+      amount: "",
+      frequency: "monthly",
+      years: "",
+      expectedReturn: "",
+      inflationMode: "none",
+      inflationRate: "",
+    });
+
+    setSipResult(null);
+  };
+
+  const sipChartBars = useMemo(() => {
+    if (!sipResult || sipResult.error) return [];
+    const total = Math.max(sipResult.futureValue, 1);
+    return [
+      {
+        label: "Invested",
+        value: sipResult.investedAmount,
+        height: `${(sipResult.investedAmount / total) * 100}%`,
+      },
+      {
+        label: "Returns",
+        value: sipResult.profitEarned,
+        height: `${(sipResult.profitEarned / total) * 100}%`,
+      },
+    ];
+  }, [sipResult]);
+
   return (
-    <div ref={homeRef}>
+    <div ref={homeRef} className="epm-home-page">
       <section className="epm-hero-wrap" ref={heroWrapRef} id="home">
+        <video className="epm-hero-video" autoPlay loop muted playsInline>
+          <source
+            // src="https://cdn.dribbble.com/userupload/14351043/file/original-e8f92507edede186d6fa91bf0aec6760.mp4"
+            // src="https://cdn.dribbble.com/userupload/44432199/file/2977b8fb988f3d0108f59b914f4bc6de.mp4"
+            src="https://cdn.dribbble.com/userupload/3230922/file/original-2292b607536d84da4cad85191315cc06.mp4"
+
+            type="video/mp4"
+          />
+        </video>
+
         <div className="epm-social-stick">
           <a
             href="https://www.instagram.com/"
@@ -930,467 +1108,894 @@ const Home = () => {
         <div className="epm-hero-noise"></div>
 
         <div className="epm-hero-shell">
-          <div className="epm-hero-content" ref={heroCopyRef}>
-            <div className="epm-hero-pill">
-              <span className="epm-pill-dot"></span>
-              <span className="epm-pill-text">
-            NEXT-GEN WEALTH STRATEGIES
-              </span>
-            </div>
-
-            {/* <span className="epm-hero-kicker">NEXT-GEN WEALTH STRATEGIES</span> */}
-
-            <h1 className="epm-hero-title" ref={heroTitleRef}>
-              <span className="epm-title-main">Build Wealth</span>
-              <span className="epm-title-sub">
-                “Smart Strategies. Strong Future.”
-              </span>
-            </h1>
-
-            <div className="epm-typed-wrap">
-              <p className="epm-typed-line">
-                {displayText}
-                <span className="epm-typed-caret"></span>
-              </p>
-            </div>
-
-            <p className="epm-hero-desc">
-              At EPM Wealth, we bring clarity, discipline, and intelligent
-              planning to every financial decision. We craft a refined strategy
-              around your personal goals, family priorities, and long-term
-              legacy.
-            </p>
-
-            <div className="epm-hero-btn-wrap">
-              <Link to="/about" className="epm-liquid-btn epm-liquid-btn-gold">
-                <span className="epm-btn-text">DISCOVER MORE</span>
-                <span className="epm-btn-icon">→</span>
-                <span className="epm-btn-liquid"></span>
-              </Link>
-
-              <Link
-                to="/contact"
-                className="epm-liquid-btn epm-liquid-btn-glass"
+          <div className="epm-hero-grid">
+            {/* LEFT CONTENT */}
+            <div
+              className="epm-hero-content epm-hero-content-left"
+              ref={heroCopyRef}
+            >
+              <h1
+                className="epm-hero-title epm-hero-title-left"
+                ref={heroTitleRef}
               >
-                <span className="epm-btn-text">START A CONVERSATION</span>
-                <span className="epm-btn-icon">→</span>
-                <span className="epm-btn-liquid"></span>
-              </Link>
-            </div>
+                <span className="epm-title-main">
+                  Because Your Wealth Deserves Excellence...
+                </span>
+                <span className="card epm-title-sub">
+                  “Smart Strategies, Strong Future.”
+                </span>
+              </h1>
 
-            {/* <div className="epm-scroll-indicator">
-            <span className="epm-scroll-line"></span>
-            <span className="epm-scroll-text">Scroll to explore</span>
-          </div> */}
-          </div>
-        </div>
-      </section>
-
-      <section className="epm-stats-section">
-        <div className="epm-stats-wrap">
-          <div className="epm-stats-card">
-            <div className="epm-stats-grid">
-              <div className="epm-stat-box" ref={ref4}>
-                <h2>{aum}</h2>
-                <p>AUM</p>
+              <div className="epm-typed-wrap epm-typed-wrap-left">
+                <p className="epm-typed-line">
+                  {displayText}
+                  <span className="epm-typed-caret"></span>
+                </p>
               </div>
 
-              <div className="epm-stat-line"></div>
-
-              <div className="epm-stat-box" ref={ref1}>
-                <h2>{experience}</h2>
-                <p>Combined Team Experience</p>
-              </div>
-              <div className="epm-stat-line"></div>
-
-              <div className="epm-stat-box" ref={ref2}>
-                <h2>{clients}</h2>
-                <p>Unique Clients Served</p>
-              </div>
-
-              <div className="epm-stat-line"></div>
-
-              <div className="epm-stat-box" ref={ref3}>
-                <h2>{locations}</h2>
-                <p>Strategic Global Locations</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="solutions-section epm-reveal-section epm-animate">
-        <div className="solutions-container">
-          <div className="solutions-left">
-            {/* <span className="solutions-label">SOLUTIONS</span> */}
-            <h2>
-          Because Your Wealth Deserves Excellence
-            </h2>
-            <Link to="/contact" className="solutions-link">
-              START THE CONVERSATION <span>→</span>
-            </Link>
-          </div>
-
-          <div className="solutions-right">
-            <p>
-              At EPM Wealth Management, wealth advisory goes far beyond simply
-              building a portfolio. Working closely with individuals and
-              corporates over the years, we understand that true wealth
-              management requires a holistic, personalized approach aligned with
-              each client’s unique goals.
-            </p>
-
-            <p>
-              By combining deep financial insight with modern technology, we
-              design strategies tailored to your evolving financial needs. Your
-              dedicated advisor—supported by an experienced team—guides you
-              through every important decision, ensuring clarity, confidence,
-              and long-term financial growth.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="decision-section epm-reveal-section epm-animate">
-        <div className="decision-container">
-          <div className="decision-top-row">
-            <div className="decision-heading-wrap">
-              {/* <span className="decision-mini-label">SERVICES</span> */}
-              <h2 className="decision-heading">
-                Financial Decisions Made Simpler For Every Indian
-              </h2>
-            </div>
-
-            <div className="decision-intro">
-              <p>
-                Our financial services are tailored to your unique wealth
-                creation journey. Explore bespoke solutions designed for your
-                specific goals.
+              <p className="epm-hero-desc epm-hero-desc-left">
+              It all begins with you, At EPM we believe your wealth goes beyond money. We prioritize you, your loved ones, and your business, ensuring they remain at the heart of our every action. Our personalized approach helps you achieve your goals today and in the future.
               </p>
+
+              <div className="epm-hero-btn-wrap epm-hero-btn-wrap-left">
+                <Link
+                  to="/about"
+                  className="epm-liquid-btn epm-liquid-btn-gold"
+                >
+                  <span className="epm-btn-text">DISCOVER MORE</span>
+                  <span className="epm-btn-icon">→</span>
+                  <span className="epm-btn-liquid"></span>
+                </Link>
+
+                <Link
+                  to="/contact"
+                  className="epm-liquid-btn epm-liquid-btn-glass"
+                >
+                  <span className="epm-btn-text">START A CONVERSATION</span>
+                  <span className="epm-btn-icon">→</span>
+                  <span className="epm-btn-liquid"></span>
+                </Link>
+              </div>
             </div>
-          </div>
 
-          <div className="decision-grid">
-            {features.map((item) => (
-              <div
-                className="decision-card"
-                key={item.id}
-                style={{ backgroundImage: `url(${item.bgImage})` }}
-              >
-                <div className="decision-card-bg"></div>
-                <div className="decision-card-dark-layer"></div>
-                <div className="decision-card-blur-panel"></div>
+            {/* RIGHT MAP VISUAL */}
+            <div className="epm-hero-map-wrap">
+              <div className="epm-hero-map-card">
+                <div className="epm-map-glow epm-map-glow-one"></div>
+                <div className="epm-map-glow epm-map-glow-two"></div>
 
-                <div className="decision-card-content">
-                  <span className="decision-card-meta">{item.meta}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+                <div className="epm-map-road">
+                  <svg
+                    className="epm-road-svg"
+                    viewBox="0 0 520 760"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="epmRoadGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop offset="0%" stopColor="#121a3d" />
+                        <stop offset="50%" stopColor="#1f285c" />
+                        <stop offset="100%" stopColor="#101738" />
+                      </linearGradient>
 
-                  <div className="decision-card-footer">
-                    <span className="decision-card-label">EXPLORE SERVICE</span>
-                    <span className="decision-card-arrow">→</span>
+                      <filter
+                        id="epmSoftShadow"
+                        x="-20%"
+                        y="-20%"
+                        width="140%"
+                        height="140%"
+                      >
+                        <feDropShadow
+                          dx="0"
+                          dy="18"
+                          stdDeviation="18"
+                          floodColor="rgba(10,15,35,0.28)"
+                        />
+                      </filter>
+                    </defs>
+
+                    {/* Main road */}
+                    <path
+                      d="M70 690 
+                 C150 705, 210 690, 220 635
+                 C230 580, 150 560, 160 505
+                 C170 448, 285 455, 305 395
+                 C325 335, 230 315, 245 245
+                 C260 175, 365 195, 430 120"
+                      fill="none"
+                      stroke="url(#epmRoadGradient)"
+                      strokeWidth="58"
+                      strokeLinecap="round"
+                      filter="url(#epmSoftShadow)"
+                    />
+
+                    {/* Center dashed line */}
+                    <path
+                      d="M70 690 
+                 C150 705, 210 690, 220 635
+                 C230 580, 150 560, 160 505
+                 C170 448, 285 455, 305 395
+                 C325 335, 230 315, 245 245
+                 C260 175, 365 195, 430 120"
+                      fill="none"
+                      stroke="#ffffff"
+                      strokeWidth="4"
+                      strokeDasharray="10 12"
+                      strokeLinecap="round"
+                      opacity="0.95"
+                    />
+
+                    {/* animated moving dots */}
+                    <circle r="5" fill="#f8d39a">
+                      <animateMotion
+                        dur="8s"
+                        repeatCount="indefinite"
+                        rotate="auto"
+                        path="M70 690 
+                      C150 705, 210 690, 220 635
+                      C230 580, 150 560, 160 505
+                      C170 448, 285 455, 305 395
+                      C325 335, 230 315, 245 245
+                      C260 175, 365 195, 430 120"
+                      />
+                    </circle>
+
+                    <circle r="4" fill="#ffffff" opacity="0.9">
+                      <animateMotion
+                        dur="10s"
+                        begin="1.2s"
+                        repeatCount="indefinite"
+                        rotate="auto"
+                        path="M70 690 
+                      C150 705, 210 690, 220 635
+                      C230 580, 150 560, 160 505
+                      C170 448, 285 455, 305 395
+                      C325 335, 230 315, 245 245
+                      C260 175, 365 195, 430 120"
+                      />
+                    </circle>
+                  </svg>
+
+                  {/* markers */}
+                  <div
+                    className="epm-map-point point-credit"
+                    style={{ marginLeft: "0px", marginBottom: "-40px" }}
+                  >
+                    <span className="epm-goal-icon goal-credit">
+                      <FaCreditCard />
+                    </span>
+                    <p>Credit Card</p>
+                  </div>
+
+                  <div
+                    className="epm-map-point point-invest"
+                    style={{ marginLeft: "-10px" }}
+                  >
+                    <span className="epm-goal-icon goal-invest">
+                      <FaChartLine />
+                    </span>
+                    <p>Investments</p>
+                  </div>
+
+                  <div
+                    className="epm-map-point point-vehicle"
+                    style={{ marginLeft: "-20px" }}
+                  >
+                    <span className="epm-goal-icon goal-vehicle">
+                      <FaCarSide />
+                    </span>
+                    <p>Buy a Vehicle</p>
+                  </div>
+
+                  <div
+                    className="epm-map-point point-married"
+                    style={{ marginLeft: "-35px", marginTop: "50px" }}
+                  >
+                    <span className="epm-goal-icon goal-married">
+                      <GiBigDiamondRing />
+                    </span>
+                    <p>Get Married</p>
+                  </div>
+
+                  <div
+                    className="epm-map-point point-loan"
+                    style={{ marginLeft: "35px", marginTop: "70px" }}
+                  >
+                    <span className="epm-goal-icon goal-loan">₹</span>
+                    <p>Loans</p>
+                  </div>
+
+                  <div
+                    className="epm-map-point point-house"
+                    style={{ marginLeft: "-70px", marginTop: "40px" }}
+                  >
+                    <span className="epm-goal-icon goal-house">
+                      <FaHome />
+                    </span>
+                    <p>Own a House</p>
+                  </div>
+
+                  <div
+                    className="epm-map-point point-medical"
+                    style={{ marginLeft: "55px", marginTop: "50px" }}
+                  >
+                    <span className="epm-goal-icon goal-medical">
+                      <FaUserMd />
+                    </span>
+                    <p>Medical Insurance</p>
+                  </div>
+
+                  <div
+                    className="epm-map-point point-kids"
+                    style={{ marginLeft: "-85px", marginTop: "50px" }}
+                  >
+                    <span className="epm-goal-icon goal-kids">
+                      <FaGraduationCap />
+                    </span>
+                    <p>Kid&apos;s Education</p>
+                  </div>
+
+                  <div
+                    className="epm-map-point point-life"
+                    style={{ marginLeft: "-120px", marginTop: "0px" }}
+                  >
+                    <span className="epm-goal-icon goal-life">
+                      <FaShieldAlt />
+                    </span>
+                    <p>Life Insurance</p>
+                  </div>
+
+                  <div
+                    className="epm-map-point point-estate"
+                    style={{ marginLeft: "-95px", marginTop: "50px" }}
+                  >
+                    <span className="epm-goal-icon goal-estate">
+                      <MdFamilyRestroom />
+                    </span>
+                    <p>Estate Planning</p>
+                  </div>
+
+                  <div
+                    className="epm-map-point point-retire"
+                    style={{ marginRight: "15px", marginTop: "-90px" }}
+                  >
+                    <span className="epm-goal-icon goal-retire">
+                      <FaUmbrella />
+                    </span>
+                    <p>Retirement</p>
+                  </div>
+
+                  {/* little flags */}
+                  <span
+                    className="epm-flag flag-1"
+                    style={{ marginLeft: "55px", marginTop: "50px" }}
+                  ></span>
+                  {/* <span className="epm-flag flag-2"></span> */}
+                  {/* <span className="epm-flag flag-3"></span> */}
+                  <span
+                    className="epm-flag flag-4"
+                    style={{ marginRight: "75px", marginTop: "20px" }}
+                  ></span>
+
+                  {/* decorative people / traveler */}
+                  <div className="epm-road-traveler">🧑‍💼</div>
+                  <div
+                    className="epm-map-retired"
+                    style={{ marginRight: "95px", marginTop: "-30px" }}
+                  >
+                    👫
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="vault-section epm-reveal-section epm-animate">
-        <div className="vault-container">
-          <div className="vault-top-grid">
-            <div className="vault-left-panel">
-              {/* <span className="vault-label">VAULT</span> */}
+      <div className="epm-overlap-stack">
+        <section className="epm-stats-section epm-overlap-panel">
+          <div className="epm-stats-wrap">
+            <div className="epm-stats-card">
+              <div className="epm-stats-grid">
+                <div className="epm-stat-box" ref={ref4}>
+                  <h2>{aum}</h2>
+                  <p>AUM</p>
+                </div>
 
-              <h2 className="vault-heading">
-                Your access to
-                <br />
-                rich insights
-              </h2>
+                <div className="epm-stat-line"></div>
 
-              <p className="vault-description">
-                From experienced partners at the forefront of today&apos;s
-                financial trends and beyond. Trusted by the top 0.01% of the
-                country.
+                <div className="epm-stat-box" ref={ref1}>
+                  <h2>{experience}</h2>
+                  <p>Combined Team Experience</p>
+                </div>
+                <div className="epm-stat-line"></div>
+
+                <div className="epm-stat-box" ref={ref2}>
+                  <h2>{clients}</h2>
+                  <p>Unique Clients Served</p>
+                </div>
+
+                <div className="epm-stat-line"></div>
+
+                <div className="epm-stat-box" ref={ref3}>
+                  <h2>{locations}</h2>
+                  <p>Strategic Global Locations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="solutions-section epm-reveal-section epm-animate epm-overlap-panel">
+          <div className="solutions-container">
+            <div className="solutions-left">
+              {/* <span className="solutions-label">SOLUTIONS</span> */}
+              <h2>Because Your Wealth Deserves Excellence</h2>
+              <Link to="/contact" className="solutions-link">
+                START THE CONVERSATION <span>→</span>
+              </Link>
+            </div>
+
+            <div className="solutions-right">
+              <p>
+                At EPM Wealth Management, wealth advisory goes far beyond simply
+                building a portfolio. Working closely with individuals and
+                corporates over the years, we understand that true wealth
+                management requires a holistic, personalized approach aligned
+                with each client’s unique goals.
               </p>
 
-              <a href="#contact" className="vault-link">
-                Explore Vault <span>→</span>
-              </a>
+              <p>
+                By combining deep financial insight with modern technology, we
+                design strategies tailored to your evolving financial needs.
+                Your dedicated advisor—supported by an experienced team—guides
+                you through every important decision, ensuring clarity,
+                confidence, and long-term financial growth.
+              </p>
+            </div>
+          </div>
+        </section>
 
-              <div className="vault-signup-box">
-                <h3>Sign up for priority access</h3>
-                <p>Get our insights delivered straight to your inbox.</p>
+        <section className="decision-section epm-reveal-section epm-animate epm-overlap-panel">
+          <div className="decision-container">
+            <div className="decision-top-row">
+              <div className="decision-heading-wrap">
+                {/* <span className="decision-mini-label">SERVICES</span> */}
+                <h2 className="decision-heading">
+                  Financial Decisions Made Simpler For Every Indian
+                </h2>
+              </div>
 
-                <form className="vault-form" onSubmit={handleSubscribe}>
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                  <button type="submit" disabled={loading}>
-                    {loading ? "SENDING..." : "SUBSCRIBE →"}
-                  </button>
-                </form>
-
-                {message && <p className="vault-form-message">{message}</p>}
+              <div className="decision-intro">
+                <p>
+                  Our financial services are tailored to your unique wealth
+                  creation journey. Explore bespoke solutions designed for your
+                  specific goals.
+                </p>
               </div>
             </div>
 
-            <div className="vault-featured-card">
-              <img
-                src={featuredArticle.image}
-                alt={featuredArticle.title}
-                className="vault-featured-image"
-              />
-              <div className="vault-featured-overlay"></div>
-
-              <div className="vault-featured-content">
-                <span>
-                  {featuredArticle.type} · {featuredArticle.meta}
-                </span>
-                <h3>{featuredArticle.title}</h3>
-                <p>{featuredArticle.desc}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="vault-bottom-grid">
-            {bottomArticles.map((item, index) => (
-              <article
-                className={`vault-article-card ${
-                  index === 0 ? "first-vault-card" : ""
-                }`}
-                key={item.id}
-              >
-                <div className="vault-article-image-wrap">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className={`vault-article-image ${
-                      index === 0 ? "fit-image" : ""
-                    }`}
-                  />
-                </div>
-
-                <div className="vault-article-content">
-                  <span className="vault-article-type">{item.type}</span>
-                  <h4>{item.title}</h4>
-                  <p>{item.date}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="awards-showcase-section epm-reveal-section epm-animate">
-        <div className="awards-bg-glow awards-bg-glow-left"></div>
-        <div className="awards-bg-glow awards-bg-glow-right"></div>
-        <div className="awards-grid-pattern"></div>
-
-        <div className="awards-showcase-container">
-          <div className="awards-showcase-top">
-            <span className="awards-mini-label">AWARDS & MILESTONES</span>
-
-            <h2 className="awards-main-heading">
-              Journey driven by
-              <br />
-              Results
-            </h2>
-
-            <p className="awards-main-description">{activeData.subtitle}</p>
-
-            <div className="awards-highlight-card">
-              <span className="awards-highlight-year">{activeData.year}</span>
-              <h3>{activeData.title}</h3>
-              <div className="awards-badge-icon">{activeData.badge}</div>
-              <span className="awards-brand">{activeData.brand}</span>
-            </div>
-
-            <div className="awards-timeline">
-              {awardsData.map((item) => (
-                <button
-                  key={item.year}
-                  className={`awards-year-btn ${
-                    activeYear === item.year ? "active" : ""
-                  }`}
-                  onClick={() => setActiveYear(item.year)}
+            <div className="decision-grid">
+              {features.map((item) => (
+                <div
+                  className="decision-card"
+                  key={item.id}
+                  style={{ backgroundImage: `url(${item.bgImage})` }}
                 >
-                  {item.year}
-                </button>
+                  <div className="decision-card-bg"></div>
+                  <div className="decision-card-dark-layer"></div>
+                  <div className="decision-card-blur-panel"></div>
+
+                  <div className="decision-card-content">
+                    <span className="decision-card-meta">{item.meta}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+
+                    <div className="decision-card-footer">
+                      <span className="decision-card-label">
+                        EXPLORE SERVICE
+                      </span>
+                      <span className="decision-card-arrow">→</span>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
+        </section>
 
-          <div className="awards-year-work-section">
-            <div className="awards-detail-card">
-              <span className="awards-card-label">YEAR HIGHLIGHTS</span>
-              <h4>What we accomplished in {activeData.year}</h4>
+        <section className="vault-section epm-reveal-section epm-animate epm-overlap-panel">
+          <div className="vault-container">
+            <div className="vault-top-grid">
+              <div className="vault-left-panel">
+                {/* <span className="vault-label">VAULT</span> */}
 
-              <div className="awards-work-list">
-                {activeData.works.map((work, index) => (
-                  <div className="awards-work-item" key={index}>
-                    <div className="awards-work-number">
-                      {String(index + 1).padStart(2, "0")}
+                <h2 className="vault-heading">
+                  Your access to
+                  <br />
+                  rich insights
+                </h2>
+
+                <p className="vault-description">
+                  From experienced partners at the forefront of today&apos;s
+                  financial trends and beyond. Trusted by the top 0.01% of the
+                  country.
+                </p>
+
+                <a href="#contact" className="vault-link">
+                  Explore Vault <span>→</span>
+                </a>
+
+                <div className="vault-signup-box">
+                  <h3>Sign up for priority access</h3>
+                  <p>Get our insights delivered straight to your inbox.</p>
+
+                  <form className="vault-form" onSubmit={handleSubscribe}>
+                    <input
+                      type="email"
+                      placeholder="Email Address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                    <button type="submit" disabled={loading}>
+                      {loading ? "SENDING..." : "SUBSCRIBE →"}
+                    </button>
+                  </form>
+
+                  {message && <p className="vault-form-message">{message}</p>}
+                </div>
+              </div>
+
+              <div className="vault-featured-card">
+                <img
+                  src={featuredArticle.image}
+                  alt={featuredArticle.title}
+                  className="vault-featured-image"
+                />
+                <div className="vault-featured-overlay"></div>
+
+                <div className="vault-featured-content">
+                  <span>
+                    {featuredArticle.type} · {featuredArticle.meta}
+                  </span>
+                  <h3>{featuredArticle.title}</h3>
+                  <p>{featuredArticle.desc}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="vault-bottom-grid">
+              {bottomArticles.map((item, index) => (
+                <article
+                  className={`vault-article-card ${
+                    index === 0 ? "first-vault-card" : ""
+                  }`}
+                  key={item.id}
+                >
+                  <div className="vault-article-image-wrap">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className={`vault-article-image ${
+                        index === 0 ? "fit-image" : ""
+                      }`}
+                    />
+                  </div>
+
+                  <div className="vault-article-content">
+                    <span className="vault-article-type">{item.type}</span>
+                    <h4>{item.title}</h4>
+                    <p>{item.date}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="awards-showcase-section epm-reveal-section epm-animate epm-overlap-panel">
+          <div className="awards-bg-glow awards-bg-glow-left"></div>
+          <div className="awards-bg-glow awards-bg-glow-right"></div>
+          <div className="awards-grid-pattern"></div>
+
+          <div className="awards-showcase-container">
+            <div className="awards-showcase-top">
+              {/* <span className="awards-mini-label">AWARDS & MILESTONES</span> */}
+
+              <h2 className="awards-main-heading">
+                Journey driven by
+                <br />
+                Results
+              </h2>
+
+              <p className="awards-main-description">{activeData.subtitle}</p>
+
+              <div className="awards-highlight-card">
+                <span className="awards-highlight-year">{activeData.year}</span>
+                <h3>{activeData.title}</h3>
+                <div className="awards-badge-icon">{activeData.badge}</div>
+                <span className="awards-brand">{activeData.brand}</span>
+              </div>
+
+              <div className="awards-timeline">
+                {awardsData.map((item) => (
+                  <button
+                    key={item.year}
+                    className={`awards-year-btn ${
+                      activeYear === item.year ? "active" : ""
+                    }`}
+                    onClick={() => setActiveYear(item.year)}
+                  >
+                    {item.year}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="awards-year-work-section">
+              <div className="awards-detail-card">
+                <span className="awards-card-label">YEAR HIGHLIGHTS</span>
+                <h4>What we accomplished in {activeData.year}</h4>
+
+                <div className="awards-work-list">
+                  {activeData.works.map((work, index) => (
+                    <div className="awards-work-item" key={index}>
+                      <div className="awards-work-number">
+                        {String(index + 1).padStart(2, "0")}
+                      </div>
+
+                      <div className="awards-work-content">
+                        <span>Key Achievement</span>
+                        <p>{work}</p>
+                      </div>
                     </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
 
-                    <div className="awards-work-content">
-                      <span>Key Achievement</span>
-                      <p>{work}</p>
+          <div className="awards-gallery-section">
+            <div className="awards-gallery-head">
+              <span>RECOGNITION GALLERY</span>
+              <h4>Moments of Excellence</h4>
+            </div>
+
+            <div className="awards-gallery-marquee">
+              <div className="awards-horizontal-scroll-track">
+                {duplicatedGalleryImages.map((img, index) => (
+                  <div className="awards-gallery-card" key={index}>
+                    <img src={img} alt={`Award gallery ${index + 1}`} />
+                    <div className="awards-gallery-card-overlay">
+                      <span>EPM WEALTH</span>
+                      <p>Recognition & Premium Milestones</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className="awards-gallery-section">
-          <div className="awards-gallery-head">
-            <span>RECOGNITION GALLERY</span>
-            <h4>Moments of Excellence</h4>
-          </div>
+        <section className="core-values-section epm-reveal-section epm-animate epm-overlap-panel">
+          <div className="core-values-container">
+            <div className="core-values-top">
+              <div className="core-values-top-left">
+                <span className="core-values-label">CORE VALUES</span>
+                <h2 className="core-values-heading">We believe in RISK</h2>
+              </div>
+            </div>
 
-          <div className="awards-gallery-marquee">
-            <div className="awards-horizontal-scroll-track">
-              {duplicatedGalleryImages.map((img, index) => (
-                <div className="awards-gallery-card" key={index}>
-                  <img src={img} alt={`Award gallery ${index + 1}`} />
-                  <div className="awards-gallery-card-overlay">
-                    <span>EPM WEALTH</span>
-                    <p>Recognition & Premium Milestones</p>
+            <div className="core-values-grid">
+              {coreValuesData.map((item, index) => (
+                <div
+                  className={`core-value-card core-value-card-${index + 1}`}
+                  key={item.id}
+                >
+                  <div className="core-value-image-wrap">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="core-value-image"
+                    />
+                    <div className="core-value-image-overlay"></div>
+                    <span className="core-value-letter">{item.letter}</span>
+                  </div>
+
+                  <div className="core-value-content">
+                    <span className="core-value-title">{item.title}</span>
+                    <p>{item.description}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="core-values-section epm-reveal-section epm-animate">
-        <div className="core-values-container">
-          <div className="core-values-top">
-            <div className="core-values-top-left">
-              <span className="core-values-label">CORE VALUES</span>
-              <h2 className="core-values-heading">We believe in RISK</h2>
+        <section
+          className="testimonials-luxury-section epm-animate epm-overlap-panel"
+          ref={sectionRef}
+        >
+          <span className="testimonials-orb testimonials-orb-1"></span>
+          <span className="testimonials-orb testimonials-orb-2"></span>
+
+          <div className="testimonials-luxury-container">
+            <div className="testimonials-luxury-header">
+              <span className="testimonials-mini-label">
+                CLIENT TESTIMONIALS
+              </span>
+              <h2>PEOPLE ARE TALKING</h2>
             </div>
 
-            {/* <div className="core-values-top-right">
-              <p>
-                Our four core values form the foundation of every client
-                relationship and every investment decision we make.
-              </p>
-            </div> */}
-          </div>
+            <div
+              className="testimonials-luxury-card"
+              ref={cardRef}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div className="testimonials-card-glow"></div>
+              <div className="testimonials-card-noise"></div>
 
-          <div className="core-values-grid">
-            {coreValuesData.map((item, index) => (
-              <div
-                className={`core-value-card core-value-card-${index + 1}`}
-                key={item.id}
-              >
-                <div className="core-value-image-wrap">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="core-value-image"
-                  />
-                  <div className="core-value-image-overlay"></div>
-                  <span className="core-value-letter">{item.letter}</span>
-                </div>
+              <div className="testimonials-card-grid">
+                <div
+                  className="testimonials-client-image-side"
+                  ref={imageWrapRef}
+                >
+                  <div className="testimonials-client-image-wrap">
+                    <img
+                      src={currentTestimonial.image}
+                      alt={currentTestimonial.name}
+                      className="testimonials-client-image"
+                    />
+                    <span className="testimonials-image-accent">✦</span>
+                  </div>
 
-                <div className="core-value-content">
-                  <span className="core-value-title">{item.title}</span>
-                  <p>{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        className="testimonials-luxury-section epm-animate"
-        ref={sectionRef}
-      >
-        <span className="testimonials-orb testimonials-orb-1"></span>
-        <span className="testimonials-orb testimonials-orb-2"></span>
-
-        <div className="testimonials-luxury-container">
-          <div className="testimonials-luxury-header">
-            <span className="testimonials-mini-label">CLIENT TESTIMONIALS</span>
-            <h2>PEOPLE ARE TALKING</h2>
-          </div>
-
-          <div
-            className="testimonials-luxury-card"
-            ref={cardRef}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            <div className="testimonials-card-glow"></div>
-            <div className="testimonials-card-noise"></div>
-
-            <div className="testimonials-card-grid">
-              <div
-                className="testimonials-client-image-side"
-                ref={imageWrapRef}
-              >
-                <div className="testimonials-client-image-wrap">
-                  <img
-                    src={currentTestimonial.image}
-                    alt={currentTestimonial.name}
-                    className="testimonials-client-image"
-                  />
-                  <span className="testimonials-image-accent">✦</span>
-                </div>
-
-                <div className="testimonials-client-info">
-                  <h3>{currentTestimonial.name}</h3>
-                  <p>{currentTestimonial.role}</p>
-                </div>
-              </div>
-
-              <div className="testimonials-content-side" ref={quoteRef}>
-                <div className="testimonials-quote-wrap">
-                  <div className="testimonials-quote-layer">
-                    <span className="testimonials-premium-quote">“</span>
-                    <p className="testimonials-main-quote">
-                      {currentTestimonial.quote}
-                    </p>
+                  <div className="testimonials-client-info">
+                    <h3>{currentTestimonial.name}</h3>
+                    <p>{currentTestimonial.role}</p>
                   </div>
                 </div>
 
-                <div className="testimonials-progress-bar">
-                  <span
-                    className="testimonials-progress-fill"
-                    key={activeTestimonial}
-                  ></span>
-                </div>
+                <div className="testimonials-content-side" ref={quoteRef}>
+                  <div className="testimonials-quote-wrap">
+                    <div className="testimonials-quote-layer">
+                      <span className="testimonials-premium-quote">“</span>
+                      <p className="testimonials-main-quote">
+                        {currentTestimonial.quote}
+                      </p>
+                    </div>
+                  </div>
 
-                <div className="testimonials-dots-row" ref={dotsRef}>
-                  {testimonialsData.map((item, index) => (
-                    <button
-                      key={item.id}
-                      className={`testimonials-dot ${
-                        activeTestimonial === index ? "active" : ""
-                      }`}
-                      onClick={() => handleDotClick(index)}
-                      aria-label={`Show testimonial ${index + 1}`}
-                    ></button>
-                  ))}
+                  <div className="testimonials-progress-bar">
+                    <span
+                      className="testimonials-progress-fill"
+                      key={activeTestimonial}
+                    ></span>
+                  </div>
+
+                  <div className="testimonials-dots-row" ref={dotsRef}>
+                    {testimonialsData.map((item, index) => (
+                      <button
+                        key={item.id}
+                        className={`testimonials-dot ${
+                          activeTestimonial === index ? "active" : ""
+                        }`}
+                        onClick={() => handleDotClick(index)}
+                        aria-label={`Show testimonial ${index + 1}`}
+                      ></button>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section className="sip-luxury-section epm-reveal-section epm-animate epm-overlap-panel">
+          <div className="sip-luxury-container">
+            <div className="sip-luxury-head">
+              <span className="sip-luxury-label">WEALTH PLANNING TOOL</span>
+              <h2 className="sip-luxury-title">SIP Calculator</h2>
+              <p className="sip-luxury-subtitle">
+                Estimate your long-term wealth creation with a refined SIP
+                planner designed for smart investment decisions.
+              </p>
+            </div>
+
+            <div className="sip-luxury-card">
+              <div className="sip-form-grid">
+                <div className="sip-field">
+                  <label>Investment Amount (₹)</label>
+                  <div className="sip-input-group">
+                    <input
+                      type="number"
+                      name="amount"
+                      placeholder="Enter amount"
+                      value={sipData.amount}
+                      onChange={handleSipChange}
+                    />
+                    <select
+                      name="frequency"
+                      value={sipData.frequency}
+                      onChange={handleSipChange}
+                    >
+                      <option value="weekly">Weekly</option>
+                      <option value="monthly">Monthly</option>
+                      <option value="quarterly">Quarterly</option>
+                      <option value="yearly">Yearly</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="sip-field">
+                  <label>Investment Period (Years)</label>
+                  <input
+                    type="number"
+                    name="years"
+                    placeholder="Enter years"
+                    value={sipData.years}
+                    onChange={handleSipChange}
+                  />
+                </div>
+
+                <div className="sip-field">
+                  <label>Expected Annual Return (%)</label>
+                  <input
+                    type="number"
+                    name="expectedReturn"
+                    placeholder="Enter expected return"
+                    value={sipData.expectedReturn}
+                    onChange={handleSipChange}
+                  />
+                </div>
+
+                <div className="sip-field">
+                  <label>Adjust for Inflation</label>
+                  <select
+                    name="inflationMode"
+                    value={sipData.inflationMode}
+                    onChange={handleSipChange}
+                  >
+                    <option value="none">No Inflation</option>
+                    <option value="custom">Custom Inflation</option>
+                  </select>
+                </div>
+
+                {sipData.inflationMode === "custom" && (
+                  <div className="sip-field sip-field-full">
+                    <label>Inflation Rate (%)</label>
+                    <input
+                      type="number"
+                      name="inflationRate"
+                      placeholder="Enter inflation rate"
+                      value={sipData.inflationRate}
+                      onChange={handleSipChange}
+                    />
+                  </div>
+                )}
+              </div>
+
+              <div className="sip-btn-row">
+                <button
+                  type="button"
+                  className="sip-calc-btn"
+                  onClick={calculateSipReturns}
+                >
+                  Calculate Returns
+                </button>
+
+                <button
+                  type="button"
+                  className="sip-reset-btn"
+                  onClick={resetSipCalculator}
+                >
+                  Reset
+                </button>
+              </div>
+
+              {sipResult?.error && (
+                <div className="sip-error-box">{sipResult.error}</div>
+              )}
+
+              {sipResult && !sipResult.error && (
+                <div className="sip-results-wrap">
+                  <div className="sip-summary-grid">
+                    <div className="sip-summary-card">
+                      <span>Total Invested</span>
+                      <strong>
+                        {formatCurrency(sipResult.investedAmount)}
+                      </strong>
+                    </div>
+
+                    <div className="sip-summary-card">
+                      <span>Estimated Value</span>
+                      <strong>{formatCurrency(sipResult.futureValue)}</strong>
+                    </div>
+
+                    <div className="sip-summary-card">
+                      <span>Estimated Profit</span>
+                      <strong>{formatCurrency(sipResult.profitEarned)}</strong>
+                    </div>
+
+                    <div className="sip-summary-card">
+                      <span>Inflation Adjusted Value</span>
+                      <strong>
+                        {formatCurrency(sipResult.realFutureValue)}
+                      </strong>
+                    </div>
+                  </div>
+
+                  <div className="sip-bottom-grid">
+                    <div className="sip-chart-card">
+                      <div className="sip-chart-head">
+                        <h3>Wealth Breakdown</h3>
+                        <p>
+                          Visual split of invested amount and profit earned.
+                        </p>
+                      </div>
+
+                      <div className="sip-bars-wrap">
+                        {sipChartBars.map((bar) => (
+                          <div className="sip-bar-col" key={bar.label}>
+                            <div className="sip-bar-track">
+                              <div
+                                className={`sip-bar-fill ${
+                                  bar.label === "Invested"
+                                    ? "invested"
+                                    : "returns"
+                                }`}
+                                style={{ height: bar.height }}
+                              />
+                            </div>
+                            <strong>{formatCurrency(bar.value)}</strong>
+                            <span>{bar.label}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="sip-table-card">
+                      <div className="sip-table-head">
+                        <h3>Projected Growth Timeline</h3>
+                        <p>Projected value across different time horizons.</p>
+                      </div>
+
+                      <div className="sip-table-wrap">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Duration</th>
+                              <th>Invested</th>
+                              <th>Future Value</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {sipResult.projectionDurations.map((item) => (
+                              <tr key={item.year}>
+                                <td>{item.year} years</td>
+                                <td>{formatCurrency(item.invested)}</td>
+                                <td>{formatCurrency(item.futureValue)}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

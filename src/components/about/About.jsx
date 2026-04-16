@@ -149,7 +149,7 @@ const About = () => {
       </div>
     </section>
 
-    <section className="about-stats-section" ref={statsRef}>
+    {/* <section className="about-stats-section" ref={statsRef}>
         <div className="about-stats-container">
           
 
@@ -167,7 +167,7 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

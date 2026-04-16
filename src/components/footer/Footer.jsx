@@ -11,7 +11,7 @@ import {
 const Footer = () => {
   return (
     <>
-      <footer className="luxury-footer">
+      <footer className="luxury-footer epm-overlap-panel">
         <div className="luxury-footer-top-line"></div>
 
         <div className="luxury-footer-container">

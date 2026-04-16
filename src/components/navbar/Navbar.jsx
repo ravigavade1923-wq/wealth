@@ -1,23 +1,73 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    closeMenu();
+  }, [location.pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
     <header className="navbar-wrapper">
       <nav className="navbar">
         <div className={`nav-left ${menuOpen ? "active" : ""}`}>
-          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
-          <Link to="/wealth" onClick={() => setMenuOpen(false)}>Solutions</Link>
-          <Link to="/management" onClick={() => setMenuOpen(false)}>Financial Literacy</Link>
-          <Link to="/vault" onClick={() => setMenuOpen(false)}>Entrepreneurial Initiative</Link>
+          {/* <Link
+            to="/"
+            onClick={closeMenu}
+            className={location.pathname === "/" ? "active" : ""}
+          >
+            Home
+          </Link> */}
+
+          <Link
+            to="/about"
+            onClick={closeMenu}
+            className={location.pathname === "/about" ? "active" : ""}
+          >
+            About
+          </Link>
+
+          <Link
+            to="/solutions"
+            onClick={closeMenu}
+            className={location.pathname === "/solutions" ? "active" : ""}
+          >
+            Solutions
+          </Link>
+
+          <Link
+            to="/financial-literacy"
+            onClick={closeMenu}
+            className={location.pathname === "/financial-literacy" ? "active" : ""}
+          >
+            Financial Literacy
+          </Link>
+
+          <Link
+            to="/entrepreneurial-initiative"
+            onClick={closeMenu}
+            className={
+              location.pathname === "/entrepreneurial-initiative" ? "active" : ""
+            }
+          >
+            Entrepreneurial Initiative
+          </Link>
         </div>
 
         <div className="nav-logo">
-          <Link to="/" onClick={() => setMenuOpen(false)}>
+          <Link to="/" onClick={closeMenu}>
             <img
               src="https://epmwealth.com/wp-content/uploads/2023/06/logo-emp.png"
               alt="EPM Logo"
@@ -26,25 +76,40 @@ const Navbar = () => {
         </div>
 
         <div className={`nav-right ${menuOpen ? "active" : ""}`}>
-          <a href="#calendar" onClick={() => setMenuOpen(false)}>
+          <Link
+            to="/login"
+            onClick={closeMenu}
+            className={location.pathname === "/login" ? "active" : ""}
+          >
             Log-in
-          </a>
+          </Link>
 
-          <Link to="/contact" onClick={() => setMenuOpen(false)}>
+          <Link
+            to="/contact"
+            onClick={closeMenu}
+            className={location.pathname === "/contact" ? "active" : ""}
+          >
             Contact
           </Link>
         </div>
 
         <button
           className={`menu-toggle ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          type="button"
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
       </nav>
+
+      <div
+        className={`mobile-nav-overlay ${menuOpen ? "active" : ""}`}
+        onClick={closeMenu}
+      ></div>
     </header>
   );
 };
