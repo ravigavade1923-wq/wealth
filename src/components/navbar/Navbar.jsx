@@ -23,14 +23,6 @@ const Navbar = () => {
     <header className="navbar-wrapper">
       <nav className="navbar">
         <div className={`nav-left ${menuOpen ? "active" : ""}`}>
-          {/* <Link
-            to="/"
-            onClick={closeMenu}
-            className={location.pathname === "/" ? "active" : ""}
-          >
-            Home
-          </Link> */}
-
           <Link
             to="/about"
             onClick={closeMenu}
@@ -104,6 +96,61 @@ const Navbar = () => {
           <span></span>
           <span></span>
         </button>
+
+        {/* MOBILE MENU PANEL */}
+        <div className={`mobile-menu-panel ${menuOpen ? "active" : ""}`}>
+          <Link
+            to="/about"
+            onClick={closeMenu}
+            className={location.pathname === "/about" ? "active" : ""}
+          >
+            About
+          </Link>
+
+          <Link
+            to="/solutions"
+            onClick={closeMenu}
+            className={location.pathname === "/solutions" ? "active" : ""}
+          >
+            Solutions
+          </Link>
+
+          <Link
+            to="/financial-literacy"
+            onClick={closeMenu}
+            className={location.pathname === "/financial-literacy" ? "active" : ""}
+          >
+            Financial Literacy
+          </Link>
+
+          <Link
+            to="/entrepreneurial-initiative"
+            onClick={closeMenu}
+            className={
+              location.pathname === "/entrepreneurial-initiative" ? "active" : ""
+            }
+          >
+            Entrepreneurial Initiative
+          </Link>
+
+          <div className="mobile-menu-divider"></div>
+
+          <Link
+            to="/login"
+            onClick={closeMenu}
+            className={location.pathname === "/login" ? "active" : ""}
+          >
+            Log-in
+          </Link>
+
+          <Link
+            to="/contact"
+            onClick={closeMenu}
+            className={location.pathname === "/contact" ? "active" : ""}
+          >
+            Contact
+          </Link>
+        </div>
       </nav>
 
       <div

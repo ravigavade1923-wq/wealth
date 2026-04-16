@@ -1270,175 +1270,6 @@ body {
   }
 }
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 1200px) {
-  .epm-hero-split {
-    grid-template-columns: minmax(0, 1fr) minmax(380px, 0.9fr);
-    gap: 24px;
-  }
-
-  .epm-orbit-visual {
-    --orbit-size: 540px;
-  }
-}
-
-@media (max-width: 992px) {
-  .epm-hero-split {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .epm-hero-left-block {
-    text-align: center;
-    max-width: 100%;
-  }
-
-  .epm-hero-mini-badge {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .epm-hero-stat-row,
-  .epm-hero-btn-wrap-left,
-  .epm-typed-wrap-left {
-    justify-content: center;
-  }
-
-  .epm-orbit-visual {
-    --orbit-size: 500px;
-  }
-
-  .epm-orbit-stat-left {
-    left: 0;
-    top: 20%;
-  }
-
-  .epm-orbit-stat-right {
-    right: 0;
-    bottom: 6%;
-  }
-}
-
-@media (max-width: 768px) {
-  .epm-hero-heading-alt {
-    gap: 2px;
-  }
-
-  .epm-hero-line-one,
-  .epm-hero-line-three {
-    font-size: clamp(2.2rem, 8vw, 3rem);
-  }
-
-  .epm-hero-line-two {
-    font-size: clamp(2.4rem, 9vw, 3.2rem);
-  }
-
-  .epm-hero-kicker-alt {
-    font-size: 0.72rem;
-    letter-spacing: 2px;
-  }
-
-  .epm-hero-desc-alt {
-    font-size: 0.94rem;
-    line-height: 1.75;
-  }
-
-  .epm-hero-stat-row {
-    gap: 10px;
-  }
-
-  .epm-hero-stat-box {
-    min-width: 118px;
-    padding: 12px 14px;
-  }
-
-  .epm-orbit-visual {
-    --orbit-size: 390px;
-  }
-
-  .epm-orbit-ring-inner {
-    border-width: 12px;
-  }
-
-  .epm-orbit-node {
-    width: 70px;
-  }
-
-  .epm-orbit-node-icon {
-    width: 42px;
-    height: 42px;
-    font-size: 0.92rem;
-  }
-
-  .epm-orbit-node p {
-    font-size: 0.58rem;
-    margin-top: 5px;
-  }
-
-  .epm-orbit-stat {
-    min-width: 120px;
-    padding: 10px 12px;
-    border-radius: 18px;
-  }
-
-  .epm-orbit-stat h4 {
-    font-size: 1.2rem;
-  }
-
-  .epm-orbit-stat p {
-    font-size: 0.68rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .epm-orbit-visual {
-    --orbit-size: 310px;
-  }
-
-  .epm-orbit-ring-inner {
-    border-width: 9px;
-  }
-
-  .epm-orbit-node {
-    width: 58px;
-  }
-
-  .epm-orbit-node-icon {
-    width: 34px;
-    height: 34px;
-    font-size: 0.74rem;
-  }
-
-  .epm-orbit-node p {
-    font-size: 0.48rem;
-  }
-
-  .epm-orbit-stat {
-    min-width: 102px;
-    padding: 8px 10px;
-  }
-
-  .epm-orbit-stat h4 {
-    font-size: 0.95rem;
-  }
-
-  .epm-orbit-stat p {
-    font-size: 0.56rem;
-  }
-
-  .epm-orbit-stat-left {
-    left: -1%;
-    top: 22%;
-  }
-
-  .epm-orbit-stat-right {
-    right: -1%;
-    bottom: 6%;
-  }
-}
 
 /* Stats Section */
 
@@ -4675,444 +4506,479 @@ body {
   }
 }
 
-/* =========================================================
-   FULL HOMEPAGE RESPONSIVE MEDIA QUERIES
-   Remove old media queries and paste this at the END
-========================================================= */
 
-/* ---------- LARGE LAPTOP ---------- */
-@media (max-width: 1280px) {
-  .epm-hero-wrap {
-    padding: 110px 24px 72px;
-  }
 
-  .epm-hero-shell {
-    max-width: 1200px;
-  }
 
-  .epm-hero-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(420px, 0.92fr);
-    gap: 28px;
-    margin-left: 0;
-  }
-
-  .epm-hero-content-left,
-  .epm-hero-title-left,
-  .epm-hero-desc-left,
-  .epm-hero-btn-wrap-left {
-    margin-left: 0;
-  }
-
-  .epm-hero-map-wrap {
-    max-width: 500px;
-    height: 600px;
-  }
-
-  .epm-hero-map-card {
-    max-height: 620px;
-  }
-
-  .epm-map-road {
-    min-height: 520px;
-  }
-
-  .epm-social-stick {
-    left: 12px;
-  }
-
-  .epm-stats-section.epm-overlap-panel,
-  .solutions-section.epm-overlap-panel,
-  .decision-section.epm-overlap-panel,
-  .vault-section.epm-overlap-panel,
-  .awards-showcase-section.epm-overlap-panel,
-  .core-values-section.epm-overlap-panel,
-  .testimonials-luxury-section.epm-overlap-panel {
-    margin-top: 60px;
-    border-radius: 28px 28px 0 0;
-  }
+/* GLOBAL FIX */
+.container,
+.epm-hero-shell,
+.solutions-container,
+.decision-container,
+.vault-container {
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
 }
 
-/* ---------- TABLET LANDSCAPE ---------- */
-@media (max-width: 1024px) {
-  .epm-hero-wrap {
-    position: relative;
-    min-height: auto;
-    padding: 105px 20px 64px;
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.epm-hero-grid,
+.epm-hero-split {
+  margin-left: 0 !important;
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   EPM RESPONSIVE MEDIA QUERIES
+   Replace ALL old media queries with this block.
+   Breakpoints: 1200px | 992px | 768px | 480px
+===================================================== */
+
+/* ─── 1200px: Large tablets / small desktops ─── */
+@media (max-width: 1200px) {
+
+  html, body {
+    overflow-x: hidden;
   }
 
-  .epm-hero-content {
-    animation: none;
+  /* Hero */
+  .epm-hero-grid,
+  .epm-hero-split {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    gap: 32px;
   }
 
-  .epm-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 34px;
-    align-items: start;
-    margin-left: 0;
+  .epm-orbit-visual {
+    --orbit-size: 480px;
   }
 
-  .epm-hero-content-left {
-    order: 1;
-    text-align: center;
-    align-items: center;
+  /* Stats */
+  .epm-stat-box h2 {
+    font-size: clamp(2rem, 3.5vw, 4rem);
   }
 
-  .epm-hero-title-left {
-    align-items: center;
-    margin: 0 0 18px;
+  /* Solutions */
+  .solutions-left {
+    padding-left: 40px;
   }
 
-  .epm-hero-title-left .epm-title-main,
-  .epm-hero-title-left .epm-title-sub,
-  .epm-hero-desc-left {
-    text-align: center;
+  /* Awards timeline */
+  .awards-timeline {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .epm-hero-title-left .epm-title-sub.card {
+  /* Core values */
+  .core-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* SIP */
+  .sip-luxury-container {
+    width: 95%;
+  }
+
+  .sip-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* ─── 992px: Tablets ─── */
+@media (max-width: 992px) {
+
+  html, body {
+    overflow-x: hidden;
+  }
+
+  * {
     max-width: 100%;
-    width: 100%;
-    margin: 0 auto;
-    padding: 14px 18px;
+    box-sizing: border-box;
   }
 
-  .epm-typed-wrap,
-  .epm-typed-wrap-left,
+  /* ── Hero ── */
+  .epm-hero-wrap {
+    position: relative !important; /* disable sticky on tablet/mobile */
+    padding: 80px 20px 50px;
+  }
+
+  .epm-hero-grid,
+  .epm-hero-split {
+    display: flex !important;
+    flex-direction: column !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    gap: 36px;
+  }
+
+  .epm-hero-left-block,
+  .epm-hero-content-left {
+    text-align: center;
+    max-width: 100%;
+    align-items: center;
+  }
+
   .epm-hero-btn-wrap,
   .epm-hero-btn-wrap-left {
     justify-content: center;
   }
 
-  .epm-typed-line {
-    margin-left: 0;
-    justify-content: center;
-    text-align: center;
-  }
-
+  .epm-typed-line,
   .epm-hero-desc,
-  .epm-hero-desc-left {
-    max-width: 100%;
-    margin-left: 0;
-  }
-
-  .epm-liquid-btn {
-    margin-left: 0;
-  }
-
-  .epm-hero-map-wrap {
-    order: 2;
-    max-width: 100%;
-    width: min(100%, 560px);
-    margin: 0 auto;
-    height: 620px;
-  }
-
-  .epm-hero-map-card {
-    max-height: none;
-    min-height: 620px;
-  }
-
-  .epm-map-road {
-    min-height: 560px;
-  }
-
-  .epm-map-point p {
-    white-space: normal;
-    max-width: 84px;
-  }
-
-  .epm-social-stick {
-    left: 10px;
-    gap: 10px;
-  }
-
-  .epm-social-btn {
-    width: 42px;
-    height: 42px;
-    border-radius: 14px;
-  }
-
-  .epm-overlap-panel + .epm-overlap-panel {
-    margin-top: 0;
-  }
-
-  .epm-stats-section.epm-overlap-panel,
-  .solutions-section.epm-overlap-panel,
-  .decision-section.epm-overlap-panel,
-  .vault-section.epm-overlap-panel,
-  .awards-showcase-section.epm-overlap-panel,
-  .core-values-section.epm-overlap-panel,
-  .testimonials-luxury-section.epm-overlap-panel {
-    margin-top: 28px;
-    border-radius: 24px 24px 0 0;
-    box-shadow:
-      0 -10px 24px rgba(15, 23, 42, 0.04),
-      0 14px 28px rgba(15, 23, 42, 0.06);
-  }
-
-  .solutions-container,
-  .decision-container,
-  .vault-container,
-  .awards-showcase-container,
-  .core-values-container,
-  .testimonials-luxury-container,
-  .sip-luxury-container,
-  .epm-stats-container {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .solutions-section,
-  .decision-section,
-  .vault-section,
-  .awards-showcase-section,
-  .core-values-section,
-  .testimonials-luxury-section,
-  .sip-luxury-section,
-  .epm-stats-section {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .solutions-container,
-  .core-values-top,
-  .awards-showcase-top,
-  .awards-year-work-section {
-    grid-template-columns: 1fr !important;
-    gap: 24px;
-  }
-
-  .decision-top-row {
-    grid-template-columns: 1fr !important;
-    gap: 18px;
-  }
-
-  .decision-grid,
-  .core-values-grid,
-  .vault-bottom-grid,
-  .sip-summary-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 18px;
-  }
-
-  .testimonials-luxury-card {
-    grid-template-columns: 1fr !important;
-  }
-
-  .vault-main-grid,
-  .vault-content-grid {
-    grid-template-columns: 1fr !important;
-    gap: 22px;
-  }
-
-  .awards-gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-/* ---------- TABLET / BIG MOBILE ---------- */
-@media (max-width: 768px) {
-  html,
-  body {
-    overflow-x: hidden;
-  }
-
-  .epm-home-page {
-    overflow-x: hidden;
-  }
-
-  .epm-hero-wrap {
-    padding: 96px 16px 56px;
-    min-height: auto;
-    perspective: none;
-  }
-
-  .epm-hero-shell {
-    max-width: 100%;
-  }
-
-  .epm-hero-grid {
-    gap: 26px;
-  }
-
-  .epm-hero-pill {
-    width: 100%;
-    margin: 0 auto 18px;
-    justify-content: center;
-    padding: 12px 14px;
-    border-radius: 18px;
-  }
-
-  .epm-pill-text {
-    font-size: 0.72rem;
-    letter-spacing: 1.2px;
-    line-height: 1.4;
+  .epm-hero-desc-left,
+  .epm-hero-desc-alt {
+    margin-left: 0 !important;
     text-align: center;
-  }
-
-  .epm-hero-kicker {
-    margin-bottom: 10px;
-    font-size: 0.74rem;
-    letter-spacing: 2.2px;
-    text-align: center;
-  }
-
-  .epm-title-main {
-    max-width: 100%;
-    font-size: clamp(2.2rem, 10vw, 3.5rem);
-    letter-spacing: -0.8px;
-    line-height: 1.02;
-    text-align: center;
-  }
-
-  .epm-title-sub {
-    font-size: clamp(1rem, 4.8vw, 1.25rem);
-    line-height: 1.45;
   }
 
   .epm-title-sub.card {
-    padding: 12px 14px;
-    border-radius: 0 18px 0 18px;
-  }
-
-  .epm-typed-wrap {
-    min-height: 38px;
-    margin: 10px 0 10px;
-  }
-
-  .epm-typed-line {
-    font-size: 0.98rem;
-    line-height: 1.5;
-  }
-
-  .epm-hero-desc {
-    font-size: 0.95rem;
-    line-height: 1.75;
-  }
-
-  .epm-hero-btn-wrap {
-    margin-top: 22px;
-    margin-bottom: 18px;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
+    margin-left: 0;
+    width: 100%;
+    border-radius: 0 16px 0 16px;
   }
 
   .epm-liquid-btn {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    height: 52px;
-    padding: 0 18px;
-    font-size: 0.76rem;
-    letter-spacing: 1px;
-    border-radius: 22px 0 22px;
+    margin-left: 0 !important;
   }
 
-  .epm-scroll-indicator {
-    margin-top: 20px;
+  /* ── Orbit ── */
+  .epm-orbit-visual-wrap {
+    width: 100%;
+    margin-left: 0;
     justify-content: center;
-    width: 100%;
   }
 
-  .epm-scroll-text {
-    font-size: 0.72rem;
-    letter-spacing: 1.2px;
+  .epm-orbit-visual {
+    --orbit-size: 340px !important;
+    margin: 0 auto;
   }
 
+  .epm-orbit-node {
+    width: 60px;
+  }
+
+  .epm-orbit-node-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.75rem;
+  }
+
+  .epm-orbit-node p {
+    font-size: 0.52rem;
+  }
+
+  .epm-orbit-stat {
+    display: none; /* too cramped on tablet */
+  }
+
+  /* ── Stats ── */
+  .epm-stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0;
+  }
+
+  .epm-stat-line {
+    display: none;
+  }
+
+  .epm-stat-box {
+    padding: 20px 14px;
+  }
+
+  /* ── Solutions ── */
+  .solutions-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 36px;
+  }
+
+  .solutions-left {
+    padding-left: 0 !important;
+    text-align: center;
+  }
+
+  .solutions-left h2 {
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .solutions-right {
+    text-align: center;
+  }
+
+  .solutions-link {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  /* ── Decision ── */
+  .decision-top-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px;
+  }
+
+  .decision-intro {
+    justify-content: flex-start;
+  }
+
+  .decision-intro p {
+    margin-top: 0;
+  }
+
+  .decision-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Vault ── */
+  .vault-top-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 28px;
+  }
+
+  .vault-bottom-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .vault-featured-card {
+    min-height: 380px;
+    max-height: 420px;
+  }
+
+  /* ── Awards ── */
+  .awards-timeline {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .awards-work-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Core Values ── */
+  .core-values-top {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px;
+  }
+
+  .core-values-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0;
+  }
+
+  .core-value-card {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(157, 120, 77, 0.18);
+  }
+
+  .core-value-card:last-child {
+    border-bottom: none;
+  }
+
+  .core-values-heading {
+    font-size: clamp(1.9rem, 5vw, 2.6rem) !important;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .core-values-label {
+    margin-left: 0;
+    display: block;
+    text-align: center;
+  }
+
+  /* ── Testimonials ── */
+  .testimonials-luxury-section {
+    padding: 60px 20px;
+  }
+
+  .testimonials-cards-grid,
+  .testimonials-card-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .testimonials-client-image-wrap {
+    width: 160px;
+    height: 160px;
+    min-width: 160px;
+    margin: 0 auto 16px;
+  }
+
+  .testimonials-main-quote {
+    font-size: 1.1rem;
+  }
+
+  /* ── SIP Calculator ── */
+  .sip-luxury-container {
+    width: 100% !important;
+  }
+
+  .sip-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .sip-field-full {
+    grid-column: 1 !important;
+  }
+
+  .sip-summary-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .sip-bottom-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Social Sidebar ── */
   .epm-social-stick {
-    position: fixed;
-    left: 50%;
-    bottom: 12px;
-    top: auto;
-    transform: translateX(-50%);
-    flex-direction: row;
-    gap: 8px;
-    padding: 8px 10px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 12px 24px rgba(18, 28, 45, 0.12);
+    left: 8px;
+  }
+
+}
+
+
+/* ─── 768px: Mobile landscape / large phones ─── */
+@media (max-width: 768px) {
+
+  /* Hero */
+  .epm-hero-wrap {
+    padding: 80px 16px 44px;
+    min-height: auto;
+  }
+
+  .epm-title-main {
+    font-size: clamp(1.9rem, 7vw, 2.8rem);
+    letter-spacing: -1px;
+  }
+
+  .epm-title-sub {
+    font-size: 0.95rem;
+  }
+
+  .epm-typed-line {
+    font-size: clamp(1rem, 4.5vw, 1.4rem);
+    margin-left: 0 !important;
+  }
+
+  .epm-hero-desc,
+  .epm-hero-desc-alt {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .epm-hero-pill {
+    padding: 10px 18px;
+  }
+
+  .epm-pill-text {
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+  }
+
+  /* Buttons */
+  .epm-liquid-btn {
+    min-width: 160px;
+    height: 50px;
+    font-size: 0.72rem;
+    padding: 0 20px;
+  }
+
+  /* Orbit */
+  .epm-orbit-visual {
+    --orbit-size: 290px !important;
+  }
+
+  .epm-orbit-node {
+    width: 52px;
+  }
+
+  .epm-orbit-node-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 0.65rem;
+  }
+
+  .epm-orbit-node p {
+    font-size: 0.44rem;
+  }
+
+  /* Stats */
+  .epm-stat-box h2 {
+    font-size: 2rem;
+  }
+
+  .epm-stat-box p {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+
+  /* Vault */
+  .vault-bottom-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Awards */
+  .awards-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .awards-main-heading {
+    font-size: clamp(1.9rem, 6vw, 2.8rem);
+    margin-right: 0;
+  }
+
+  /* Testimonials */
+  .testimonials-luxury-card {
+    border-radius: 40px 0 40px;
+    padding: 26px 20px;
+  }
+
+  /* SIP */
+  .sip-summary-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .sip-bars-wrap {
+    gap: 20px;
+  }
+
+  .sip-bar-col {
+    width: 100px;
+  }
+
+  .sip-calc-btn,
+  .sip-reset-btn {
+    min-width: 160px;
+    height: 50px;
+    font-size: 0.8rem;
+  }
+
+  /* Social */
+  .epm-social-stick {
+    left: 6px;
   }
 
   .epm-social-btn {
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     border-radius: 12px;
   }
 
-  .epm-hero-map-wrap {
-    width: 100%;
-    height: 520px;
-  }
-
-  .epm-hero-map-card {
-    min-height: 520px;
-    padding: 14px;
-    border-radius: 24px;
-  }
-
-  .epm-hero-map-card::before {
-    inset: 10px;
-    border-radius: 18px;
-  }
-
-  .epm-map-road {
-    min-height: 470px;
-  }
-
-  .epm-goal-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 14px;
-    font-size: 1rem;
-  }
-
-  .epm-map-point {
-    gap: 6px;
-  }
-
-  .epm-map-point p {
-    font-size: 0.68rem;
-    line-height: 1.2;
-    max-width: 74px;
-    white-space: normal;
-  }
-
-  .epm-road-traveler,
-  .epm-map-retired,
-  .epm-map-traveler {
-    font-size: 1.5rem;
-  }
-
-  .epm-flag {
-    width: 12px;
-    height: 9px;
-  }
-
-  .solutions-section,
-  .decision-section,
-  .vault-section,
-  .awards-showcase-section,
-  .core-values-section,
-  .testimonials-luxury-section,
-  .sip-luxury-section,
-  .epm-stats-section {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .solutions-section,
-  .decision-section,
-  .vault-section,
-  .awards-showcase-section,
-  .core-values-section,
-  .testimonials-luxury-section,
-  .sip-luxury-section {
-    padding-top: 68px;
-    padding-bottom: 64px;
-  }
-
+  /* Section overlap */
   .epm-stats-section.epm-overlap-panel,
   .solutions-section.epm-overlap-panel,
   .decision-section.epm-overlap-panel,
@@ -5120,462 +4986,207 @@ body {
   .awards-showcase-section.epm-overlap-panel,
   .core-values-section.epm-overlap-panel,
   .testimonials-luxury-section.epm-overlap-panel {
-    margin-top: 18px;
+    margin-top: 40px;
     border-radius: 20px 20px 0 0;
   }
 
-  .solutions-left,
-  .solutions-right,
-  .decision-heading-wrap,
-  .decision-intro,
-  .vault-left-panel,
-  .vault-featured-card,
-  .awards-showcase-top,
-  .awards-year-work-section,
-  .awards-gallery-section,
-  .core-values-top,
-  .testimonials-luxury-header,
-  .testimonials-luxury-card {
+}
+
+
+/* ─── 480px: Mobile portrait ─── */
+@media (max-width: 480px) {
+
+  /* Hero */
+  .epm-hero-wrap {
+    padding: 70px 12px 36px;
+  }
+
+  .epm-title-main {
+    font-size: clamp(1.7rem, 8vw, 2.2rem);
+  }
+
+  .epm-title-sub {
+    font-size: 0.85rem;
+  }
+
+  .epm-typed-line {
+    font-size: 0.95rem;
+  }
+
+  .epm-hero-desc,
+  .epm-hero-desc-alt {
+    font-size: 0.82rem;
+  }
+
+  .epm-hero-stat-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .epm-hero-stat-box {
     width: 100%;
+    min-width: unset;
   }
 
-  .solutions-left h2,
-  .decision-heading,
-  .vault-heading,
-  .awards-main-heading,
-  .core-values-heading,
-  .testimonials-luxury-header h2,
-  .sip-luxury-heading {
-    font-size: clamp(1.7rem, 6vw, 2.2rem) !important;
-    line-height: 1.2;
-    text-align: center;
+  /* Buttons */
+  .epm-liquid-btn {
+    min-width: unset;
+    width: 100%;
+    height: 48px;
+    font-size: 0.68rem;
   }
 
-  .solutions-left,
-  .solutions-right,
-  .decision-heading-wrap,
-  .decision-intro,
-  .vault-left-panel,
-  .awards-showcase-top,
-  .core-values-top,
-  .testimonials-luxury-header {
-    text-align: center;
+  .epm-hero-btn-wrap,
+  .epm-hero-btn-wrap-left {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
 
-  .solutions-link,
-  .vault-link,
-  .awards-link,
-  .testimonials-link,
-  .sip-luxury-link {
-    justify-content: center;
+  /* Orbit */
+  .epm-orbit-visual {
+    --orbit-size: 250px !important;
   }
 
-  .decision-grid,
-  .core-values-grid,
-  .vault-bottom-grid,
-  .sip-summary-grid,
-  .awards-gallery-grid {
+  .epm-orbit-node {
+    width: 44px;
+  }
+
+  .epm-orbit-node-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 0.55rem;
+  }
+
+  .epm-orbit-node p {
+    display: none; /* hide labels at smallest size */
+  }
+
+  /* Stats */
+  .epm-stats-grid {
     grid-template-columns: 1fr !important;
-    gap: 16px;
   }
 
-  .decision-card,
-  .core-value-card,
-  .vault-article-card,
-  .awards-gallery-card,
-  .sip-summary-card {
-    min-height: unset;
+  .epm-stat-box h2 {
+    font-size: 1.9rem;
   }
 
-  .vault-featured-card,
-  .vault-article-card,
-  .decision-card,
-  .core-value-card,
-  .awards-gallery-card,
-  .testimonials-luxury-card,
-  .sip-chart-card,
-  .sip-table-card,
-  .sip-luxury-card {
-    border-radius: 20px;
+  /* Solutions */
+  .solutions-left h2 {
+    font-size: 1.9rem;
   }
 
-  .vault-featured-card img,
-  .vault-article-card img,
-  .core-value-card img,
-  .awards-gallery-card img,
-  .testimonials-client-image img {
+  /* Decision */
+  .decision-heading {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+  }
+
+  .decision-card-content {
+    width: 70%;
+    padding: 20px 16px;
+  }
+
+  /* Vault */
+  .vault-heading {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+  }
+
+  .vault-featured-card {
+    min-height: 280px;
+    max-height: 320px;
+  }
+
+  .vault-form {
+    flex-direction: column;
+  }
+
+  .vault-form input,
+  .vault-form button {
     width: 100%;
-    height: auto;
-    object-fit: cover;
   }
 
+  /* Awards */
+  .awards-timeline {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .awards-year-btn {
+    height: 44px;
+    font-size: 0.78rem;
+  }
+
+  .awards-detail-card {
+    padding: 24px 18px;
+  }
+
+  .awards-detail-card h4 {
+    font-size: 1.8rem;
+  }
+
+  /* Core Values */
+  .core-value-image-wrap {
+    height: 200px;
+  }
+
+  .core-value-letter {
+    font-size: 4.5rem;
+    min-width: 72px;
+    min-height: 72px;
+  }
+
+  /* Testimonials */
   .testimonials-luxury-card {
-    gap: 18px;
-    padding: 18px;
+    border-radius: 24px;
+    padding: 22px 16px;
   }
 
-  .testimonials-quote-text,
-  .testimonials-client-role,
-  .testimonials-client-name {
-    text-align: center;
+  .testimonials-main-quote {
+    font-size: 1rem;
   }
 
-  .testimonials-client-row {
-    justify-content: center;
+  .testimonials-client-info h3 {
+    font-size: 1.3rem;
   }
 
+  .testimonials-client-image-wrap {
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+  }
+
+  /* SIP */
   .sip-luxury-section {
-    padding: 70px 16px 64px;
+    padding: 60px 14px 60px;
   }
 
   .sip-luxury-card {
-    padding: 18px;
-  }
-
-  .sip-form-grid,
-  .sip-input-group {
-    grid-template-columns: 1fr !important;
-    gap: 16px;
-  }
-
-  .sip-calc-btn,
-  .sip-reset-btn {
-    width: 100%;
-    min-width: 0;
-    height: 52px;
-  }
-
-  .sip-chart-card,
-  .sip-table-card {
-    padding: 16px;
+    padding: 22px 16px;
   }
 
   .sip-bars-wrap {
-    min-height: auto;
-    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .sip-bar-col {
+    width: 80%;
   }
 
   .sip-bar-track {
-    height: 180px;
+    height: 160px;
   }
 
-  .sip-table-wrap {
-    overflow-x: auto;
-  }
-
-  .sip-table-wrap table {
-    min-width: 480px;
-  }
-}
-
-/* ---------- MOBILE ---------- */
-@media (max-width: 576px) {
-  .epm-hero-wrap {
-    padding: 88px 14px 54px;
-  }
-
-  .epm-title-main {
-    font-size: 2rem;
-  }
-
-  .epm-title-sub {
-    font-size: 0.98rem;
-  }
-
-  .epm-typed-line {
-    font-size: 0.88rem;
-  }
-
-  .epm-hero-desc {
-    font-size: 0.88rem;
-    line-height: 1.7;
-  }
-
-  .epm-liquid-btn {
-    height: 50px;
-    font-size: 0.7rem;
-    letter-spacing: 0.9px;
-  }
-
-  .epm-hero-map-wrap {
-    height: 440px;
-  }
-
-  .epm-hero-map-card {
-    min-height: 440px;
-    padding: 12px;
-    border-radius: 20px;
-  }
-
-  .epm-hero-map-card::before {
-    inset: 8px;
-    border-radius: 14px;
-  }
-
-  .epm-map-road {
-    min-height: 395px;
-  }
-
-  .epm-goal-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 11px;
-    font-size: 0.82rem;
-  }
-
-  .epm-map-point p {
-    font-size: 0.58rem;
-    max-width: 58px;
-  }
-
-  .point-credit {
-    left: 12%;
-    bottom: 8%;
-  }
-  .point-invest {
-    left: 16%;
-    bottom: 34%;
-  }
-  .point-vehicle {
-    left: 20%;
-    bottom: 15%;
-  }
-  .point-married {
-    left: 51%;
-    bottom: 22%;
-  }
-  .point-loan {
-    left: 54%;
-    bottom: 33%;
-  }
-  .point-house {
-    left: 38%;
-    top: 26%;
-  }
-  .point-medical {
-    left: 49%;
-    top: 26%;
-  }
-  .point-kids {
-    left: 43%;
-    top: 5%;
-  }
-  .point-life {
-    left: 66%;
-    top: 3%;
-  }
-  .point-estate {
-    left: 76%;
-    top: 11%;
-  }
-  .point-retire {
-    right: 2%;
-    top: 25%;
-  }
-
-  .solutions-section,
-  .decision-section,
-  .vault-section,
-  .awards-showcase-section,
-  .core-values-section,
-  .testimonials-luxury-section,
-  .sip-luxury-section,
-  .epm-stats-section {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-  .solutions-section,
-  .decision-section,
-  .vault-section,
-  .awards-showcase-section,
-  .core-values-section,
-  .testimonials-luxury-section,
-  .sip-luxury-section {
-    padding-top: 58px;
-    padding-bottom: 56px;
-  }
-
-  .solutions-left h2,
-  .decision-heading,
-  .vault-heading,
-  .awards-main-heading,
-  .core-values-heading,
-  .testimonials-luxury-header h2,
-  .sip-luxury-heading {
-    font-size: 1.5rem !important;
-  }
-
-  .solutions-right p,
-  .decision-intro p,
-  .vault-left-panel p,
-  .awards-main-copy,
-  .core-values-copy,
-  .testimonials-mini-copy,
-  .sip-luxury-copy {
-    font-size: 0.9rem;
-    line-height: 1.7;
-  }
-
-  .decision-card,
-  .core-value-card,
-  .vault-article-card,
-  .awards-gallery-card,
-  .sip-summary-card,
-  .testimonials-luxury-card {
-    padding: 14px;
-  }
-
-  .decision-card h3,
-  .core-value-card h3,
-  .vault-article-card h3,
-  .awards-work-item h4 {
-    font-size: 1rem;
-    line-height: 1.35;
-  }
-
-  .decision-card p,
-  .core-value-card p,
-  .vault-article-card p,
-  .awards-work-item p,
-  .testimonials-quote-text {
-    font-size: 0.84rem;
-    line-height: 1.6;
-  }
-
+  /* Social */
   .epm-social-stick {
-    bottom: 10px;
-    gap: 6px;
-    padding: 7px 8px;
+    left: 4px;
   }
 
   .epm-social-btn {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     border-radius: 10px;
   }
 
-  .sip-calc-btn,
-  .sip-reset-btn {
-    font-size: 0.76rem;
-    letter-spacing: 1px;
-  }
-
-  .sip-summary-card strong {
-    font-size: 1.05rem;
-  }
-
-  .sip-bar-track {
-    height: 150px;
-  }
-}
-
-/* ---------- SMALL MOBILE ---------- */
-@media (max-width: 420px) {
-  .epm-hero-wrap {
-    padding: 84px 12px 52px;
-  }
-
-  .epm-title-main {
-    font-size: 1.82rem;
-  }
-
-  .epm-title-sub {
-    font-size: 0.92rem;
-  }
-
-  .epm-typed-line {
-    font-size: 0.82rem;
-  }
-
-  .epm-hero-desc {
-    font-size: 0.84rem;
-  }
-
-  .epm-liquid-btn {
-    height: 48px;
-    padding: 0 14px;
-    font-size: 0.66rem;
-  }
-
-  .epm-hero-map-wrap {
-    height: 390px;
-  }
-
-  .epm-hero-map-card {
-    min-height: 390px;
-  }
-
-  .epm-map-road {
-    min-height: 345px;
-  }
-
-  .epm-goal-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 10px;
-    font-size: 0.74rem;
-  }
-
-  .epm-map-point p {
-    font-size: 0.52rem;
-    max-width: 48px;
-  }
-
-  .solutions-left h2,
-  .decision-heading,
-  .vault-heading,
-  .awards-main-heading,
-  .core-values-heading,
-  .testimonials-luxury-header h2,
-  .sip-luxury-heading {
-    font-size: 1.34rem !important;
-  }
-
-  .solutions-right p,
-  .decision-intro p,
-  .vault-left-panel p,
-  .awards-main-copy,
-  .core-values-copy,
-  .testimonials-mini-copy,
-  .sip-luxury-copy,
-  .decision-card p,
-  .core-value-card p,
-  .vault-article-card p,
-  .awards-work-item p,
-  .testimonials-quote-text {
-    font-size: 0.8rem;
-    line-height: 1.58;
-  }
-
-  .decision-card,
-  .core-value-card,
-  .vault-article-card,
-  .awards-gallery-card,
-  .sip-summary-card,
-  .testimonials-luxury-card,
-  .sip-chart-card,
-  .sip-table-card,
-  .sip-luxury-card {
-    padding: 12px;
-    border-radius: 16px;
-  }
-
-  .epm-social-btn {
-    width: 32px;
-    height: 32px;
-  }
-
-  .sip-chart-card,
-  .sip-table-card {
-    padding: 12px;
-  }
-
-  .sip-bar-track {
-    height: 130px;
-  }
-
-  .sip-table-wrap table {
-    min-width: 420px;
-  }
 }

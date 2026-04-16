@@ -4,7 +4,6 @@ import "./Home.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import emailjs from "@emailjs/browser";
-import orbitImg from "../../assets/home/orbit.png"
 import {
   FaInstagram,
   FaYoutube,
@@ -127,12 +126,7 @@ const awardsData = [
     badge: "🏅",
     subtitle:
       "Our journey began with a strong advisory foundation built on trust, consistency, and personalized wealth planning.",
-    works: [
-      "Established the foundation of a client-first wealth advisory model",
-      "Built strong investor trust through transparent financial guidance",
-      "Introduced personalized portfolio planning for long-term growth",
-      "Created structured service standards for relationship-driven advisory",
-    ],
+   
   },
   {
     year: "2017",
@@ -141,12 +135,7 @@ const awardsData = [
     badge: "🥇",
     subtitle:
       "We strengthened our advisory framework and began scaling a more disciplined and refined client experience.",
-    works: [
-      "Expanded advisory reach with a more process-driven service model",
-      "Improved portfolio review and reporting experience for clients",
-      "Strengthened client communication and service responsiveness",
-      "Built a more disciplined and premium financial planning workflow",
-    ],
+   
   },
   {
     year: "2018",
@@ -155,12 +144,7 @@ const awardsData = [
     badge: "🏆",
     subtitle:
       "This phase reflected our growing focus on structured wealth strategies and high-quality investment planning.",
-    works: [
-      "Enhanced wealth strategy execution with sharper investment frameworks",
-      "Improved diversification planning across client portfolios",
-      "Strengthened research-backed decision making in advisory",
-      "Elevated consistency in long-term financial planning support",
-    ],
+  
   },
   {
     year: "2019",
@@ -169,12 +153,7 @@ const awardsData = [
     badge: "🎗️",
     subtitle:
       "A landmark year where our investment planning philosophy gained stronger recognition and credibility.",
-    works: [
-      "Improved investor confidence through clearer wealth roadmaps",
-      "Refined long-term planning strategies for better portfolio alignment",
-      "Built stronger advisory consistency across client relationships",
-      "Expanded trust-led wealth support with disciplined execution",
-    ],
+    
   },
   {
     year: "2020",
@@ -183,12 +162,7 @@ const awardsData = [
     badge: "⭐",
     subtitle:
       "We adapted with resilience and strengthened our leadership in wealth management through stability and service quality.",
-    works: [
-      "Maintained strong advisory continuity during uncertain market conditions",
-      "Improved financial communication and client reassurance systems",
-      "Strengthened leadership positioning through disciplined service delivery",
-      "Focused on protection, planning, and long-term financial confidence",
-    ],
+   
   },
   {
     year: "2021",
@@ -197,12 +171,7 @@ const awardsData = [
     badge: "🏅",
     subtitle:
       "This year reflected stronger brand credibility, deeper relationships, and a more mature planning ecosystem.",
-    works: [
-      "Scaled a stronger relationship-based wealth advisory model",
-      "Enhanced investor education and confidence-building initiatives",
-      "Improved client retention through high-touch premium servicing",
-      "Strengthened brand trust with a more mature advisory ecosystem",
-    ],
+    
   },
   {
     year: "2022",
@@ -211,12 +180,7 @@ const awardsData = [
     badge: "🥇",
     subtitle:
       "A year of high-impact execution where our planning quality and service depth stood out meaningfully.",
-    works: [
-      "Refined premium advisory delivery for a better client journey",
-      "Improved review systems and wealth tracking clarity",
-      "Expanded the firm’s planning depth with stronger operational structure",
-      "Delivered consistent value through focused wealth guidance",
-    ],
+   
   },
   {
     year: "2023",
@@ -225,12 +189,7 @@ const awardsData = [
     badge: "🏆",
     subtitle:
       "We continued to elevate our premium positioning with stronger planning quality and trusted execution.",
-    works: [
-      "Expanded premium wealth planning capabilities for growing clients",
-      "Improved internal advisory processes for more consistent delivery",
-      "Strengthened long-term portfolio alignment and service quality",
-      "Positioned the brand with greater elite-market credibility",
-    ],
+  
   },
   {
     year: "2024",
@@ -239,12 +198,7 @@ const awardsData = [
     badge: "💎",
     subtitle:
       "This phase reflected operational refinement, stronger outcomes, and a more elevated advisory presence.",
-    works: [
-      "Strengthened high-value client experience with refined servicing",
-      "Improved wealth execution quality through sharper strategy alignment",
-      "Enhanced brand authority with more visible financial leadership",
-      "Built a stronger premium advisory ecosystem for future scale",
-    ],
+   
   },
   {
     year: "2025",
@@ -253,12 +207,7 @@ const awardsData = [
     badge: "🥇",
     subtitle:
       "A year focused on expansion, operational strength, and the continued pursuit of measurable excellence.",
-    works: [
-      "Expanded wealth management reach across a broader client base",
-      "Improved service operations for a smoother advisory experience",
-      "Strengthened trust through better reporting and review structure",
-      "Elevated overall planning quality with a premium execution model",
-    ],
+   
   },
   {
     year: "2026",
@@ -267,12 +216,7 @@ const awardsData = [
     badge: "🏆",
     subtitle:
       "A defining milestone showcasing the firm’s sustained excellence, trusted leadership, and premium advisory impact.",
-    works: [
-      "Achieved high-impact recognition on a global credibility platform",
-      "Strengthened leadership identity in the premium wealth segment",
-      "Showcased long-term consistency in trust-led advisory excellence",
-      "Reinforced the firm’s premium positioning through visible achievement",
-    ],
+    
   },
 ];
 
@@ -1184,7 +1128,7 @@ const Home = () => {
 
           <div className="epm-orbit-center">
             <img
-              src={orbitImg}
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
               alt="Wealth planning meeting"
             />
           </div>
@@ -1487,27 +1431,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="awards-year-work-section">
-              <div className="awards-detail-card">
-                <span className="awards-card-label">YEAR HIGHLIGHTS</span>
-                <h4>What we accomplished in {activeData.year}</h4>
-
-                <div className="awards-work-list">
-                  {activeData.works.map((work, index) => (
-                    <div className="awards-work-item" key={index}>
-                      <div className="awards-work-number">
-                        {String(index + 1).padStart(2, "0")}
-                      </div>
-
-                      <div className="awards-work-content">
-                        <span>Key Achievement</span>
-                        <p>{work}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+        
           </div>
 
           <div className="awards-gallery-section">
