@@ -33,6 +33,10 @@ import { Link } from "react-router-dom";
 
 import featuresImg from "../../assets/feature/features.png";
 import featureImg from "../../assets/feature/feature.png";
+import featuressImg from "../../assets/feature/featuress.png";
+
+
+import articleImg from "../../assets/home/article.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,7 +59,7 @@ const features = [
   {
     id: 3,
     bgImage:
-      "https://i.pinimg.com/1200x/a3/0b/82/a30b821e4c209dd782047c93d6493386.jpg",
+         featuressImg,
     title: "Transparent And Client Centric",
     description: "Track where and how your money is invested at all times",
     meta: "CLIENT-FIRST APPROACH",
@@ -74,10 +78,10 @@ const articles = [
     id: 1,
     type: "ARTICLE",
     meta: "CIO'S DESK · 03 MARCH 2026",
-    title: "Understanding the Iran–Israel–U.S. Conflict",
-    desc: "The unfolding geopolitical tensions and their impact on markets.",
+    title: "Exclusive insights for enduring wealth",
+    desc: "At EPM Wealth, we deliver refined strategies and deep market intelligence tailored for individuals who seek more than just returns — they seek legacy.",
     image:
-      "https://images.unsplash.com/photo-1585421514738-01798e348b17?w=900&q=80&auto=format&fit=crop",
+      articleImg,
     featured: true,
   },
   {
