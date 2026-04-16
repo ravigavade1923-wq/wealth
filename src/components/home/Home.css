@@ -298,7 +298,7 @@ body {
   font-size: clamp(1.5rem, 2.4vw, 1.65rem);
   font-weight: 400;
   letter-spacing: 0.5px;
-  color: #10131d;
+  color: #000000;
   font-family: "Playfair Display", serif;
   line-height: 1.2;
   transform: translateZ(50px);
@@ -307,14 +307,17 @@ body {
 .epm-title-sub.card {
   width: min(100%, 735px);
   padding: 18px 24px;
+  margin-left: 40px;
+  margin-top: 10px;
   border-radius: 0 24px 0 24px;
   background: linear-gradient(
     180deg,
-    rgb(255, 255, 255) 0%,
+    rgb(89, 85, 85) 0%,
     rgba(255, 255, 255, 0.408) 100%
   );
   border: 1px solid rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(12px);
+
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 16px 30px rgba(8, 18, 40, 0.16);
 }
@@ -328,24 +331,23 @@ body {
 }
 
 .epm-typed-line {
-  margin: 0;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-size: clamp(2.02rem, 1.7vw, 2.34rem);
   line-height: 1.6;
-  color: #ffffff;
+  color: #000000;
   font-weight: 800;
-  font-family:"Cormorant Garamond", serif;
+  font-family: "Cormorant Garamond", serif;
   letter-spacing: 0.2px;
-  margin-left: 40px;
+  margin-left: 50px;
 }
 
 .epm-hero-desc {
   max-width: 720px;
   font-size: clamp(1rem, 1.25vw, 1.85rem);
   line-height: 1.95;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-weight: 600;
   font-family: "Cormorant Garamond", serif;
   transform: translateZ(25px);
@@ -480,7 +482,7 @@ body {
     #cfab7a 58%,
     #b77a45 100%
   );
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* border: 1px solid rgba(255, 255, 255, 0.18); */
   box-shadow:
     0 18px 30px rgba(167, 110, 54, 0.24),
     0 8px 20px rgba(96, 57, 21, 0.12),
@@ -831,8 +833,6 @@ body {
   }
 }
 
-
-
 /* =========================
    HERO 2 COLUMN LAYOUT
 ========================= */
@@ -885,439 +885,560 @@ body {
   justify-content: flex-start;
 }
 
-/* =========================
-   MAP CARD
-========================= */
 
-.epm-hero-map-wrap {
-  position: relative;
+
+/* =========================================================
+   EPM HERO SPLIT LAYOUT - WEBMARKX STYLE
+========================================================= */
+
+.epm-hero-split {
   width: 100%;
-  max-width: 550px;
-  margin-left: auto;
-  perspective: 1600px;
-  height: 650px;
-}
-
-.epm-hero-map-card {
-  position: relative;
-  width: 100%;
-  max-height: 680px;
-  border-radius: 34px;
-  padding: 18px;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.2),
-      rgba(255, 255, 255, 0.08)
-    ),
-    rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow:
-    0 24px 60px rgba(4, 10, 28, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
-  transform-style: preserve-3d;
-  animation: epmMapCardFloat 7s ease-in-out infinite;
-  overflow: hidden;
-}
-
-.epm-hero-map-card::before {
-  content: "";
-  position: absolute;
-  inset: 14px;
-  border-radius: 28px;
-  background: linear-gradient(
-    180deg,
-    rgba(248, 250, 255, 0.98),
-    rgba(241, 245, 252, 0.94)
-  );
-  z-index: 0;
-}
-
-.epm-map-road {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  min-height: 500px;
-}
-
-.epm-map-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(50px);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.epm-map-glow-one {
-  width: 180px;
-  height: 180px;
-  top: 40px;
-  right: 50px;
-  background: rgba(119, 156, 255, 0.25);
-}
-
-.epm-map-glow-two {
-  width: 170px;
-  height: 170px;
-  bottom: 90px;
-  left: 30px;
-  background: rgba(248, 193, 117, 0.22);
-}
-
-.epm-road-svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-/* =========================
-   MAP POINTS
-========================= */
-
-.epm-map-point {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
+  gap: 42px;
   align-items: center;
-  gap: 8px;
-  text-align: center;
+  margin-left: 70px;
+}
+
+.epm-hero-left-block {
+  position: relative;
   z-index: 4;
-  animation: epmPinFloat 4.5s ease-in-out infinite;
+  text-align: left;
+  max-width: 760px;
 }
 
-.epm-map-point p {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.25;
-  font-weight: 800;
-  color: #263149;
-  text-shadow: 0 4px 14px rgba(255, 255, 255, 0.75);
-  white-space: nowrap;
-}
-/* =========================
-   GOAL ICON MARKERS
-========================= */
-
-.epm-goal-icon {
-  width: 54px;
-  height: 54px;
-  border-radius: 18px;
+.epm-hero-mini-badge {
+  width: fit-content;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.35rem;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    0 10px 28px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  color: #16233b;
+  font-size: 0.74rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.epm-hero-mini-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c68e58, #8a5a2b);
+  box-shadow: 0 0 16px rgba(198, 142, 88, 0.4);
+}
+
+.epm-hero-kicker-alt {
+  margin: 0 0 14px;
+  font-size: 0.84rem;
+  letter-spacing: 3px;
+  color: #7f6a54;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.epm-hero-heading-alt {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  line-height: 0.96;
+}
+
+.epm-hero-line {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 900;
+  letter-spacing: -1.8px;
+}
+
+.epm-hero-line-one,
+.epm-hero-line-three {
+  font-size: clamp(2.9rem, 5.6vw, 3.8rem);
+  color: #000000;
+  text-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.226),
+    0 18px 45px rgba(5, 8, 19, 0.17);
+}
+
+.epm-hero-line-two {
+  font-size: clamp(3.1rem, 6.2vw, 4.4rem);
+  background: linear-gradient(90deg, #f4d79d, #a67342, #fceecc, #9a6333);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: epmGoldShift 6s linear infinite;
+  filter: drop-shadow(0 14px 26px rgba(198, 142, 88, 0.2));
+}
+
+@keyframes epmGoldShift {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 220% center;
+  }
+}
+
+.epm-hero-desc-alt {
+  max-width: 680px;
+  margin-top: 20px;
+  font-size: 1.13rem;
+  line-height: 1.9;
+  color: #000000;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+.epm-hero-stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+.epm-hero-stat-box {
+  min-width: 138px;
+  padding: 15px 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 14px 28px rgba(10, 20, 40, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.epm-hero-stat-box h4 {
+  margin: 0 0 4px;
+  font-size: 1.3rem;
   color: #ffffff;
-  background: linear-gradient(135deg, #6ca8ea, #2f6fb8);
-  box-shadow:
-    0 14px 24px rgba(20, 35, 70, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    filter 0.35s ease;
+  font-weight: 800;
+}
+
+.epm-hero-stat-box span {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: 700;
+}
+
+/* =========================================================
+   ORBIT VISUAL
+========================================================= */
+
+.epm-orbit-visual-wrap {
   position: relative;
-  overflow: hidden;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin-left: 30px;
 }
 
-.epm-goal-icon::before {
-  content: "";
+.epm-orbit-visual {
+  --orbit-size: 620px;
+  position: relative;
+  width: min(100%, var(--orbit-size));
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  isolation: isolate;
+}
+
+.epm-orbit-ring {
   position: absolute;
-  top: -35%;
-  left: -45%;
-  width: 50%;
-  height: 170%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.12) 20%,
-    rgba(255, 255, 255, 0.82) 50%,
-    rgba(255, 255, 255, 0.1) 75%,
-    transparent 100%
-  );
-  transform: skewX(-20deg);
-  animation: epmGoalIconShine 4.8s linear infinite;
-}
-
-.epm-map-point:hover .epm-goal-icon {
-  transform: translateY(-6px) scale(1.08);
-  box-shadow:
-    0 18px 30px rgba(20, 35, 70, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  filter: saturate(1.08);
-}
-
-/* each goal color */
-.goal-credit {
-  background: linear-gradient(135deg, #7edfd4, #2db9aa);
-}
-
-.goal-invest {
-  background: linear-gradient(135deg, #79b4ff, #3977d8);
-}
-
-.goal-vehicle {
-  background: linear-gradient(135deg, #a8f0ef, #58cbc5);
-}
-
-.goal-married {
-  background: linear-gradient(135deg, #ffd47e, #e6a81d);
-}
-
-.goal-loan {
-  background: linear-gradient(135deg, #ffd97d, #e8ad12);
-}
-
-.goal-house {
-  background: linear-gradient(135deg, #ffb29d, #ea6c4d);
-}
-
-.goal-medical {
-  background: linear-gradient(135deg, #ffc3b9, #ef7d6b);
-}
-
-.goal-kids {
-  background: linear-gradient(135deg, #6be3cf, #27b89e);
-}
-
-.goal-life {
-  background: linear-gradient(135deg, #82e1b0, #1fa86c);
-}
-
-.goal-estate {
-  background: linear-gradient(135deg, #d0c4ff, #8d6de8);
-}
-
-.goal-retire {
-  background: linear-gradient(135deg, #dccfff, #a182f1);
-}
-
-@keyframes epmGoalIconShine {
-  0% {
-    left: -45%;
-    opacity: 0;
-  }
-  15% {
-    opacity: 0.7;
-  }
-  100% {
-    left: 135%;
-    opacity: 0;
-  }
-}
-
-/* exact point positions */
-.point-credit {
-  left: 16%;
-  bottom: 8%;
-  animation-delay: 0s;
-}
-.point-invest {
-  left: 20%;
-  bottom: 35%;
-  animation-delay: 0.4s;
-}
-.point-vehicle {
-  left: 25%;
-  bottom: 16%;
-  animation-delay: 0.8s;
-}
-.point-married {
-  left: 53%;
-  bottom: 23%;
-  animation-delay: 1s;
-}
-.point-loan {
-  left: 55%;
-  bottom: 34%;
-  animation-delay: 1.4s;
-}
-.point-house {
-  left: 40%;
-  top: 26%;
-  animation-delay: 1.8s;
-}
-.point-medical {
-  left: 49%;
-  top: 26%;
-  animation-delay: 2s;
-}
-.point-kids {
-  left: 45%;
-  top: 5%;
-  animation-delay: 2.3s;
-}
-.point-life {
-  left: 68%;
-  top: 3%;
-  animation-delay: 2.5s;
-}
-.point-estate {
-  left: 78%;
-  top: 12%;
-  animation-delay: 2.8s;
-}
-.point-retire {
-  right: 5%;
-  top: 26%;
-  animation-delay: 3s;
-}
-
-/* =========================
-   FLAGS / CHARACTERS
-========================= */
-
-.epm-flag {
-  position: absolute;
-  width: 18px;
-  height: 13px;
-  background: linear-gradient(135deg, #ff3b30, #cf1c17);
-  clip-path: polygon(0 0, 100% 18%, 72% 52%, 100% 100%, 0 100%);
-  z-index: 3;
-  box-shadow: 0 8px 16px rgba(210, 40, 40, 0.22);
-}
-
-.epm-flag::before {
-  content: "";
-  position: absolute;
-  left: -4px;
-  top: -10px;
-  width: 2px;
-  height: 24px;
-  background: #9a9a9a;
-}
-
-.flag-1 {
-  left: 28%;
-  bottom: 24%;
-}
-.flag-2 {
-  left: 54%;
-  bottom: 27%;
-}
-.flag-3 {
-  left: 39%;
-  top: 30%;
-}
-.flag-4 {
-  right: 12%;
-  top: 9%;
-}
-
-.epm-map-traveler,
-.epm-map-retired {
-  position: absolute;
-  z-index: 4;
-  font-size: 2.3rem;
-  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.16));
-  animation: epmPeopleFloat 4.6s ease-in-out infinite;
-}
-
-.epm-map-traveler {
-  left: 6%;
-  bottom: 9%;
-}
-
-.epm-map-retired {
-  right: 2%;
-  top: 9%;
-  animation-delay: 1.2s;
-}
-
-
-/* =========================
-   MOVING TRAVELER ON ROAD
-========================= */
-
-.epm-road-traveler {
-  position: absolute;
-  font-size: 26px;
-  z-index: 6;
+  border-radius: 50%;
   pointer-events: none;
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.25));
-
-  animation: epmTravelPath 10s linear infinite;
 }
 
-/* smooth road movement */
-@keyframes epmTravelPath {
-  0% {
-    left: 14%;
+.epm-orbit-ring-outer {
+  inset: 2%;
+  border: 2px dashed rgba(198, 198, 198, 0.7);
+  animation: epmRingRotate 26s linear infinite;
+}
+
+.epm-orbit-ring-middle {
+  inset: 8%;
+  border: 2px solid rgba(236, 169, 169, 0.7);
+}
+
+.epm-orbit-ring-inner {
+  inset: 13%;
+  border: 18px solid rgba(245, 219, 219, 0.92);
+}
+
+.epm-orbit-center {
+  position: relative;
+  width: 74%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 3;
+  box-shadow:
+    0 26px 60px rgba(0, 0, 0, 0.16),
+    inset 0 2px 10px rgba(255, 255, 255, 0.8);
+  animation: epmCenterFloat 6s ease-in-out infinite;
+}
+
+.epm-orbit-center img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.03);
+  animation: epmCenterZoom 9s ease-in-out infinite;
+}
+
+.epm-orbit-rotator {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: epmOrbitRotate 24s linear infinite;
+  z-index: 4;
+}
+
+.epm-orbit-node {
+  position: absolute;
+  width: 92px;
+  text-align: center;
+}
+
+.epm-orbit-node-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: #151515;
+  font-size: 1.18rem;
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.12),
+    inset 0 2px 6px rgba(255, 255, 255, 0.95);
+  animation: epmOrbitCounter 24s linear infinite;
+}
+
+.epm-orbit-node p {
+  margin: 7px 0 0;
+  font-size: 0.74rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #243248;
+  animation: epmOrbitCounter 24s linear infinite;
+}
+
+/* circle positions */
+.node-1 {
+  top: 11%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+.node-2 {
+  top: 22%;
+  right: 5%;
+}
+.node-3 {
+  top: 45%;
+  right: -2%;
+}
+.node-4 {
+  bottom: 8%;
+  right: 10%;
+  margin: 0 0 30px;
+}
+.node-5 {
+  bottom: 7%;
+  left: 40%;
+  transform: translate(-50%, 50%);
+}
+.node-6 {
+  bottom: 15%;
+  left: 8%;
+}
+.node-7 {
+  top: 39%;
+  left:0%;
+}
+.node-8 {
+  top: 15%;
+  left: 10%;
+}
+.node-9 {
+  top: 5%;
+  left: 29%;
+}
+.node-10 {
+  bottom: 1%;
+  right: 28%;
+}
+
+.epm-orbit-stat {
+  position: absolute;
+  min-width: 165px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 16px 18px;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  z-index: 7;
+}
+
+.epm-orbit-stat-left {
+  left: -3%;
+  top: 20%;
+}
+
+.epm-orbit-stat-right {
+  right: 3%;
+  bottom: 7%;
+}
+
+.epm-orbit-stat h4 {
+  margin: 0;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: #f21b1b;
+  font-weight: 800;
+}
+
+.epm-orbit-stat p {
+  margin: 7px 0 0;
+  font-size: 0.95rem;
+  color: #536171;
+  font-weight: 700;
+}
+
+/* animations */
+@keyframes epmOrbitRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes epmOrbitCounter {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes epmRingRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes epmCenterFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes epmCenterZoom {
+  0%,
+  100% {
+    transform: scale(1.03);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+  .epm-hero-split {
+    grid-template-columns: minmax(0, 1fr) minmax(380px, 0.9fr);
+    gap: 24px;
+  }
+
+  .epm-orbit-visual {
+    --orbit-size: 540px;
+  }
+}
+
+@media (max-width: 992px) {
+  .epm-hero-split {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .epm-hero-left-block {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .epm-hero-mini-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .epm-hero-stat-row,
+  .epm-hero-btn-wrap-left,
+  .epm-typed-wrap-left {
+    justify-content: center;
+  }
+
+  .epm-orbit-visual {
+    --orbit-size: 500px;
+  }
+
+  .epm-orbit-stat-left {
+    left: 0;
+    top: 20%;
+  }
+
+  .epm-orbit-stat-right {
+    right: 0;
     bottom: 6%;
-    transform: translate(0, 0);
-  }
-
-  20% {
-    left: 28%;
-    bottom: 20%;
-  }
-
-  35% {
-    left: 22%;
-    bottom: 34%;
-  }
-
-  50% {
-    left: 40%;
-    bottom: 48%;
-  }
-
-  65% {
-    left: 52%;
-    bottom: 62%;
-  }
-
-  80% {
-    left: 66%;
-    bottom: 72%;
-  }
-
-  100% {
-    left: 82%;
-    bottom: 84%;
   }
 }
 
-/* =========================
-   ANIMATIONS
-========================= */
-
-@keyframes epmMapCardFloat {
-  0%,
-  100% {
-    transform: rotateY(-5deg) rotateX(4deg) translateY(0px);
+@media (max-width: 768px) {
+  .epm-hero-heading-alt {
+    gap: 2px;
   }
-  50% {
-    transform: rotateY(-2deg) rotateX(2deg) translateY(-10px);
+
+  .epm-hero-line-one,
+  .epm-hero-line-three {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+
+  .epm-hero-line-two {
+    font-size: clamp(2.4rem, 9vw, 3.2rem);
+  }
+
+  .epm-hero-kicker-alt {
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+  }
+
+  .epm-hero-desc-alt {
+    font-size: 0.94rem;
+    line-height: 1.75;
+  }
+
+  .epm-hero-stat-row {
+    gap: 10px;
+  }
+
+  .epm-hero-stat-box {
+    min-width: 118px;
+    padding: 12px 14px;
+  }
+
+  .epm-orbit-visual {
+    --orbit-size: 390px;
+  }
+
+  .epm-orbit-ring-inner {
+    border-width: 12px;
+  }
+
+  .epm-orbit-node {
+    width: 70px;
+  }
+
+  .epm-orbit-node-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 0.92rem;
+  }
+
+  .epm-orbit-node p {
+    font-size: 0.58rem;
+    margin-top: 5px;
+  }
+
+  .epm-orbit-stat {
+    min-width: 120px;
+    padding: 10px 12px;
+    border-radius: 18px;
+  }
+
+  .epm-orbit-stat h4 {
+    font-size: 1.2rem;
+  }
+
+  .epm-orbit-stat p {
+    font-size: 0.68rem;
   }
 }
 
-@keyframes epmPinFloat {
-  0%,
-  100% {
-    transform: translateY(0px);
+@media (max-width: 480px) {
+  .epm-orbit-visual {
+    --orbit-size: 310px;
   }
-  50% {
-    transform: translateY(-8px);
+
+  .epm-orbit-ring-inner {
+    border-width: 9px;
+  }
+
+  .epm-orbit-node {
+    width: 58px;
+  }
+
+  .epm-orbit-node-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 0.74rem;
+  }
+
+  .epm-orbit-node p {
+    font-size: 0.48rem;
+  }
+
+  .epm-orbit-stat {
+    min-width: 102px;
+    padding: 8px 10px;
+  }
+
+  .epm-orbit-stat h4 {
+    font-size: 0.95rem;
+  }
+
+  .epm-orbit-stat p {
+    font-size: 0.56rem;
+  }
+
+  .epm-orbit-stat-left {
+    left: -1%;
+    top: 22%;
+  }
+
+  .epm-orbit-stat-right {
+    right: -1%;
+    bottom: 6%;
   }
 }
-
-@keyframes epmPeopleFloat {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-7px);
-  }
-}
-
-
 
 /* Stats Section */
 
@@ -1427,7 +1548,6 @@ body {
     rgba(174, 152, 123, 0.04)
   );
 }
-
 
 /* =========================
    GLOBAL REVEAL
@@ -3438,7 +3558,6 @@ body {
   }
 }
 
-
 /* =========================================================
    SCROLL ENTRY ANIMATIONS - PURE CSS
    ========================================================= */
@@ -3963,7 +4082,6 @@ body {
     z-index: 1;
     pointer-events: none;
   }
-
 
   /* inner content stagger type feel */
   .solutions-left,
@@ -4556,11 +4674,6 @@ body {
     transform: translateY(-26px);
   }
 }
-
-
-
-
-
 
 /* =========================================================
    FULL HOMEPAGE RESPONSIVE MEDIA QUERIES
@@ -5215,17 +5328,50 @@ body {
     max-width: 58px;
   }
 
-  .point-credit { left: 12%; bottom: 8%; }
-  .point-invest { left: 16%; bottom: 34%; }
-  .point-vehicle { left: 20%; bottom: 15%; }
-  .point-married { left: 51%; bottom: 22%; }
-  .point-loan { left: 54%; bottom: 33%; }
-  .point-house { left: 38%; top: 26%; }
-  .point-medical { left: 49%; top: 26%; }
-  .point-kids { left: 43%; top: 5%; }
-  .point-life { left: 66%; top: 3%; }
-  .point-estate { left: 76%; top: 11%; }
-  .point-retire { right: 2%; top: 25%; }
+  .point-credit {
+    left: 12%;
+    bottom: 8%;
+  }
+  .point-invest {
+    left: 16%;
+    bottom: 34%;
+  }
+  .point-vehicle {
+    left: 20%;
+    bottom: 15%;
+  }
+  .point-married {
+    left: 51%;
+    bottom: 22%;
+  }
+  .point-loan {
+    left: 54%;
+    bottom: 33%;
+  }
+  .point-house {
+    left: 38%;
+    top: 26%;
+  }
+  .point-medical {
+    left: 49%;
+    top: 26%;
+  }
+  .point-kids {
+    left: 43%;
+    top: 5%;
+  }
+  .point-life {
+    left: 66%;
+    top: 3%;
+  }
+  .point-estate {
+    left: 76%;
+    top: 11%;
+  }
+  .point-retire {
+    right: 2%;
+    top: 25%;
+  }
 
   .solutions-section,
   .decision-section,

@@ -4,6 +4,7 @@ import "./Home.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import emailjs from "@emailjs/browser";
+import orbitImg from "../../assets/home/orbit.png"
 import {
   FaInstagram,
   FaYoutube,
@@ -21,6 +22,9 @@ import {
   FaGraduationCap,
   FaShieldAlt,
   FaUmbrella,
+  FaHandshake,
+  FaTachometerAlt,
+  FaPlane,
 } from "react-icons/fa";
 
 import { GiBigDiamondRing } from "react-icons/gi";
@@ -1043,359 +1047,204 @@ const Home = () => {
 
   return (
     <div ref={homeRef} className="epm-home-page">
-      <section className="epm-hero-wrap" ref={heroWrapRef} id="home">
-        <video className="epm-hero-video" autoPlay loop muted playsInline>
-          <source
-            // src="https://cdn.dribbble.com/userupload/14351043/file/original-e8f92507edede186d6fa91bf0aec6760.mp4"
-            // src="https://cdn.dribbble.com/userupload/44432199/file/2977b8fb988f3d0108f59b914f4bc6de.mp4"
-            src="https://cdn.dribbble.com/userupload/3230922/file/original-2292b607536d84da4cad85191315cc06.mp4"
+     <section className="epm-hero-wrap" ref={heroWrapRef} id="home">
+  <div className="epm-social-stick">
+    <a
+      href="https://www.instagram.com/"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Instagram"
+      className="epm-social-btn"
+    >
+      <FaInstagram />
+    </a>
 
-            type="video/mp4"
-          />
-        </video>
+    <a
+      href="https://www.youtube.com/"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Youtube"
+      className="epm-social-btn"
+    >
+      <FaYoutube />
+    </a>
 
-        <div className="epm-social-stick">
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-            className="epm-social-btn"
-          >
-            <FaInstagram />
-          </a>
+    <a
+      href="https://www.facebook.com/"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Facebook"
+      className="epm-social-btn"
+    >
+      <FaFacebookF />
+    </a>
 
-          <a
-            href="https://www.youtube.com/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Youtube"
-            className="epm-social-btn"
-          >
-            <FaYoutube />
-          </a>
+    <a
+      href="https://www.linkedin.com/"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="LinkedIn"
+      className="epm-social-btn"
+    >
+      <FaLinkedinIn />
+    </a>
+  </div>
 
-          <a
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Facebook"
-            className="epm-social-btn"
-          >
-            <FaFacebookF />
-          </a>
+  <div className="epm-hero-crystal epm-crystal-one"></div>
+  <div className="epm-hero-crystal epm-crystal-two"></div>
+  <div className="epm-hero-crystal epm-crystal-three"></div>
 
-          <a
-            href="https://www.linkedin.com/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn"
-            className="epm-social-btn"
-          >
-            <FaLinkedinIn />
-          </a>
+  <div className="epm-hero-light epm-light-one"></div>
+  <div className="epm-hero-light epm-light-two"></div>
+  <div className="epm-hero-light epm-light-three"></div>
+
+  <div className="epm-hero-grid-shine"></div>
+  <div className="epm-hero-noise"></div>
+
+  <div className="epm-hero-shell">
+    <div className="epm-hero-split">
+      {/* LEFT */}
+      <div className="epm-hero-left-block" ref={heroCopyRef}>
+        {/* <div className="epm-hero-mini-badge">
+          <span className="epm-hero-mini-dot"></span>
+          PREMIUM WEALTH MANAGEMENT
+        </div> */}
+
+        <p className="epm-hero-kicker-alt">SMART STRATEGIES · STRONG FUTURE</p>
+
+        <h1 className="epm-hero-heading-alt" ref={heroTitleRef}>
+          <span className="epm-hero-line epm-hero-line-one">BECAUSE YOUR</span>
+          <span className="epm-hero-line epm-hero-line-two">WEALTH</span>
+          <span className="epm-hero-line epm-hero-line-three">
+            DESERVES  <br />EXCELLENCE
+          </span>
+        </h1>
+
+        <div className="epm-typed-wrap epm-typed-wrap-left">
+          <p className="epm-typed-line">
+            {displayText}
+            <span className="epm-typed-caret"></span>
+          </p>
         </div>
 
-        <div className="epm-hero-crystal epm-crystal-one"></div>
-        <div className="epm-hero-crystal epm-crystal-two"></div>
-        <div className="epm-hero-crystal epm-crystal-three"></div>
+        <p className="epm-hero-desc-alt">
+          At EPM Wealth, we believe your wealth goes beyond money. We prioritize
+          you, your loved ones, and your business with personalized planning,
+          clear advisory, and future-ready financial strategies.
+        </p>
 
-        <div className="epm-hero-light epm-light-one"></div>
-        <div className="epm-hero-light epm-light-two"></div>
-        <div className="epm-hero-light epm-light-three"></div>
+        {/* <div className="epm-hero-stat-row">
+          <div className="epm-hero-stat-box">
+            <h4>30+</h4>
+            <span>Years Experience</span>
+          </div>
 
-        <div className="epm-hero-grid-shine"></div>
-        <div className="epm-hero-noise"></div>
+          <div className="epm-hero-stat-box">
+            <h4>1000+</h4>
+            <span>Trusted Clients</span>
+          </div>
 
-        <div className="epm-hero-shell">
-          <div className="epm-hero-grid">
-            {/* LEFT CONTENT */}
-            <div
-              className="epm-hero-content epm-hero-content-left"
-              ref={heroCopyRef}
-            >
-              <h1
-                className="epm-hero-title epm-hero-title-left"
-                ref={heroTitleRef}
-              >
-                <span className="epm-title-main">
-                  Because Your Wealth Deserves Excellence...
-                </span>
-                <span className="card epm-title-sub">
-                  “Smart Strategies, Strong Future.”
-                </span>
-              </h1>
+          <div className="epm-hero-stat-box">
+            <h4>₹150Cr+</h4>
+            <span>Assets Guided</span>
+          </div>
+        </div> */}
 
-              <div className="epm-typed-wrap epm-typed-wrap-left">
-                <p className="epm-typed-line">
-                  {displayText}
-                  <span className="epm-typed-caret"></span>
-                </p>
-              </div>
+        <div className="epm-hero-btn-wrap epm-hero-btn-wrap-left">
+          <Link to="/about" className="epm-liquid-btn epm-liquid-btn-gold">
+            <span className="epm-btn-text">DISCOVER MORE</span>
+            <span className="epm-btn-icon">→</span>
+            <span className="epm-btn-liquid"></span>
+          </Link>
 
-              <p className="epm-hero-desc epm-hero-desc-left">
-              It all begins with you, At EPM we believe your wealth goes beyond money. We prioritize you, your loved ones, and your business, ensuring they remain at the heart of our every action. Our personalized approach helps you achieve your goals today and in the future.
-              </p>
+          <Link to="/contact" className="epm-liquid-btn epm-liquid-btn-glass">
+            <span className="epm-btn-text">START A CONVERSATION</span>
+            <span className="epm-btn-icon">→</span>
+            <span className="epm-btn-liquid"></span>
+          </Link>
+        </div>
+      </div>
 
-              <div className="epm-hero-btn-wrap epm-hero-btn-wrap-left">
-                <Link
-                  to="/about"
-                  className="epm-liquid-btn epm-liquid-btn-gold"
-                >
-                  <span className="epm-btn-text">DISCOVER MORE</span>
-                  <span className="epm-btn-icon">→</span>
-                  <span className="epm-btn-liquid"></span>
-                </Link>
+      {/* RIGHT */}
+      <div className="epm-orbit-visual-wrap">
+        <div className="epm-orbit-visual">
+          <span className="epm-orbit-ring epm-orbit-ring-outer"></span>
+          <span className="epm-orbit-ring epm-orbit-ring-middle"></span>
+          <span className="epm-orbit-ring epm-orbit-ring-inner"></span>
 
-                <Link
-                  to="/contact"
-                  className="epm-liquid-btn epm-liquid-btn-glass"
-                >
-                  <span className="epm-btn-text">START A CONVERSATION</span>
-                  <span className="epm-btn-icon">→</span>
-                  <span className="epm-btn-liquid"></span>
-                </Link>
-              </div>
+          {/* <div className="epm-orbit-stat epm-orbit-stat-left">
+            <h4>85%</h4>
+            <p>Sales Growth</p>
+          </div>
+
+          <div className="epm-orbit-stat epm-orbit-stat-right">
+            <h4>190+</h4>
+            <p>Brands Joined</p>
+          </div> */}
+
+          <div className="epm-orbit-center">
+            <img
+              src={orbitImg}
+              alt="Wealth planning meeting"
+            />
+          </div>
+
+          <div className="epm-orbit-rotator">
+            <div className="epm-orbit-node node-1">
+              <span className="epm-orbit-node-icon"><FaHome /></span>
+              <p>Home</p>
             </div>
 
-            {/* RIGHT MAP VISUAL */}
-            <div className="epm-hero-map-wrap">
-              <div className="epm-hero-map-card">
-                <div className="epm-map-glow epm-map-glow-one"></div>
-                <div className="epm-map-glow epm-map-glow-two"></div>
+            <div className="epm-orbit-node node-2">
+              <span className="epm-orbit-node-icon"><FaUserMd /></span>
+              <p>Medical</p>
+            </div>
 
-                <div className="epm-map-road">
-                  <svg
-                    className="epm-road-svg"
-                    viewBox="0 0 520 760"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <linearGradient
-                        id="epmRoadGradient"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="100%"
-                      >
-                        <stop offset="0%" stopColor="#121a3d" />
-                        <stop offset="50%" stopColor="#1f285c" />
-                        <stop offset="100%" stopColor="#101738" />
-                      </linearGradient>
+            <div className="epm-orbit-node node-3">
+              <span className="epm-orbit-node-icon"><FaChartLine /></span>
+              <p>Invest</p>
+            </div>
 
-                      <filter
-                        id="epmSoftShadow"
-                        x="-20%"
-                        y="-20%"
-                        width="140%"
-                        height="140%"
-                      >
-                        <feDropShadow
-                          dx="0"
-                          dy="18"
-                          stdDeviation="18"
-                          floodColor="rgba(10,15,35,0.28)"
-                        />
-                      </filter>
-                    </defs>
+            <div className="epm-orbit-node node-4">
+              <span className="epm-orbit-node-icon"><FaCarSide /></span>
+              <p>Vehicle</p>
+            </div>
 
-                    {/* Main road */}
-                    <path
-                      d="M70 690 
-                 C150 705, 210 690, 220 635
-                 C230 580, 150 560, 160 505
-                 C170 448, 285 455, 305 395
-                 C325 335, 230 315, 245 245
-                 C260 175, 365 195, 430 120"
-                      fill="none"
-                      stroke="url(#epmRoadGradient)"
-                      strokeWidth="58"
-                      strokeLinecap="round"
-                      filter="url(#epmSoftShadow)"
-                    />
+            <div className="epm-orbit-node node-5">
+              <span className="epm-orbit-node-icon"><GiBigDiamondRing /></span>
+              <p>Marriage</p>
+            </div>
 
-                    {/* Center dashed line */}
-                    <path
-                      d="M70 690 
-                 C150 705, 210 690, 220 635
-                 C230 580, 150 560, 160 505
-                 C170 448, 285 455, 305 395
-                 C325 335, 230 315, 245 245
-                 C260 175, 365 195, 430 120"
-                      fill="none"
-                      stroke="#ffffff"
-                      strokeWidth="4"
-                      strokeDasharray="10 12"
-                      strokeLinecap="round"
-                      opacity="0.95"
-                    />
+            <div className="epm-orbit-node node-6">
+              <span className="epm-orbit-node-icon">₹</span>
+              <p>Loan</p>
+            </div>
 
-                    {/* animated moving dots */}
-                    <circle r="5" fill="#f8d39a">
-                      <animateMotion
-                        dur="8s"
-                        repeatCount="indefinite"
-                        rotate="auto"
-                        path="M70 690 
-                      C150 705, 210 690, 220 635
-                      C230 580, 150 560, 160 505
-                      C170 448, 285 455, 305 395
-                      C325 335, 230 315, 245 245
-                      C260 175, 365 195, 430 120"
-                      />
-                    </circle>
+            <div className="epm-orbit-node node-7">
+              <span className="epm-orbit-node-icon"><FaGraduationCap /></span>
+              <p>Education</p>
+            </div>
 
-                    <circle r="4" fill="#ffffff" opacity="0.9">
-                      <animateMotion
-                        dur="10s"
-                        begin="1.2s"
-                        repeatCount="indefinite"
-                        rotate="auto"
-                        path="M70 690 
-                      C150 705, 210 690, 220 635
-                      C230 580, 150 560, 160 505
-                      C170 448, 285 455, 305 395
-                      C325 335, 230 315, 245 245
-                      C260 175, 365 195, 430 120"
-                      />
-                    </circle>
-                  </svg>
+            <div className="epm-orbit-node node-8">
+              <span className="epm-orbit-node-icon"><FaShieldAlt /></span>
+              <p>Insurance</p>
+            </div>
 
-                  {/* markers */}
-                  <div
-                    className="epm-map-point point-credit"
-                    style={{ marginLeft: "0px", marginBottom: "-40px" }}
-                  >
-                    <span className="epm-goal-icon goal-credit">
-                      <FaCreditCard />
-                    </span>
-                    <p>Credit Card</p>
-                  </div>
+            <div className="epm-orbit-node node-9">
+              <span className="epm-orbit-node-icon"><MdFamilyRestroom /></span>
+              <p>Estate</p>
+            </div>
 
-                  <div
-                    className="epm-map-point point-invest"
-                    style={{ marginLeft: "-10px" }}
-                  >
-                    <span className="epm-goal-icon goal-invest">
-                      <FaChartLine />
-                    </span>
-                    <p>Investments</p>
-                  </div>
-
-                  <div
-                    className="epm-map-point point-vehicle"
-                    style={{ marginLeft: "-20px" }}
-                  >
-                    <span className="epm-goal-icon goal-vehicle">
-                      <FaCarSide />
-                    </span>
-                    <p>Buy a Vehicle</p>
-                  </div>
-
-                  <div
-                    className="epm-map-point point-married"
-                    style={{ marginLeft: "-35px", marginTop: "50px" }}
-                  >
-                    <span className="epm-goal-icon goal-married">
-                      <GiBigDiamondRing />
-                    </span>
-                    <p>Get Married</p>
-                  </div>
-
-                  <div
-                    className="epm-map-point point-loan"
-                    style={{ marginLeft: "35px", marginTop: "70px" }}
-                  >
-                    <span className="epm-goal-icon goal-loan">₹</span>
-                    <p>Loans</p>
-                  </div>
-
-                  <div
-                    className="epm-map-point point-house"
-                    style={{ marginLeft: "-70px", marginTop: "40px" }}
-                  >
-                    <span className="epm-goal-icon goal-house">
-                      <FaHome />
-                    </span>
-                    <p>Own a House</p>
-                  </div>
-
-                  <div
-                    className="epm-map-point point-medical"
-                    style={{ marginLeft: "55px", marginTop: "50px" }}
-                  >
-                    <span className="epm-goal-icon goal-medical">
-                      <FaUserMd />
-                    </span>
-                    <p>Medical Insurance</p>
-                  </div>
-
-                  <div
-                    className="epm-map-point point-kids"
-                    style={{ marginLeft: "-85px", marginTop: "50px" }}
-                  >
-                    <span className="epm-goal-icon goal-kids">
-                      <FaGraduationCap />
-                    </span>
-                    <p>Kid&apos;s Education</p>
-                  </div>
-
-                  <div
-                    className="epm-map-point point-life"
-                    style={{ marginLeft: "-120px", marginTop: "0px" }}
-                  >
-                    <span className="epm-goal-icon goal-life">
-                      <FaShieldAlt />
-                    </span>
-                    <p>Life Insurance</p>
-                  </div>
-
-                  <div
-                    className="epm-map-point point-estate"
-                    style={{ marginLeft: "-95px", marginTop: "50px" }}
-                  >
-                    <span className="epm-goal-icon goal-estate">
-                      <MdFamilyRestroom />
-                    </span>
-                    <p>Estate Planning</p>
-                  </div>
-
-                  <div
-                    className="epm-map-point point-retire"
-                    style={{ marginRight: "15px", marginTop: "-90px" }}
-                  >
-                    <span className="epm-goal-icon goal-retire">
-                      <FaUmbrella />
-                    </span>
-                    <p>Retirement</p>
-                  </div>
-
-                  {/* little flags */}
-                  <span
-                    className="epm-flag flag-1"
-                    style={{ marginLeft: "55px", marginTop: "50px" }}
-                  ></span>
-                  {/* <span className="epm-flag flag-2"></span> */}
-                  {/* <span className="epm-flag flag-3"></span> */}
-                  <span
-                    className="epm-flag flag-4"
-                    style={{ marginRight: "75px", marginTop: "20px" }}
-                  ></span>
-
-                  {/* decorative people / traveler */}
-                  <div className="epm-road-traveler">🧑‍💼</div>
-                  <div
-                    className="epm-map-retired"
-                    style={{ marginRight: "95px", marginTop: "-30px" }}
-                  >
-                    👫
-                  </div>
-                </div>
-              </div>
+            <div className="epm-orbit-node node-10">
+              <span className="epm-orbit-node-icon"><FaUmbrella /></span>
+              <p>Retire</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       <div className="epm-overlap-stack">
         <section className="epm-stats-section epm-overlap-panel">
