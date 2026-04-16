@@ -831,214 +831,7 @@ body {
   }
 }
 
-@media (max-width: 1200px) {
-  .epm-hero-wrap {
-    padding: 110px 24px 70px;
-  }
 
-  .epm-hero-content {
-    max-width: 960px;
-  }
-
-  .epm-social-stick {
-    left: 14px;
-  }
-}
-
-@media (max-width: 992px) {
-  .epm-hero-wrap {
-    min-height: auto;
-    padding: 110px 18px 70px;
-  }
-
-  .epm-hero-content {
-    max-width: 100%;
-  }
-
-  .epm-pill-text {
-    letter-spacing: 1.8px;
-    font-size: 0.76rem;
-  }
-
-  .epm-hero-kicker {
-    letter-spacing: 4px;
-    font-size: 0.8rem;
-  }
-
-  .epm-hero-desc {
-    max-width: 740px;
-    line-height: 1.85;
-  }
-
-  .epm-social-stick {
-    left: 12px;
-  }
-
-  .epm-social-btn {
-    width: 42px;
-    height: 42px;
-    border-radius: 14px;
-  }
-}
-
-@media (max-width: 768px) {
-  .epm-hero-wrap {
-    padding: 100px 16px 60px;
-  }
-
-  .epm-hero-pill {
-    margin-bottom: 22px;
-    padding: 12px 18px;
-  }
-
-  .epm-pill-text {
-    letter-spacing: 1.4px;
-    font-size: 0.7rem;
-  }
-
-  .epm-hero-kicker {
-    margin-bottom: 14px;
-    letter-spacing: 3px;
-    font-size: 0.75rem;
-  }
-
-  .epm-title-main {
-    font-size: clamp(2.3rem, 10vw, 4rem);
-    letter-spacing: -1px;
-  }
-
-  .epm-title-sub {
-    font-size: clamp(1.18rem, 6vw, 2.2rem);
-    line-height: 1.22;
-  }
-
-  .epm-typed-wrap {
-    min-height: 48px;
-    margin: 22px 0 10px;
-  }
-
-  .epm-typed-line {
-    font-size: 0.98rem;
-    text-align: center;
-    line-height: 1.7;
-  }
-
-  .epm-hero-desc {
-    font-size: 0.96rem;
-    line-height: 1.8;
-  }
-
-  .epm-hero-btn-wrap {
-    margin-top: 28px;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .epm-liquid-btn {
-    width: 100%;
-    max-width: 320px;
-    min-width: unset;
-    height: 54px;
-    font-size: 0.78rem;
-    letter-spacing: 1.2px;
-  }
-
-  .epm-scroll-indicator {
-    margin-top: 28px;
-  }
-
-  .epm-social-stick {
-    left: 10px;
-    top: auto;
-    bottom: 18px;
-    transform: none;
-    flex-direction: row;
-    gap: 10px;
-  }
-
-  .epm-social-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 13px;
-  }
-
-  .epm-hero-crystal,
-  .epm-light-two,
-  .epm-light-three {
-    opacity: 0.7;
-  }
-}
-
-@media (max-width: 480px) {
-  .epm-hero-wrap {
-    padding: 92px 14px 52px;
-  }
-
-  .epm-hero-pill {
-    width: 100%;
-    justify-content: center;
-    border-radius: 18px;
-    padding: 12px 14px;
-  }
-
-  .epm-pill-text {
-    font-size: 0.64rem;
-    line-height: 1.5;
-    text-align: center;
-  }
-
-  .epm-hero-kicker {
-    font-size: 0.7rem;
-    letter-spacing: 2.3px;
-  }
-
-  .epm-title-main {
-    font-size: 2.15rem;
-  }
-
-  .epm-title-sub {
-    font-size: 1.08rem;
-  }
-
-  .epm-typed-line {
-    font-size: 0.9rem;
-  }
-
-  .epm-hero-desc {
-    font-size: 0.9rem;
-    line-height: 1.75;
-  }
-
-  .epm-liquid-btn {
-    max-width: 100%;
-    height: 52px;
-    padding: 0 18px;
-    font-size: 0.72rem;
-  }
-
-  .epm-scroll-text {
-    font-size: 0.72rem;
-    letter-spacing: 1.4px;
-  }
-
-  .epm-social-stick {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 14px;
-    padding: 8px 10px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.48);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 14px 24px rgba(22, 32, 51, 0.08);
-  }
-
-  .epm-social-btn {
-    width: 38px;
-    height: 38px;
-    border-radius: 12px;
-  }
-}
 
 /* =========================
    HERO 2 COLUMN LAYOUT
@@ -1526,200 +1319,6 @@ body {
 
 
 
-@media (max-width: 768px) {
-  .epm-goal-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 14px;
-    font-size: 1rem;
-  }
-
-  .epm-map-point p {
-    font-size: 0.72rem;
-    max-width: 86px;
-  }
-}
-
-@media (max-width: 480px) {
-  .epm-goal-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 12px;
-    font-size: 0.88rem;
-  }
-}
-
-
-@media (max-width: 1200px) {
-  .epm-hero-grid {
-    grid-template-columns: 1fr 0.95fr;
-    gap: 28px;
-  }
-
-  .epm-hero-map-card {
-    min-height: 640px;
-  }
-
-  .epm-map-road {
-    min-height: 590px;
-  }
-
-  .point-retire p,
-  .point-estate p,
-  .point-life p {
-    font-size: 0.84rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .epm-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
-
-  .epm-hero-content-left {
-    order: 1;
-    text-align: center;
-  }
-
-  .epm-hero-title-left {
-    align-items: center;
-  }
-
-  .epm-hero-title-left .epm-title-main,
-  .epm-hero-title-left .epm-title-sub,
-  .epm-hero-desc-left {
-    text-align: center;
-  }
-
-  .epm-typed-wrap-left,
-  .epm-hero-btn-wrap-left {
-    justify-content: center;
-  }
-
-  .epm-hero-title-left .epm-title-sub.card {
-    margin: 0 auto;
-  }
-
-  .epm-hero-map-wrap {
-    order: 2;
-  }
-
-  .epm-hero-map-card {
-    min-height: 620px;
-  }
-
-  .epm-map-road {
-    min-height: 570px;
-  }
-}
-
-@media (max-width: 768px) {
-  .epm-hero-map-card {
-    min-height: 520px;
-    padding: 16px;
-    border-radius: 24px;
-  }
-
-  .epm-hero-map-card::before {
-    inset: 10px;
-    border-radius: 18px;
-  }
-
-  .epm-map-road {
-    min-height: 480px;
-  }
-
-  .epm-map-point p {
-    font-size: 0.74rem;
-    white-space: normal;
-    max-width: 82px;
-  }
-
-  .epm-pin {
-    width: 22px;
-    height: 22px;
-  }
-
-  .epm-pin::after {
-    width: 10px;
-    height: 10px;
-    top: 6px;
-    left: 6px;
-  }
-
-  .epm-map-traveler,
-  .epm-map-retired {
-    font-size: 1.65rem;
-  }
-
-  .epm-flag {
-    width: 14px;
-    height: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .epm-hero-map-card {
-    min-height: 450px;
-  }
-
-  .epm-map-road {
-    min-height: 410px;
-  }
-
-  .epm-map-point p {
-    font-size: 0.64rem;
-    max-width: 68px;
-    line-height: 1.15;
-  }
-
-  .point-credit {
-    left: 12%;
-    bottom: 8%;
-  }
-  .point-invest {
-    left: 16%;
-    bottom: 34%;
-  }
-  .point-vehicle {
-    left: 20%;
-    bottom: 15%;
-  }
-  .point-married {
-    left: 51%;
-    bottom: 22%;
-  }
-  .point-loan {
-    left: 54%;
-    bottom: 33%;
-  }
-  .point-house {
-    left: 38%;
-    top: 26%;
-  }
-  .point-medical {
-    left: 49%;
-    top: 26%;
-  }
-  .point-kids {
-    left: 43%;
-    top: 5%;
-  }
-  .point-life {
-    left: 66%;
-    top: 3%;
-  }
-  .point-estate {
-    left: 76%;
-    top: 11%;
-  }
-  .point-retire {
-    right: 2%;
-    top: 25%;
-  }
-}
-
 /* Stats Section */
 
 .epm-stats-section {
@@ -1829,54 +1428,6 @@ body {
   );
 }
 
-@media (max-width: 992px) {
-  .epm-stats-section {
-    padding: 55px 16px;
-  }
-
-  .epm-stats-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .epm-stat-line {
-    display: none;
-  }
-
-  .epm-stat-box {
-    padding: 22px 14px;
-  }
-
-  .epm-stat-box h2 {
-    font-size: 2.6rem;
-  }
-
-  .epm-stat-box p {
-    font-size: 0.76rem;
-    letter-spacing: 2.5px;
-  }
-}
-
-@media (max-width: 576px) {
-  .epm-stats-card {
-    border-radius: 22px;
-    padding: 8px;
-  }
-
-  .epm-stat-box {
-    padding: 18px 10px;
-  }
-
-  .epm-stat-box h2 {
-    font-size: 2.2rem;
-  }
-
-  .epm-stat-box p {
-    font-size: 0.72rem;
-    line-height: 1.6;
-    letter-spacing: 2px;
-  }
-}
 
 /* =========================
    GLOBAL REVEAL
@@ -3887,822 +3438,6 @@ body {
   }
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 1100px) {
-  .epm-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
-
-  .epm-hero-right {
-    min-height: 520px;
-    max-width: 620px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .epm-board-main {
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .epm-mini-one {
-    left: 0;
-  }
-
-  .epm-mini-two {
-    right: 0;
-  }
-
-  .solutions-container {
-    gap: 50px;
-  }
-
-  .solutions-left {
-    padding-left: 55px;
-  }
-
-  .solutions-left h2 {
-    font-size: 48px;
-  }
-
-  .vault-top-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .vault-featured-card {
-    min-height: 450px;
-    max-height: 450px;
-  }
-
-  .vault-bottom-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .core-values-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .core-value-card:nth-child(2) {
-    border-right: none;
-  }
-
-  .core-value-card:nth-child(1),
-  .core-value-card:nth-child(2) {
-    border-bottom: 1px solid rgba(157, 120, 77, 0.2);
-  }
-}
-
-@media (max-width: 992px) {
-  .epm-hero-wrap {
-    padding: 102px 18px 54px;
-  }
-
-  .decision-top-row,
-  .solutions-container,
-  .core-values-top {
-    grid-template-columns: 1fr;
-  }
-
-  .decision-intro {
-    justify-content: flex-start;
-    padding-top: 0;
-  }
-
-  .decision-intro p {
-    margin-top: 0;
-  }
-
-  .decision-card-content {
-    width: 62%;
-  }
-
-  .awards-showcase-section {
-    padding: 78px 18px 70px;
-  }
-
-  .awards-timeline {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .awards-work-list {
-    grid-template-columns: 1fr;
-  }
-
-  .awards-detail-card {
-    padding: 30px 24px;
-  }
-
-  .awards-detail-card h4 {
-    font-size: 1.7rem;
-  }
-
-  .core-values-section {
-    padding: 75px 18px 70px;
-  }
-
-  .core-values-heading {
-    font-size: 3.6rem;
-  }
-
-  .core-value-image-wrap {
-    height: 250px;
-  }
-
-  .core-value-content {
-    padding: 24px 20px 26px;
-    min-height: 165px;
-  }
-
-  .testimonials-luxury-section {
-    padding: 75px 18px 72px;
-  }
-
-  .testimonials-luxury-card {
-    padding: 40px 30px 34px;
-    border-radius: 26px;
-  }
-
-  .testimonials-main-quote {
-    line-height: 1.72;
-  }
-
-  .testimonials-client-image-wrap {
-    width: 120px;
-    height: 120px;
-    min-width: 120px;
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .epm-hero-wrap {
-    min-height: auto;
-    padding: 92px 14px 42px;
-  }
-
-  .epm-social-stick {
-    left: 10px;
-    gap: 8px;
-  }
-
-  .epm-social-btn {
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-  }
-
-  .epm-hero-pill {
-    padding: 12px 16px;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-
-  .epm-hero-pill p {
-    font-size: 0.72rem;
-    letter-spacing: 1.4px;
-  }
-
-  .epm-hero-kicker {
-    font-size: 0.74rem;
-    letter-spacing: 4px;
-    margin-bottom: 12px;
-  }
-
-  .epm-title-row {
-    font-size: 2.8rem;
-    letter-spacing: -1.5px;
-  }
-
-  .epm-typed-line {
-    font-size: 1.12rem;
-    line-height: 1.45;
-  }
-
-  .epm-hero-desc {
-    font-size: 0.96rem;
-    line-height: 1.78;
-  }
-
-  .epm-hero-btn-wrap {
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .epm-liquid-btn {
-    width: 100%;
-    min-width: 100%;
-    height: 54px;
-    padding: 0 20px;
-    border-radius: 16px;
-    font-size: 0.78rem;
-    letter-spacing: 1.2px;
-  }
-
-  .epm-hero-right {
-    min-height: auto;
-    display: grid;
-    gap: 14px;
-  }
-
-  .epm-board-main,
-  .epm-mini-one,
-  .epm-mini-two {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    transform: none !important;
-    animation: none;
-  }
-
-  .epm-board-main {
-    padding: 22px;
-    border-radius: 24px;
-  }
-
-  .epm-board-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .epm-scroll-indicator {
-    margin-top: 24px;
-  }
-
-  .solutions-section {
-    padding: 70px 16px 75px;
-  }
-
-  .solutions-left {
-    padding-left: 0;
-  }
-
-  .solutions-left h2 {
-    font-size: 46px;
-    line-height: 1.05;
-  }
-
-  .solutions-link {
-    margin-top: 14px;
-    font-size: 13px;
-    letter-spacing: 2px;
-  }
-
-  .solutions-right {
-    padding-top: 0;
-  }
-
-  .solutions-right p {
-    font-size: 16px;
-    line-height: 1.8;
-  }
-
-  .decision-section {
-    padding: 74px 14px 64px;
-  }
-
-  .decision-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .decision-card-content,
-  .decision-card-blur-panel {
-    width: 100%;
-  }
-
-  .decision-card-content {
-    min-height: 290px;
-  }
-
-  .vault-section {
-    padding: 70px 16px 60px;
-  }
-
-  .vault-heading {
-    font-size: 2.4rem;
-    line-height: 1.12;
-  }
-
-  .vault-form {
-    flex-direction: column;
-  }
-
-  .vault-form input,
-  .vault-form button {
-    width: 100%;
-  }
-
-  .vault-featured-card {
-    min-height: 340px;
-    max-height: 340px;
-  }
-
-  .vault-bottom-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .vault-article-image-wrap {
-    height: 180px;
-  }
-
-  .vault-article-content h4 {
-    min-height: auto;
-  }
-
-  .awards-main-heading {
-    font-size: 2.4rem;
-    line-height: 1.12;
-  }
-
-  .awards-main-description {
-    font-size: 0.96rem;
-    line-height: 1.75;
-  }
-
-  .awards-highlight-card {
-    padding: 24px 18px;
-    border-radius: 22px;
-  }
-
-  .awards-highlight-card h3 {
-    font-size: 1.28rem;
-  }
-
-  .awards-timeline {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-
-  .awards-year-btn {
-    font-size: 0.84rem;
-    letter-spacing: 1.5px;
-  }
-
-  .awards-detail-card {
-    border-radius: 24px;
-    padding: 24px 18px;
-  }
-
-  .awards-detail-card h4 {
-    font-size: 1.42rem;
-    margin-bottom: 20px;
-  }
-
-  .awards-work-item {
-    padding: 18px 16px;
-    border-radius: 18px;
-  }
-
-  .awards-work-number {
-    min-width: 46px;
-    height: 46px;
-    border-radius: 14px;
-    font-size: 0.88rem;
-  }
-
-  .awards-work-content p {
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
-  .awards-gallery-head h4 {
-    font-size: 1.45rem;
-  }
-
-  .awards-horizontal-scroll-track {
-    gap: 14px;
-    animation-duration: 22s;
-  }
-
-  .awards-gallery-card {
-    flex: 0 0 220px;
-    width: 220px;
-    height: 245px;
-    border-radius: 18px;
-  }
-
-  .awards-gallery-card-overlay {
-    transform: translateY(0);
-    opacity: 1;
-    padding: 14px;
-  }
-
-  .awards-gallery-card-overlay p {
-    font-size: 0.86rem;
-  }
-
-  .core-values-section {
-    padding: 65px 16px 60px;
-  }
-
-  .core-values-top {
-    gap: 18px;
-    margin-bottom: 28px;
-  }
-
-  .core-values-label {
-    font-size: 0.68rem;
-    letter-spacing: 3px;
-    margin-bottom: 14px;
-    margin-left: 0;
-  }
-
-  .core-values-heading {
-    font-size: 2.5rem;
-    line-height: 1.08;
-    letter-spacing: -0.6px;
-    margin-left: 0;
-  }
-
-  .core-values-top-right {
-    padding-top: 0;
-  }
-
-  .core-values-top-right p {
-    font-size: 0.96rem;
-    line-height: 1.8;
-  }
-
-  .core-values-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .core-value-card {
-    border-right: none;
-    border-bottom: 1px solid rgba(157, 120, 77, 0.2);
-  }
-
-  .core-value-card:last-child {
-    border-bottom: none;
-  }
-
-  .core-value-image-wrap {
-    height: 220px;
-  }
-
-  .core-value-letter {
-    font-size: 5rem;
-  }
-
-  .core-value-content {
-    min-height: auto;
-    padding: 22px 18px 24px;
-  }
-
-  .core-value-title {
-    font-size: 0.78rem;
-    letter-spacing: 3px;
-  }
-
-  .core-value-content p {
-    font-size: 0.95rem;
-    line-height: 1.75;
-  }
-
-  .core-value-card:hover {
-    transform: translateY(-6px) scale(1.01);
-  }
-
-  .testimonials-luxury-section {
-    padding: 65px 16px 60px;
-  }
-
-  .testimonials-luxury-header {
-    margin-bottom: 28px;
-  }
-
-  .testimonials-mini-label {
-    font-size: 0.68rem;
-    letter-spacing: 3px;
-  }
-
-  .testimonials-luxury-header h2 {
-    font-size: 2rem;
-    letter-spacing: 1px;
-  }
-
-  .testimonials-luxury-card {
-    padding: 30px 20px 26px;
-  }
-
-  .testimonials-premium-quote {
-    font-size: 3rem;
-  }
-
-  .testimonials-main-quote {
-    font-size: 0.97rem;
-    line-height: 1.8;
-  }
-
-  .testimonials-client-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .testimonials-client-image-wrap {
-    width: 100px;
-    height: 100px;
-    min-width: 100px;
-  }
-
-  .testimonials-client-info h3 {
-    font-size: 1.26rem;
-  }
-
-  .testimonials-client-info p {
-    font-size: 0.92rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .epm-hero-wrap {
-    padding: 86px 12px 34px;
-  }
-
-  .epm-title-row {
-    font-size: 2.2rem;
-  }
-
-  .epm-typed-line {
-    font-size: 1rem;
-  }
-
-  .epm-hero-desc {
-    font-size: 0.9rem;
-    line-height: 1.72;
-  }
-
-  .epm-board-main h3 {
-    font-size: 1.7rem;
-  }
-
-  .epm-board-stat strong {
-    font-size: 1.28rem;
-  }
-
-  .epm-social-stick {
-    top: auto;
-    bottom: 16px;
-    left: 10px;
-    transform: none;
-    flex-direction: row;
-  }
-
-  .solutions-section {
-    padding: 60px 14px 78px;
-  }
-
-  .solutions-left h2 {
-    font-size: 38px;
-  }
-
-  .solutions-label {
-    font-size: 11px;
-    letter-spacing: 3px;
-  }
-
-  .solutions-right p {
-    font-size: 15px;
-    line-height: 1.75;
-  }
-
-  .decision-card {
-    min-height: 280px;
-  }
-
-  .decision-card-content h3 {
-    font-size: 1.7rem;
-  }
-
-  .vault-section {
-    padding: 60px 14px 52px;
-  }
-
-  .vault-heading {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-
-  .vault-featured-card {
-    min-height: 230px;
-    max-height: 230px;
-  }
-
-  .vault-featured-content span {
-    font-size: 0.58rem;
-    letter-spacing: 1.5px;
-  }
-
-  .vault-featured-content h3 {
-    font-size: 1.28rem;
-  }
-
-  .vault-featured-content p {
-    font-size: 0.84rem;
-  }
-
-  .vault-article-image-wrap {
-    height: 155px;
-  }
-
-  .awards-showcase-section {
-    padding: 62px 14px 56px;
-  }
-
-  .awards-main-heading {
-    font-size: 1.95rem;
-  }
-
-  .awards-timeline {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .awards-detail-card h4 {
-    font-size: 1.2rem;
-  }
-
-  .awards-work-item {
-    gap: 12px;
-    padding: 16px 14px;
-  }
-
-  .awards-work-content p {
-    font-size: 0.9rem;
-  }
-
-  .awards-horizontal-scroll-track {
-    animation-duration: 18s;
-  }
-
-  .awards-gallery-card {
-    flex: 0 0 185px;
-    width: 185px;
-    height: 210px;
-    border-radius: 16px;
-  }
-
-  .awards-gallery-head h4 {
-    font-size: 1.2rem;
-  }
-
-  .awards-gallery-card-overlay span {
-    font-size: 0.62rem;
-  }
-
-  .awards-gallery-card-overlay p {
-    font-size: 0.78rem;
-    line-height: 1.4;
-  }
-
-  .core-values-section {
-    padding: 58px 14px 54px;
-  }
-
-  .core-values-heading {
-    font-size: 2rem;
-  }
-
-  .core-values-top-right p {
-    font-size: 0.92rem;
-  }
-
-  .core-value-image-wrap {
-    height: 190px;
-  }
-
-  .core-value-letter {
-    font-size: 4.2rem;
-  }
-
-  .core-value-content p {
-    font-size: 0.92rem;
-    line-height: 1.7;
-  }
-
-  .testimonials-luxury-section {
-    padding: 58px 14px 54px;
-  }
-
-  .testimonials-luxury-header h2 {
-    font-size: 1.72rem;
-  }
-
-  .testimonials-luxury-card {
-    padding: 24px 16px 22px;
-    border-radius: 22px;
-  }
-
-  .testimonials-premium-quote {
-    font-size: 2.5rem;
-  }
-
-  .testimonials-main-quote {
-    font-size: 0.92rem;
-  }
-
-  .testimonials-client-image-wrap {
-    width: 88px;
-    height: 88px;
-    min-width: 88px;
-  }
-}
-
-@media (max-width: 992px) {
-  .testimonials-card-grid {
-    grid-template-columns: 240px minmax(0, 1fr);
-    gap: 24px;
-  }
-
-  .testimonials-client-image-wrap {
-    width: 140px;
-    height: 140px;
-    min-width: 140px;
-  }
-
-  .testimonials-client-info h3 {
-    font-size: 1.45rem;
-  }
-
-  .testimonials-main-quote {
-    font-size: 0.98rem;
-    line-height: 1.82;
-  }
-}
-
-@media (max-width: 768px) {
-  .testimonials-luxury-card {
-    padding: 26px 18px;
-    border-radius: 24px;
-  }
-
-  .testimonials-card-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .testimonials-client-image-side {
-    padding: 18px 14px;
-    border-radius: 22px;
-  }
-
-  .testimonials-client-image-wrap {
-    width: 110px;
-    height: 110px;
-    min-width: 110px;
-    margin-bottom: 14px;
-  }
-
-  .testimonials-content-side {
-    text-align: left;
-  }
-
-  .testimonials-premium-quote {
-    font-size: 3.2rem;
-    margin-bottom: 8px;
-  }
-
-  .testimonials-main-quote {
-    font-size: 0.94rem;
-    line-height: 1.8;
-  }
-
-  .testimonials-dots-row {
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 480px) {
-  .testimonials-luxury-card {
-    padding: 22px 14px;
-  }
-
-  .testimonials-client-image-wrap {
-    width: 92px;
-    height: 92px;
-    min-width: 92px;
-  }
-
-  .testimonials-client-info h3 {
-    font-size: 1.22rem;
-  }
-
-  .testimonials-client-info p {
-    font-size: 0.88rem;
-  }
-
-  .testimonials-premium-quote {
-    font-size: 2.6rem;
-  }
-
-  .testimonials-main-quote {
-    font-size: 0.9rem;
-    line-height: 1.72;
-  }
-}
 
 /* =========================================================
    SCROLL ENTRY ANIMATIONS - PURE CSS
@@ -5229,75 +3964,6 @@ body {
     pointer-events: none;
   }
 
-  @media (max-width: 1100px) {
-    .sip-summary-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .sip-bottom-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .sip-luxury-section {
-      padding: 80px 14px 70px;
-    }
-
-    .sip-luxury-card {
-      padding: 20px;
-      border-radius: 24px;
-    }
-
-    .sip-form-grid {
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-
-    .sip-input-group {
-      grid-template-columns: 1fr;
-    }
-
-    .sip-calc-btn {
-      width: 100%;
-      min-width: unset;
-      height: 54px;
-      font-size: 0.82rem;
-      letter-spacing: 1.4px;
-    }
-
-    .sip-summary-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .sip-summary-card strong {
-      font-size: 1.16rem;
-    }
-
-    .sip-chart-card,
-    .sip-table-card {
-      padding: 18px;
-      border-radius: 22px;
-    }
-
-    .sip-bars-wrap {
-      min-height: auto;
-      gap: 18px;
-      padding: 10px 0 0;
-    }
-
-    .sip-bar-col {
-      width: 100%;
-    }
-
-    .sip-bar-track {
-      height: 180px;
-    }
-
-    .sip-table-wrap table {
-      min-width: 460px;
-    }
-  }
 
   /* inner content stagger type feel */
   .solutions-left,
@@ -5652,75 +4318,6 @@ body {
   }
 }
 
-/* =========================================================
-   MOBILE - animation thodi soft
-   ========================================================= */
-@media (max-width: 768px) {
-  @supports (animation-timeline: view()) {
-    .solutions-section,
-    .decision-section,
-    .vault-section,
-    .awards-showcase-section,
-    .core-values-section,
-    .testimonials-luxury-section,
-    .solutions-left,
-    .solutions-right,
-    .decision-top-row,
-    .decision-grid,
-    .vault-left-panel,
-    .vault-featured-card,
-    .vault-bottom-grid,
-    .awards-showcase-top,
-    .awards-year-work-section,
-    .awards-gallery-section,
-    .core-values-top,
-    .core-values-grid,
-    .testimonials-luxury-header,
-    .testimonials-luxury-card,
-    .decision-card,
-    .vault-article-card,
-    .core-value-card,
-    .awards-work-item,
-    .awards-gallery-card {
-      animation-range: entry 8% cover 32%;
-    }
-  }
-}
-
-/* reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .solutions-section,
-  .decision-section,
-  .vault-section,
-  .awards-showcase-section,
-  .core-values-section,
-  .testimonials-luxury-section,
-  .solutions-left,
-  .solutions-right,
-  .decision-top-row,
-  .decision-grid,
-  .vault-left-panel,
-  .vault-featured-card,
-  .vault-bottom-grid,
-  .awards-showcase-top,
-  .awards-year-work-section,
-  .awards-gallery-section,
-  .core-values-top,
-  .core-values-grid,
-  .testimonials-luxury-header,
-  .testimonials-luxury-card,
-  .decision-card,
-  .vault-article-card,
-  .core-value-card,
-  .awards-work-item,
-  .awards-gallery-card {
-    animation: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-    filter: none !important;
-  }
-}
-
 /* initial hidden state */
 .epm-animate {
   opacity: 0;
@@ -5960,36 +4557,879 @@ body {
   }
 }
 
+
+
+
+
+
 /* =========================================================
-   MOBILE
+   FULL HOMEPAGE RESPONSIVE MEDIA QUERIES
+   Remove old media queries and paste this at the END
 ========================================================= */
 
+/* ---------- LARGE LAPTOP ---------- */
+@media (max-width: 1280px) {
+  .epm-hero-wrap {
+    padding: 110px 24px 72px;
+  }
+
+  .epm-hero-shell {
+    max-width: 1200px;
+  }
+
+  .epm-hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 0.92fr);
+    gap: 28px;
+    margin-left: 0;
+  }
+
+  .epm-hero-content-left,
+  .epm-hero-title-left,
+  .epm-hero-desc-left,
+  .epm-hero-btn-wrap-left {
+    margin-left: 0;
+  }
+
+  .epm-hero-map-wrap {
+    max-width: 500px;
+    height: 600px;
+  }
+
+  .epm-hero-map-card {
+    max-height: 620px;
+  }
+
+  .epm-map-road {
+    min-height: 520px;
+  }
+
+  .epm-social-stick {
+    left: 12px;
+  }
+
+  .epm-stats-section.epm-overlap-panel,
+  .solutions-section.epm-overlap-panel,
+  .decision-section.epm-overlap-panel,
+  .vault-section.epm-overlap-panel,
+  .awards-showcase-section.epm-overlap-panel,
+  .core-values-section.epm-overlap-panel,
+  .testimonials-luxury-section.epm-overlap-panel {
+    margin-top: 60px;
+    border-radius: 28px 28px 0 0;
+  }
+}
+
+/* ---------- TABLET LANDSCAPE ---------- */
+@media (max-width: 1024px) {
+  .epm-hero-wrap {
+    position: relative;
+    min-height: auto;
+    padding: 105px 20px 64px;
+  }
+
+  .epm-hero-content {
+    animation: none;
+  }
+
+  .epm-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    align-items: start;
+    margin-left: 0;
+  }
+
+  .epm-hero-content-left {
+    order: 1;
+    text-align: center;
+    align-items: center;
+  }
+
+  .epm-hero-title-left {
+    align-items: center;
+    margin: 0 0 18px;
+  }
+
+  .epm-hero-title-left .epm-title-main,
+  .epm-hero-title-left .epm-title-sub,
+  .epm-hero-desc-left {
+    text-align: center;
+  }
+
+  .epm-hero-title-left .epm-title-sub.card {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 14px 18px;
+  }
+
+  .epm-typed-wrap,
+  .epm-typed-wrap-left,
+  .epm-hero-btn-wrap,
+  .epm-hero-btn-wrap-left {
+    justify-content: center;
+  }
+
+  .epm-typed-line {
+    margin-left: 0;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .epm-hero-desc,
+  .epm-hero-desc-left {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .epm-liquid-btn {
+    margin-left: 0;
+  }
+
+  .epm-hero-map-wrap {
+    order: 2;
+    max-width: 100%;
+    width: min(100%, 560px);
+    margin: 0 auto;
+    height: 620px;
+  }
+
+  .epm-hero-map-card {
+    max-height: none;
+    min-height: 620px;
+  }
+
+  .epm-map-road {
+    min-height: 560px;
+  }
+
+  .epm-map-point p {
+    white-space: normal;
+    max-width: 84px;
+  }
+
+  .epm-social-stick {
+    left: 10px;
+    gap: 10px;
+  }
+
+  .epm-social-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .epm-overlap-panel + .epm-overlap-panel {
+    margin-top: 0;
+  }
+
+  .epm-stats-section.epm-overlap-panel,
+  .solutions-section.epm-overlap-panel,
+  .decision-section.epm-overlap-panel,
+  .vault-section.epm-overlap-panel,
+  .awards-showcase-section.epm-overlap-panel,
+  .core-values-section.epm-overlap-panel,
+  .testimonials-luxury-section.epm-overlap-panel {
+    margin-top: 28px;
+    border-radius: 24px 24px 0 0;
+    box-shadow:
+      0 -10px 24px rgba(15, 23, 42, 0.04),
+      0 14px 28px rgba(15, 23, 42, 0.06);
+  }
+
+  .solutions-container,
+  .decision-container,
+  .vault-container,
+  .awards-showcase-container,
+  .core-values-container,
+  .testimonials-luxury-container,
+  .sip-luxury-container,
+  .epm-stats-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .solutions-section,
+  .decision-section,
+  .vault-section,
+  .awards-showcase-section,
+  .core-values-section,
+  .testimonials-luxury-section,
+  .sip-luxury-section,
+  .epm-stats-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .solutions-container,
+  .core-values-top,
+  .awards-showcase-top,
+  .awards-year-work-section {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  .decision-top-row {
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  .decision-grid,
+  .core-values-grid,
+  .vault-bottom-grid,
+  .sip-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px;
+  }
+
+  .testimonials-luxury-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .vault-main-grid,
+  .vault-content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 22px;
+  }
+
+  .awards-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ---------- TABLET / BIG MOBILE ---------- */
 @media (max-width: 768px) {
-  .epm-title-main,
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .epm-home-page {
+    overflow-x: hidden;
+  }
+
+  .epm-hero-wrap {
+    padding: 96px 16px 56px;
+    min-height: auto;
+    perspective: none;
+  }
+
+  .epm-hero-shell {
+    max-width: 100%;
+  }
+
+  .epm-hero-grid {
+    gap: 26px;
+  }
+
+  .epm-hero-pill {
+    width: 100%;
+    margin: 0 auto 18px;
+    justify-content: center;
+    padding: 12px 14px;
+    border-radius: 18px;
+  }
+
+  .epm-pill-text {
+    font-size: 0.72rem;
+    letter-spacing: 1.2px;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .epm-hero-kicker {
+    margin-bottom: 10px;
+    font-size: 0.74rem;
+    letter-spacing: 2.2px;
+    text-align: center;
+  }
+
+  .epm-title-main {
+    max-width: 100%;
+    font-size: clamp(2.2rem, 10vw, 3.5rem);
+    letter-spacing: -0.8px;
+    line-height: 1.02;
+    text-align: center;
+  }
+
+  .epm-title-sub {
+    font-size: clamp(1rem, 4.8vw, 1.25rem);
+    line-height: 1.45;
+  }
+
+  .epm-title-sub.card {
+    padding: 12px 14px;
+    border-radius: 0 18px 0 18px;
+  }
+
+  .epm-typed-wrap {
+    min-height: 38px;
+    margin: 10px 0 10px;
+  }
+
+  .epm-typed-line {
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
+  .epm-hero-desc {
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .epm-hero-btn-wrap {
+    margin-top: 22px;
+    margin-bottom: 18px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .epm-liquid-btn {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: 52px;
+    padding: 0 18px;
+    font-size: 0.76rem;
+    letter-spacing: 1px;
+    border-radius: 22px 0 22px;
+  }
+
+  .epm-scroll-indicator {
+    margin-top: 20px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .epm-scroll-text {
+    font-size: 0.72rem;
+    letter-spacing: 1.2px;
+  }
+
+  .epm-social-stick {
+    position: fixed;
+    left: 50%;
+    bottom: 12px;
+    top: auto;
+    transform: translateX(-50%);
+    flex-direction: row;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 12px 24px rgba(18, 28, 45, 0.12);
+  }
+
+  .epm-social-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  .epm-hero-map-wrap {
+    width: 100%;
+    height: 520px;
+  }
+
+  .epm-hero-map-card {
+    min-height: 520px;
+    padding: 14px;
+    border-radius: 24px;
+  }
+
+  .epm-hero-map-card::before {
+    inset: 10px;
+    border-radius: 18px;
+  }
+
+  .epm-map-road {
+    min-height: 470px;
+  }
+
+  .epm-goal-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    font-size: 1rem;
+  }
+
+  .epm-map-point {
+    gap: 6px;
+  }
+
+  .epm-map-point p {
+    font-size: 0.68rem;
+    line-height: 1.2;
+    max-width: 74px;
+    white-space: normal;
+  }
+
+  .epm-road-traveler,
+  .epm-map-retired,
+  .epm-map-traveler {
+    font-size: 1.5rem;
+  }
+
+  .epm-flag {
+    width: 12px;
+    height: 9px;
+  }
+
+  .solutions-section,
+  .decision-section,
+  .vault-section,
+  .awards-showcase-section,
+  .core-values-section,
+  .testimonials-luxury-section,
+  .sip-luxury-section,
+  .epm-stats-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .solutions-section,
+  .decision-section,
+  .vault-section,
+  .awards-showcase-section,
+  .core-values-section,
+  .testimonials-luxury-section,
+  .sip-luxury-section {
+    padding-top: 68px;
+    padding-bottom: 64px;
+  }
+
+  .epm-stats-section.epm-overlap-panel,
+  .solutions-section.epm-overlap-panel,
+  .decision-section.epm-overlap-panel,
+  .vault-section.epm-overlap-panel,
+  .awards-showcase-section.epm-overlap-panel,
+  .core-values-section.epm-overlap-panel,
+  .testimonials-luxury-section.epm-overlap-panel {
+    margin-top: 18px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .solutions-left,
+  .solutions-right,
+  .decision-heading-wrap,
+  .decision-intro,
+  .vault-left-panel,
+  .vault-featured-card,
+  .awards-showcase-top,
+  .awards-year-work-section,
+  .awards-gallery-section,
+  .core-values-top,
+  .testimonials-luxury-header,
+  .testimonials-luxury-card {
+    width: 100%;
+  }
+
   .solutions-left h2,
   .decision-heading,
   .vault-heading,
   .awards-main-heading,
-  .core-values-heading {
-    background-size: 180% auto;
-    animation-duration: 7s;
+  .core-values-heading,
+  .testimonials-luxury-header h2,
+  .sip-luxury-heading {
+    font-size: clamp(1.7rem, 6vw, 2.2rem) !important;
+    line-height: 1.2;
+    text-align: center;
   }
 
-  .epm-title-main::after,
-  .solutions-left h2::after,
-  .decision-heading::after,
-  .vault-heading::after,
-  .awards-main-heading::after,
-  .core-values-heading::after {
-    width: 14%;
-    opacity: 0.6;
+  .solutions-left,
+  .solutions-right,
+  .decision-heading-wrap,
+  .decision-intro,
+  .vault-left-panel,
+  .awards-showcase-top,
+  .core-values-top,
+  .testimonials-luxury-header {
+    text-align: center;
   }
 
-  .core-values-section::after,
-  .solutions-section::after,
-  .decision-section::after,
-  .vault-section::after,
-  .awards-showcase-section::after {
-    opacity: 0.26;
+  .solutions-link,
+  .vault-link,
+  .awards-link,
+  .testimonials-link,
+  .sip-luxury-link {
+    justify-content: center;
+  }
+
+  .decision-grid,
+  .core-values-grid,
+  .vault-bottom-grid,
+  .sip-summary-grid,
+  .awards-gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .decision-card,
+  .core-value-card,
+  .vault-article-card,
+  .awards-gallery-card,
+  .sip-summary-card {
+    min-height: unset;
+  }
+
+  .vault-featured-card,
+  .vault-article-card,
+  .decision-card,
+  .core-value-card,
+  .awards-gallery-card,
+  .testimonials-luxury-card,
+  .sip-chart-card,
+  .sip-table-card,
+  .sip-luxury-card {
+    border-radius: 20px;
+  }
+
+  .vault-featured-card img,
+  .vault-article-card img,
+  .core-value-card img,
+  .awards-gallery-card img,
+  .testimonials-client-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .testimonials-luxury-card {
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .testimonials-quote-text,
+  .testimonials-client-role,
+  .testimonials-client-name {
+    text-align: center;
+  }
+
+  .testimonials-client-row {
+    justify-content: center;
+  }
+
+  .sip-luxury-section {
+    padding: 70px 16px 64px;
+  }
+
+  .sip-luxury-card {
+    padding: 18px;
+  }
+
+  .sip-form-grid,
+  .sip-input-group {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .sip-calc-btn,
+  .sip-reset-btn {
+    width: 100%;
+    min-width: 0;
+    height: 52px;
+  }
+
+  .sip-chart-card,
+  .sip-table-card {
+    padding: 16px;
+  }
+
+  .sip-bars-wrap {
+    min-height: auto;
+    gap: 16px;
+  }
+
+  .sip-bar-track {
+    height: 180px;
+  }
+
+  .sip-table-wrap {
+    overflow-x: auto;
+  }
+
+  .sip-table-wrap table {
+    min-width: 480px;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 576px) {
+  .epm-hero-wrap {
+    padding: 88px 14px 54px;
+  }
+
+  .epm-title-main {
+    font-size: 2rem;
+  }
+
+  .epm-title-sub {
+    font-size: 0.98rem;
+  }
+
+  .epm-typed-line {
+    font-size: 0.88rem;
+  }
+
+  .epm-hero-desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .epm-liquid-btn {
+    height: 50px;
+    font-size: 0.7rem;
+    letter-spacing: 0.9px;
+  }
+
+  .epm-hero-map-wrap {
+    height: 440px;
+  }
+
+  .epm-hero-map-card {
+    min-height: 440px;
+    padding: 12px;
+    border-radius: 20px;
+  }
+
+  .epm-hero-map-card::before {
+    inset: 8px;
+    border-radius: 14px;
+  }
+
+  .epm-map-road {
+    min-height: 395px;
+  }
+
+  .epm-goal-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    font-size: 0.82rem;
+  }
+
+  .epm-map-point p {
+    font-size: 0.58rem;
+    max-width: 58px;
+  }
+
+  .point-credit { left: 12%; bottom: 8%; }
+  .point-invest { left: 16%; bottom: 34%; }
+  .point-vehicle { left: 20%; bottom: 15%; }
+  .point-married { left: 51%; bottom: 22%; }
+  .point-loan { left: 54%; bottom: 33%; }
+  .point-house { left: 38%; top: 26%; }
+  .point-medical { left: 49%; top: 26%; }
+  .point-kids { left: 43%; top: 5%; }
+  .point-life { left: 66%; top: 3%; }
+  .point-estate { left: 76%; top: 11%; }
+  .point-retire { right: 2%; top: 25%; }
+
+  .solutions-section,
+  .decision-section,
+  .vault-section,
+  .awards-showcase-section,
+  .core-values-section,
+  .testimonials-luxury-section,
+  .sip-luxury-section,
+  .epm-stats-section {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .solutions-section,
+  .decision-section,
+  .vault-section,
+  .awards-showcase-section,
+  .core-values-section,
+  .testimonials-luxury-section,
+  .sip-luxury-section {
+    padding-top: 58px;
+    padding-bottom: 56px;
+  }
+
+  .solutions-left h2,
+  .decision-heading,
+  .vault-heading,
+  .awards-main-heading,
+  .core-values-heading,
+  .testimonials-luxury-header h2,
+  .sip-luxury-heading {
+    font-size: 1.5rem !important;
+  }
+
+  .solutions-right p,
+  .decision-intro p,
+  .vault-left-panel p,
+  .awards-main-copy,
+  .core-values-copy,
+  .testimonials-mini-copy,
+  .sip-luxury-copy {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .decision-card,
+  .core-value-card,
+  .vault-article-card,
+  .awards-gallery-card,
+  .sip-summary-card,
+  .testimonials-luxury-card {
+    padding: 14px;
+  }
+
+  .decision-card h3,
+  .core-value-card h3,
+  .vault-article-card h3,
+  .awards-work-item h4 {
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .decision-card p,
+  .core-value-card p,
+  .vault-article-card p,
+  .awards-work-item p,
+  .testimonials-quote-text {
+    font-size: 0.84rem;
+    line-height: 1.6;
+  }
+
+  .epm-social-stick {
+    bottom: 10px;
+    gap: 6px;
+    padding: 7px 8px;
+  }
+
+  .epm-social-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+
+  .sip-calc-btn,
+  .sip-reset-btn {
+    font-size: 0.76rem;
+    letter-spacing: 1px;
+  }
+
+  .sip-summary-card strong {
+    font-size: 1.05rem;
+  }
+
+  .sip-bar-track {
+    height: 150px;
+  }
+}
+
+/* ---------- SMALL MOBILE ---------- */
+@media (max-width: 420px) {
+  .epm-hero-wrap {
+    padding: 84px 12px 52px;
+  }
+
+  .epm-title-main {
+    font-size: 1.82rem;
+  }
+
+  .epm-title-sub {
+    font-size: 0.92rem;
+  }
+
+  .epm-typed-line {
+    font-size: 0.82rem;
+  }
+
+  .epm-hero-desc {
+    font-size: 0.84rem;
+  }
+
+  .epm-liquid-btn {
+    height: 48px;
+    padding: 0 14px;
+    font-size: 0.66rem;
+  }
+
+  .epm-hero-map-wrap {
+    height: 390px;
+  }
+
+  .epm-hero-map-card {
+    min-height: 390px;
+  }
+
+  .epm-map-road {
+    min-height: 345px;
+  }
+
+  .epm-goal-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 0.74rem;
+  }
+
+  .epm-map-point p {
+    font-size: 0.52rem;
+    max-width: 48px;
+  }
+
+  .solutions-left h2,
+  .decision-heading,
+  .vault-heading,
+  .awards-main-heading,
+  .core-values-heading,
+  .testimonials-luxury-header h2,
+  .sip-luxury-heading {
+    font-size: 1.34rem !important;
+  }
+
+  .solutions-right p,
+  .decision-intro p,
+  .vault-left-panel p,
+  .awards-main-copy,
+  .core-values-copy,
+  .testimonials-mini-copy,
+  .sip-luxury-copy,
+  .decision-card p,
+  .core-value-card p,
+  .vault-article-card p,
+  .awards-work-item p,
+  .testimonials-quote-text {
+    font-size: 0.8rem;
+    line-height: 1.58;
+  }
+
+  .decision-card,
+  .core-value-card,
+  .vault-article-card,
+  .awards-gallery-card,
+  .sip-summary-card,
+  .testimonials-luxury-card,
+  .sip-chart-card,
+  .sip-table-card,
+  .sip-luxury-card {
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .epm-social-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .sip-chart-card,
+  .sip-table-card {
+    padding: 12px;
+  }
+
+  .sip-bar-track {
+    height: 130px;
+  }
+
+  .sip-table-wrap table {
+    min-width: 420px;
   }
 }
