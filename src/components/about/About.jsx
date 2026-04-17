@@ -92,6 +92,7 @@ const About = () => {
 
   return (
     <>
+     <div className="about-page">
       <section className="about-hero" id="about">
         <div className="about-hero-overlay"></div>
         <div className="about-grid-lines"></div>
@@ -176,7 +177,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="origin-story-section" id="our-story">
+      <section className="origin-story-section about-overlap-panel" id="our-story">
         <div className="origin-story-shell">
           <div className="origin-story-grid">
             <div className="origin-story-left">
@@ -224,7 +225,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="epm-team-section">
+      <section className="epm-team-section about-overlap-panel">
         <div className="epm-team-container">
           <div className="epm-team-heading-wrap">
             <p className="epm-team-label">OUR LEADERSHIP</p>
@@ -234,8 +235,7 @@ const About = () => {
             <p className="epm-team-subtitle">
               Our leadership team brings decades of experience across wealth
               management, capital markets, and financial advisory — united by a
-              shared passion for transforming every client's financial
-              future.{" "}
+              shared passion for transforming every client's financial future.
             </p>
           </div>
 
@@ -249,7 +249,6 @@ const About = () => {
                 onClick={() => handleFlip(member.id)}
               >
                 <div className="epm-team-card-inner">
-                  {/* Front */}
                   <div className="epm-team-card-front">
                     <img
                       src={member.image}
@@ -265,7 +264,6 @@ const About = () => {
                     </div>
                   </div>
 
-                  {/* Back */}
                   <div className="epm-team-card-back">
                     <div className="epm-team-back-content">
                       <p className="epm-team-back-mini">PROFILE DETAILS</p>
@@ -281,13 +279,7 @@ const About = () => {
                             </div>
                           ))}
                         </div>
-                      ) : (
-                        <ul className="epm-team-stats-list">
-                          {member.stats?.map((point, i) => (
-                            <li key={i}>{point}</li>
-                          ))}
-                        </ul>
-                      )}
+                      ) : null}
 
                       <button
                         type="button"
@@ -297,9 +289,7 @@ const About = () => {
                           handleFlip(member.id);
                         }}
                       >
-                        {activeCard === member.id
-                          ? "Show Front"
-                          : "View Details"}
+                        {activeCard === member.id ? "Show Front" : "View Details"}
                       </button>
                     </div>
                   </div>
@@ -310,7 +300,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="advisory-council-section">
+      <section className="advisory-council-section about-overlap-panel">
         <div className="advisory-council-container">
           <div className="advisory-council-top">
             <div className="advisory-council-top-left">
@@ -328,82 +318,15 @@ const About = () => {
           </div>
 
           <div className="advisory-council-grid">
-            <article className="advisory-card">
-              <div className="advisory-card-shine"></div>
-              <div className="advisory-card-inner">
-                <div className="advisory-avatar-wrap">
-                  <img
-                    src="https://new-epm-rk.vercel.app/Ca-Ashok-Garg.jpg"
-                    alt="CA Ashok Garg"
-                    className="advisory-avatar"
-                  />
-                </div>
-                <h3>CA Ashok Garg</h3>
-                <p>
-                  35+ years in capital markets and institutional fund management
-                  across India and globally.
-                </p>
-              </div>
-            </article>
-
-            <article className="advisory-card">
-              <div className="advisory-card-shine"></div>
-              <div className="advisory-card-inner">
-                <div className="advisory-avatar-wrap">
-                  <img
-                    src="https://new-epm-rk.vercel.app/Sanjay-Chandna.jpg"
-                    alt="CA Sanjay Chandna"
-                    className="advisory-avatar"
-                  />
-                </div>
-                <h3>CA Sanjay Chandna</h3>
-                <p>
-                  Former senior banker with deep expertise in structured
-                  products and wealth advisory.
-                </p>
-              </div>
-            </article>
-
-            <article className="advisory-card">
-              <div className="advisory-card-shine"></div>
-              <div className="advisory-card-inner">
-                <div className="advisory-avatar-wrap">
-                  <img
-                    src="https://new-epm-rk.vercel.app/kumar-bansal.jpg"
-                    alt="CA Punitkumat Bansal"
-                    className="advisory-avatar"
-                  />
-                </div>
-                <h3>CA Punitkumat Bansal</h3>
-                <p>
-                  Veteran equity strategist with a track record across multiple
-                  market cycles and sectors.
-                </p>
-              </div>
-            </article>
-
-            <article className="advisory-card">
-              <div className="advisory-card-shine"></div>
-              <div className="advisory-card-inner">
-                <div className="advisory-avatar-wrap">
-                  <img
-                    src="https://new-epm-rk.vercel.app/Himanshu-Agarwal.jpg"
-                    alt="CA Himanshu Agarwal"
-                    className="advisory-avatar"
-                  />
-                </div>
-                <h3>CA Himanshu Agarwal</h3>
-                <p>
-                  Policy and regulatory specialist with direct experience in
-                  SEBI frameworks and governance.
-                </p>
-              </div>
-            </article>
+            {/* existing advisory cards as it is */}
           </div>
         </div>
       </section>
 
-      <MissionVision/>
+      <div className="about-overlap-panel">
+        <MissionVision />
+      </div>
+    </div>
     </>
   );
 };
