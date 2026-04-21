@@ -13,7 +13,7 @@
   align-items: center;
   z-index: 1;
   background:
-    radial-gradient(circle at 20% 20%, rgba(214, 170, 94, 0.08), transparent 26%),
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 26%),
     radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.04), transparent 24%),
     linear-gradient(90deg, #081632 0%, #0c1f49 35%, #10265a 55%, #0c1f49 75%, #081632 100%);
   padding: 130px 70px 90px 110px;
@@ -54,7 +54,7 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(183, 122, 69, 0.95) 50%,
+    rgba(255, 255, 255, 0.95) 50%,
     transparent 100%
   );
   z-index: 2;

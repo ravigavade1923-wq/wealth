@@ -131,8 +131,8 @@ const WealthCreation = () => {
             <p className="wc-hero-description">
               True wealth isn&apos;t built overnight — it&apos;s built with
               discipline, diversification, and the right guidance. Let EPM
-              Wealth&apos;s SEBI-registered advisors craft a wealth creation
-              strategy tailored precisely to your life goals.
+              Wealth&apos;s  craft a wealth creation
+              strategy tailored precisely to your goals.
             </p>
 
             <div className="wc-hero-buttons">
