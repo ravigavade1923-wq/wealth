@@ -12,20 +12,14 @@ import {
   FaPlus,
 } from "react-icons/fa";
 
-const officeRows = [
-  ["Mumbai", "Noida"],
-  ["Bengaluru", "Chennai"],
-  ["Pune", "Kolkata"],
-  ["Gujarat", "Lucknow"],
-  ["Kanpur", "Gurugram"],
-];
+
 
 const topicOptions = [
-  "Personal Wealth Advisory (€5 Cr to ₹100 Cr)",
-  "Family Office Advisory (€100 Cr & Above)",
-  "HERitage — Wealth Advisory For Women (€5 Cr & Above)",
-  "Founders Circle (€5 Cr & Above)",
-  "Fund of Funds (€1 Cr & Above)",
+  "Personal Wealth Advisory",
+  "Family Office Advisory ",
+  "HERitage — Wealth Advisory For Women ",
+  "Founders Circle",
+  "Fund of Funds ",
 ];
 
 const discoverOptions = [
@@ -125,24 +119,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="legacy-offices-block">
-              <h3>OFFICES</h3>
-
-              <div className="legacy-offices-list">
-                {officeRows.map((row, index) => (
-                  <div className="legacy-office-row" key={index}>
-                    <div className="legacy-office-item">
-                      <span>{row[0]}</span>
-                      <FaPlus />
-                    </div>
-                    <div className="legacy-office-item">
-                      <span>{row[1]}</span>
-                      <FaPlus />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+      
 
             <div className="legacy-follow-block">
               <h3>FOLLOW US</h3>

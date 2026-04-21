@@ -156,15 +156,25 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-          <Link
-            to="/financial-literacy"
-            onClick={closeMenu}
-            className={
-              location.pathname === "/financial-literacy" ? "active" : ""
-            }
-          >
-            Financial Literacy
-          </Link>
+
+          
+          <div className="mobile-dropdown">
+            <div
+              className="mobile-dropdown-title"
+              onClick={() => setSolutionsOpen((prev) => !prev)}
+            >
+              Financial Literacy
+              <span className={`dropdown-arrow ${solutionsOpen ? "open" : ""}`}>
+                ▾
+              </span>
+            </div>
+
+            <div className={`mobile-submenu ${solutionsOpen ? "open" : ""}`}>
+              <Link to="/financialliteracy/seminar-webinar" onClick={closeMenu}>
+                Seminar & Webinar
+              </Link>
+            </div>
+          </div>
 
           <Link
             to="/entrepreneurial-initiative"

@@ -391,7 +391,7 @@
   font-family: "Manrope", "Inter", sans-serif;
   font-size: 0.82rem;
   line-height: 1.4;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.26rem;
   text-transform: uppercase;
 }
@@ -405,7 +405,7 @@
   color: #6f583f;
   text-decoration: none;
   font-family: "Cormorant Garamond", "Georgia", serif;
-  font-size: 1.08rem;
+  font-size: 1.10rem;
   line-height: 1.5;
   font-weight: 600;
   transition:
@@ -445,7 +445,7 @@
   margin: 0 0 12px;
   color: #7a6247;
   font-family: "Manrope", "Inter", sans-serif;
-  font-size: 0.96rem;
+  font-size: 0.76rem;
   line-height: 1.85;
   font-weight: 500;
   transition:

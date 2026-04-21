@@ -35,8 +35,10 @@ import featuresImg from "../../assets/feature/features.png";
 import featureImg from "../../assets/feature/feature.png";
 import featuressImg from "../../assets/feature/featuress.png";
 
-
 import articleImg from "../../assets/home/article.jpeg";
+
+// import heroBgVideo from "../../assets/home/hero-bg.mp4";
+// import heroCenterImg from "../../assets/home/article.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,8 +60,7 @@ const features = [
   },
   {
     id: 3,
-    bgImage:
-         featuressImg,
+    bgImage: featuressImg,
     title: "Transparent And Client Centric",
     description: "Track where and how your money is invested at all times",
     meta: "CLIENT-FIRST APPROACH",
@@ -80,8 +81,7 @@ const articles = [
     meta: "CIO'S DESK · 03 MARCH 2026",
     title: "Exclusive insights for enduring wealth",
     desc: "At EPM Wealth, we deliver refined strategies and deep market intelligence tailored for individuals who seek more than just returns — they seek legacy.",
-    image:
-      articleImg,
+    image: articleImg,
     featured: true,
   },
   {
@@ -130,7 +130,6 @@ const awardsData = [
     badge: "🏅",
     subtitle:
       "Our journey began with a strong advisory foundation built on trust, consistency, and personalized wealth planning.",
-   
   },
   {
     year: "2017",
@@ -139,7 +138,6 @@ const awardsData = [
     badge: "🥇",
     subtitle:
       "We strengthened our advisory framework and began scaling a more disciplined and refined client experience.",
-   
   },
   {
     year: "2018",
@@ -148,7 +146,6 @@ const awardsData = [
     badge: "🏆",
     subtitle:
       "This phase reflected our growing focus on structured wealth strategies and high-quality investment planning.",
-  
   },
   {
     year: "2019",
@@ -157,7 +154,6 @@ const awardsData = [
     badge: "🎗️",
     subtitle:
       "A landmark year where our investment planning philosophy gained stronger recognition and credibility.",
-    
   },
   {
     year: "2020",
@@ -166,7 +162,6 @@ const awardsData = [
     badge: "⭐",
     subtitle:
       "We adapted with resilience and strengthened our leadership in wealth management through stability and service quality.",
-   
   },
   {
     year: "2021",
@@ -175,7 +170,6 @@ const awardsData = [
     badge: "🏅",
     subtitle:
       "This year reflected stronger brand credibility, deeper relationships, and a more mature planning ecosystem.",
-    
   },
   {
     year: "2022",
@@ -184,7 +178,6 @@ const awardsData = [
     badge: "🥇",
     subtitle:
       "A year of high-impact execution where our planning quality and service depth stood out meaningfully.",
-   
   },
   {
     year: "2023",
@@ -193,7 +186,6 @@ const awardsData = [
     badge: "🏆",
     subtitle:
       "We continued to elevate our premium positioning with stronger planning quality and trusted execution.",
-  
   },
   {
     year: "2024",
@@ -202,7 +194,6 @@ const awardsData = [
     badge: "💎",
     subtitle:
       "This phase reflected operational refinement, stronger outcomes, and a more elevated advisory presence.",
-   
   },
   {
     year: "2025",
@@ -211,7 +202,6 @@ const awardsData = [
     badge: "🥇",
     subtitle:
       "A year focused on expansion, operational strength, and the continued pursuit of measurable excellence.",
-   
   },
   {
     year: "2026",
@@ -220,7 +210,6 @@ const awardsData = [
     badge: "🏆",
     subtitle:
       "A defining milestone showcasing the firm’s sustained excellence, trusted leadership, and premium advisory impact.",
-    
   },
 ];
 
@@ -401,6 +390,13 @@ const Home = () => {
     "Meeting Your Goals.",
   ];
 
+  const heroVideoRef = useRef(null);
+  const heroOverlayCardRef = useRef(null);
+  const heroBadgeRef = useRef(null);
+  const heroStatsRowRef = useRef(null);
+  const heroOrbitRef = useRef(null);
+  const heroTimelineRef = useRef(null);
+
   const homeRef = useRef(null);
   const heroWrapRef = useRef(null);
   const heroVisualRef = useRef(null);
@@ -443,6 +439,219 @@ const Home = () => {
   const activeData =
     awardsData.find((item) => item.year === activeYear) || awardsData[0];
 
+ useEffect(() => {
+  if (!homeRef.current || !heroWrapRef.current) return;
+
+  const mm = gsap.matchMedia();
+
+  const ctx = gsap.context(() => {
+    ScrollTrigger.getAll().forEach((st) => {
+      if (st.vars.trigger === heroWrapRef.current) st.kill();
+    });
+
+    gsap.set(
+      [
+        heroBadgeRef.current,
+        heroTitleRef.current,
+        heroCopyRef.current,
+        heroStatsRowRef.current,
+        heroOverlayCardRef.current,
+        heroOrbitRef.current,
+        ".epm-social-btn",
+        ".epm-hero-bottom-strip",
+        ".epm-hero-floating-card",
+        ".epm-hero-mini-chip",
+      ].filter(Boolean),
+      { opacity: 0, y: 30 }
+    );
+
+    const tl = gsap.timeline({
+      defaults: { ease: "power3.out" },
+    });
+
+    tl.fromTo(
+      heroVideoRef.current,
+      { scale: 1.12, opacity: 0.15 },
+      { scale: 1.02, opacity: 1, duration: 1.4 }
+    )
+      .to(heroBadgeRef.current, { opacity: 1, y: 0, duration: 0.55 }, "-=0.9")
+      .to(heroTitleRef.current, { opacity: 1, y: 0, duration: 0.85 }, "-=0.25")
+      .to(heroCopyRef.current, { opacity: 1, y: 0, duration: 0.75 }, "-=0.45")
+      .to(heroStatsRowRef.current, { opacity: 1, y: 0, duration: 0.75 }, "-=0.45")
+      .to(heroOrbitRef.current, { opacity: 1, y: 0, x: 0, scale: 1, duration: 1 }, "-=0.6")
+      .to(heroOverlayCardRef.current, { opacity: 1, y: 0, duration: 0.7 }, "-=0.6")
+      .to(".epm-social-btn", { opacity: 1, y: 0, stagger: 0.08, duration: 0.45 }, "-=0.75")
+      .to(".epm-hero-bottom-strip", { opacity: 1, y: 0, duration: 0.6 }, "-=0.45")
+      .to(".epm-hero-floating-card", { opacity: 1, y: 0, stagger: 0.12, duration: 0.65 }, "-=0.55");
+
+    const heroScrollTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: heroWrapRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: 1.4,
+      },
+    });
+
+    heroScrollTl
+      .to(
+        heroContentRef.current,
+        {
+          scale: 0.87,
+          yPercent: -8,
+          transformOrigin: "50% 50%",
+          ease: "none",
+        },
+        0
+      )
+      .to(
+        heroVideoRef.current,
+        {
+          scale: 0.94,
+          yPercent: 6,
+          opacity: 0.88,
+          ease: "none",
+        },
+        0
+      )
+      .to(
+        heroTitleRef.current,
+        {
+          yPercent: -22,
+          opacity: 0.92,
+          ease: "none",
+        },
+        0
+      )
+      .to(
+        heroCopyRef.current,
+        {
+          yPercent: -14,
+          opacity: 0.78,
+          ease: "none",
+        },
+        0
+      )
+      .to(
+        heroStatsRowRef.current,
+        {
+          yPercent: -10,
+          opacity: 0.72,
+          ease: "none",
+        },
+        0
+      )
+      .to(
+        heroOrbitRef.current,
+        {
+          scale: 0.9,
+          yPercent: -10,
+          rotate: -4,
+          opacity: 0.82,
+          ease: "none",
+        },
+        0
+      )
+      .to(
+        heroOverlayCardRef.current,
+        {
+          yPercent: -12,
+          scale: 0.94,
+          opacity: 0.7,
+          ease: "none",
+        },
+        0
+      )
+      .to(
+        ".epm-hero-gradient-orb",
+        {
+          scale: 0.9,
+          yPercent: -18,
+          opacity: 0.55,
+          stagger: 0.02,
+          ease: "none",
+        },
+        0
+      )
+      .to(
+        ".epm-hero-bottom-strip",
+        {
+          yPercent: -8,
+          opacity: 0.6,
+          ease: "none",
+        },
+        0
+      );
+
+    gsap.utils.toArray(".epm-hero-floating-card").forEach((card, index) => {
+      gsap.to(card, {
+        y: index % 2 === 0 ? -16 : 16,
+        repeat: -1,
+        yoyo: true,
+        duration: 3.5 + index * 0.35,
+        ease: "sine.inOut",
+      });
+    });
+  }, homeRef);
+
+  return () => {
+    mm.revert();
+    ctx.revert();
+  };
+}, []);
+
+  useEffect(() => {
+    const wrap = heroWrapRef.current;
+    const content = heroContentRef.current;
+    if (!wrap || !content || window.innerWidth <= 991) return;
+
+    const rotateXTo = gsap.quickTo(content, "rotationX", {
+      duration: 0.55,
+      ease: "power3.out",
+    });
+
+    const rotateYTo = gsap.quickTo(content, "rotationY", {
+      duration: 0.55,
+      ease: "power3.out",
+    });
+
+    const xTo = gsap.quickTo(content, "x", {
+      duration: 0.55,
+      ease: "power3.out",
+    });
+
+    const yTo = gsap.quickTo(content, "y", {
+      duration: 0.55,
+      ease: "power3.out",
+    });
+
+    const handleMove = (e) => {
+      const rect = wrap.getBoundingClientRect();
+      const relX = (e.clientX - rect.left) / rect.width - 0.5;
+      const relY = (e.clientY - rect.top) / rect.height - 0.5;
+
+      rotateYTo(relX * 10);
+      rotateXTo(relY * -8);
+      xTo(relX * 10);
+      yTo(relY * 8);
+    };
+
+    const reset = () => {
+      rotateXTo(0);
+      rotateYTo(0);
+      xTo(0);
+      yTo(0);
+    };
+
+    wrap.addEventListener("mousemove", handleMove);
+    wrap.addEventListener("mouseleave", reset);
+
+    return () => {
+      wrap.removeEventListener("mousemove", handleMove);
+      wrap.removeEventListener("mouseleave", reset);
+    };
+  }, []);
+
   useEffect(() => {
     const currentLine = heroLines[lineIndex];
     let timeout;
@@ -470,132 +679,173 @@ const Home = () => {
   }, [charIndex, isDeleting, lineIndex, heroLines]);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      const wrap = heroWrapRef.current;
-      const content = heroContentRef.current;
-      if (!wrap || !content) return;
+    if (!homeRef.current || !heroWrapRef.current) return;
 
-      const rect = wrap.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const rotateY = (x / rect.width - 0.5) * 10;
-      const rotateX = (y / rect.height - 0.5) * -8;
-
-      content.style.transform = `
-        translate3d(0, 0, 0)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-      `;
-    };
-
-    const resetTransform = () => {
-      const content = heroContentRef.current;
-      if (!content) return;
-      content.style.transform =
-        "translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg)";
-    };
-
-    const wrap = heroWrapRef.current;
-    if (!wrap) return;
-
-    wrap.addEventListener("mousemove", handleMouseMove);
-    wrap.addEventListener("mouseleave", resetTransform);
-
-    return () => {
-      wrap.removeEventListener("mousemove", handleMouseMove);
-      wrap.removeEventListener("mouseleave", resetTransform);
-    };
-  }, []);
-
-  useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        heroCopyRef.current,
-        { opacity: 0, y: 70 },
-        { opacity: 1, y: 0, duration: 1.05, ease: "power3.out" },
+      gsap.set(
+        [
+          heroBadgeRef.current,
+          heroTitleRef.current,
+          heroCopyRef.current,
+          heroStatsRowRef.current,
+          heroOverlayCardRef.current,
+          heroOrbitRef.current,
+          ".epm-social-btn",
+          ".epm-hero-bottom-strip",
+          ".epm-hero-floating-card",
+          ".epm-hero-mini-chip",
+        ].filter(Boolean),
+        { opacity: 0, y: 30 },
       );
 
-      gsap.to(heroTitleRef.current, {
-        yPercent: -12,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroWrapRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
-        },
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.out" },
+      });
+
+      tl.fromTo(
+        heroVideoRef.current,
+        { scale: 1.18, opacity: 0.15 },
+        { scale: 1.02, opacity: 1, duration: 1.4 },
+      )
+        .to(heroBadgeRef.current, { opacity: 1, y: 0, duration: 0.55 }, "-=0.9")
+        .to(
+          heroTitleRef.current,
+          { opacity: 1, y: 0, duration: 0.85 },
+          "-=0.25",
+        )
+        .to(heroCopyRef.current, { opacity: 1, y: 0, duration: 0.75 }, "-=0.45")
+        .to(
+          heroStatsRowRef.current,
+          { opacity: 1, y: 0, duration: 0.75 },
+          "-=0.45",
+        )
+        .to(
+          heroOrbitRef.current,
+          { opacity: 1, y: 0, duration: 1, x: 0, scale: 1 },
+          "-=0.65",
+        )
+        .to(
+          heroOverlayCardRef.current,
+          { opacity: 1, y: 0, duration: 0.7 },
+          "-=0.6",
+        )
+        .to(
+          ".epm-social-btn",
+          { opacity: 1, y: 0, stagger: 0.08, duration: 0.45 },
+          "-=0.75",
+        )
+        .to(
+          ".epm-hero-bottom-strip",
+          { opacity: 1, y: 0, duration: 0.6 },
+          "-=0.45",
+        )
+        .to(
+          ".epm-hero-floating-card",
+          { opacity: 1, y: 0, stagger: 0.12, duration: 0.65 },
+          "-=0.55",
+        );
+
+      if (heroVideoRef.current) {
+        gsap.to(heroVideoRef.current, {
+          yPercent: 12,
+          scale: 1.12,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroWrapRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.2,
+          },
+        });
+      }
+
+      if (heroTitleRef.current) {
+        gsap.to(heroTitleRef.current, {
+          yPercent: -18,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroWrapRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+          },
+        });
+      }
+
+      if (heroCopyRef.current) {
+        gsap.to(heroCopyRef.current, {
+          yPercent: -10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroWrapRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.1,
+          },
+        });
+      }
+
+      if (heroOrbitRef.current) {
+        gsap.fromTo(
+          heroOrbitRef.current,
+          { x: 60, scale: 0.92 },
+          {
+            x: 0,
+            scale: 1,
+            ease: "power3.out",
+            duration: 1.2,
+          },
+        );
+
+        gsap.to(heroOrbitRef.current, {
+          yPercent: -8,
+          rotate: 2,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroWrapRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.25,
+          },
+        });
+      }
+
+      gsap.utils.toArray(".epm-hero-gradient-orb").forEach((orb, index) => {
+        gsap.to(orb, {
+          y: index % 2 === 0 ? -50 : 50,
+          x: index % 2 === 0 ? 22 : -22,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroWrapRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.4 + index * 0.2,
+          },
+        });
+      });
+
+      gsap.utils.toArray(".epm-hero-floating-card").forEach((card, index) => {
+        gsap.to(card, {
+          y: index % 2 === 0 ? -16 : 16,
+          repeat: -1,
+          yoyo: true,
+          duration: 3.5 + index * 0.35,
+          ease: "sine.inOut",
+        });
       });
 
       gsap.utils.toArray(".epm-reveal-section").forEach((section) => {
         gsap.fromTo(
           section,
-          { opacity: 0, y: 80 },
+          { opacity: 0, y: 70 },
           {
             opacity: 1,
             y: 0,
-            duration: 1,
+            duration: 0.95,
             ease: "power3.out",
             scrollTrigger: {
               trigger: section,
-              start: "top 88%",
-              once: true,
-            },
-          },
-        );
-      });
-
-      gsap.utils.toArray(".decision-card").forEach((card, index) => {
-        gsap.fromTo(
-          card,
-          { opacity: 0, y: 60 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.85,
-            delay: index * 0.08,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: ".decision-grid",
-              start: "top 80%",
-              once: true,
-            },
-          },
-        );
-      });
-
-      gsap.utils.toArray(".vault-article-card").forEach((card, index) => {
-        gsap.fromTo(
-          card,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            delay: index * 0.08,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: ".vault-bottom-grid",
-              start: "top 82%",
-              once: true,
-            },
-          },
-        );
-      });
-
-      gsap.utils.toArray(".core-value-card").forEach((card, index) => {
-        gsap.fromTo(
-          card,
-          { opacity: 0, y: 60 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.85,
-            delay: index * 0.08,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: ".core-values-grid",
-              start: "top 82%",
+              start: "top 85%",
               once: true,
             },
           },
@@ -606,6 +856,7 @@ const Home = () => {
     return () => ctx.revert();
   }, []);
 
+  
   useEffect(() => {
     autoSlideRef.current = setInterval(() => {
       setActiveTestimonial((prev) =>
@@ -995,204 +1246,256 @@ const Home = () => {
 
   return (
     <div ref={homeRef} className="epm-home-page">
-     <section className="epm-hero-wrap" ref={heroWrapRef} id="home">
-  <div className="epm-social-stick">
-    <a
-      href="https://www.instagram.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Instagram"
-      className="epm-social-btn"
-    >
-      <FaInstagram />
-    </a>
+      <section className="epm-hero-wrap" ref={heroWrapRef}>
+        <video
+          ref={heroVideoRef}
+          className="epm-hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          <source
+            src="https://cdn.dribbble.com/userupload/42963958/file/original-4b64c09a5dcf7dd0df27135cc4c74e2c.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-    <a
-      href="https://www.youtube.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Youtube"
-      className="epm-social-btn"
-    >
-      <FaYoutube />
-    </a>
+        <div className="epm-hero-video-darkness"></div>
+        <div className="epm-hero-video-vignette"></div>
+        <div className="epm-hero-grid-lines"></div>
 
-    <a
-      href="https://www.facebook.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Facebook"
-      className="epm-social-btn"
-    >
-      <FaFacebookF />
-    </a>
+        <div className="epm-hero-gradient-orb orb-one"></div>
+        <div className="epm-hero-gradient-orb orb-two"></div>
+        <div className="epm-hero-gradient-orb orb-three"></div>
 
-    <a
-      href="https://www.linkedin.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="LinkedIn"
-      className="epm-social-btn"
-    >
-      <FaLinkedinIn />
-    </a>
-  </div>
-
-  <div className="epm-hero-crystal epm-crystal-one"></div>
-  <div className="epm-hero-crystal epm-crystal-two"></div>
-  <div className="epm-hero-crystal epm-crystal-three"></div>
-
-  <div className="epm-hero-light epm-light-one"></div>
-  <div className="epm-hero-light epm-light-two"></div>
-  <div className="epm-hero-light epm-light-three"></div>
-
-  <div className="epm-hero-grid-shine"></div>
-  <div className="epm-hero-noise"></div>
-
-  <div className="epm-hero-shell">
-    <div className="epm-hero-split">
-      {/* LEFT */}
-      <div className="epm-hero-left-block" ref={heroCopyRef}>
-        {/* <div className="epm-hero-mini-badge">
-          <span className="epm-hero-mini-dot"></span>
-          PREMIUM WEALTH MANAGEMENT
-        </div> */}
-
-        <p className="epm-hero-kicker-alt">SMART STRATEGIES · STRONG FUTURE</p>
-
-        <h1 className="epm-hero-heading-alt" ref={heroTitleRef}>
-          <span className="epm-hero-line epm-hero-line-one">BECAUSE YOUR</span>
-          <span className="epm-hero-line epm-hero-line-two">WEALTH</span>
-          <span className="epm-hero-line epm-hero-line-three">
-            DESERVES  <br />EXCELLENCE
-          </span>
-        </h1>
-
-        <div className="epm-typed-wrap epm-typed-wrap-left">
-          <p className="epm-typed-line">
-            {displayText}
-            <span className="epm-typed-caret"></span>
-          </p>
+        <div className="epm-social-stick">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noreferrer"
+            className="epm-social-btn"
+          >
+            <FaInstagram />
+          </a>
+          <a
+            href="https://youtube.com"
+            target="_blank"
+            rel="noreferrer"
+            className="epm-social-btn"
+          >
+            <FaYoutube />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noreferrer"
+            className="epm-social-btn"
+          >
+            <FaLinkedinIn />
+          </a>
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noreferrer"
+            className="epm-social-btn"
+          >
+            <FaFacebookF />
+          </a>
         </div>
 
-        <p className="epm-hero-desc-alt">
-          At EPM Wealth, we believe your wealth goes beyond money. We prioritize
-          you, your loved ones, and your business with personalized planning,
-          clear advisory, and future-ready financial strategies.
-        </p>
+        <div className="epm-hero-shell">
+          <div className="epm-hero-content" ref={heroContentRef}>
+            <div className="epm-hero-split">
+              <div className="epm-hero-left-block">
+                <div className="epm-hero-mini-badge" ref={heroBadgeRef}>
+                  <span className="epm-hero-mini-dot"></span>
+                  Bespoke Wealth Management Experience
+                </div>
 
-        {/* <div className="epm-hero-stat-row">
-          <div className="epm-hero-stat-box">
-            <h4>30+</h4>
-            <span>Years Experience</span>
+                <div className="epm-hero-copy-block" ref={heroCopyRef}>
+                  <p className="epm-hero-kicker-alt">
+                    Strategic Wealth Advisory
+                  </p>
+
+                  <h1 className="epm-hero-heading-alt" ref={heroTitleRef}>
+                    <span className="epm-hero-line epm-hero-line-one">
+                      Crafting
+                    </span>
+                    <span className="epm-hero-line epm-hero-line-two">
+                      Enduring Wealth
+                    </span>
+                    <span className="epm-hero-line epm-hero-line-three">
+                      With Precision
+                    </span>
+                  </h1>
+
+                  <div className="epm-typed-wrap epm-typed-wrap-left">
+                    <div className="epm-typed-line">
+                      <span>{displayText}</span>
+                      <span className="epm-typed-caret"></span>
+                    </div>
+                  </div>
+
+                  <p className="epm-hero-desc-alt">
+                    We design intelligent financial roadmaps for individuals and
+                    families seeking clarity, growth, legacy protection, and a
+                    refined long-term wealth experience.
+                  </p>
+
+                  {/* <div className="epm-hero-stat-row" ref={heroStatsRowRef}>
+                    <div className="epm-hero-stat-box">
+                      <h4>₹150 Cr+</h4>
+                      <span>Assets Guided</span>
+                    </div>
+                    <div className="epm-hero-stat-box">
+                      <h4>1000+</h4>
+                      <span>Trusted Clients</span>
+                    </div>
+                    <div className="epm-hero-stat-box">
+                      <h4>30+</h4>
+                      <span>Years Experience</span>
+                    </div>
+                  </div> */}
+
+                  <div className="epm-hero-btn-wrap epm-hero-btn-wrap-left">
+                    <a
+                      href="#contact"
+                      className="epm-liquid-btn epm-liquid-btn-gold"
+                    >
+                      <span className="epm-btn-liquid"></span>
+                      <span className="epm-btn-text">
+                        Book Free Consultation
+                      </span>
+                      <span className="epm-btn-icon">→</span>
+                    </a>
+
+                    <Link
+                      to="/about"
+                      className="epm-liquid-btn epm-liquid-btn-glass"
+                    >
+                      <span className="epm-btn-liquid"></span>
+                      <span className="epm-btn-text">Explore Our Approach</span>
+                      <span className="epm-btn-icon">↗</span>
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="epm-hero-bottom-strip">
+                  <div className="epm-hero-mini-chip">Legacy Planning</div>
+                  <div className="epm-hero-mini-chip">Tax Efficiency</div>
+                  <div className="epm-hero-mini-chip">Goal Mapping</div>
+                  <div className="epm-hero-mini-chip">
+                    Portfolio Intelligence
+                  </div>
+                </div>
+              </div>
+
+              <div className="epm-orbit-visual-wrap" ref={heroOrbitRef}>
+                <div className="epm-orbit-visual epm-orbit-visual-premium">
+                  <div className="epm-orbit-ring epm-orbit-ring-outer"></div>
+                  <div className="epm-orbit-ring epm-orbit-ring-middle"></div>
+                  <div className="epm-orbit-ring epm-orbit-ring-inner"></div>
+
+                  <div className="epm-orbit-center">
+                    <img
+                      src="https://i.pinimg.com/736x/1c/c0/87/1cc087c22d443ceab1a1ad7d5f5eeef6.jpg"
+                      alt="EPM Wealth advisory"
+                    />
+                  </div>
+
+                  <div className="epm-orbit-rotator">
+                    <div className="epm-orbit-node node-1">
+                      <span className="epm-orbit-node-icon">
+                        <FaHome />
+                      </span>
+                      <p>Home</p>
+                    </div>
+                    <div className="epm-orbit-node node-2">
+                      <span className="epm-orbit-node-icon">
+                        <FaHeart />
+                      </span>
+                      <p>Health</p>
+                    </div>
+                    <div className="epm-orbit-node node-3">
+                      <span className="epm-orbit-node-icon">
+                        <FaCarSide />
+                      </span>
+                      <p>Car</p>
+                    </div>
+                    <div className="epm-orbit-node node-4">
+                      <span className="epm-orbit-node-icon">
+                        <FaPlane />
+                      </span>
+                      <p>Travel</p>
+                    </div>
+                    <div className="epm-orbit-node node-5">
+                      <span className="epm-orbit-node-icon">
+                        <GiBigDiamondRing />
+                      </span>
+                      <p>Marriage</p>
+                    </div>
+                    <div className="epm-orbit-node node-6">
+                      <span className="epm-orbit-node-icon">₹</span>
+                      <p>Loan</p>
+                    </div>
+                    <div className="epm-orbit-node node-7">
+                      <span className="epm-orbit-node-icon">
+                        <FaGraduationCap />
+                      </span>
+                      <p>Education</p>
+                    </div>
+                    <div className="epm-orbit-node node-8">
+                      <span className="epm-orbit-node-icon">
+                        <FaShieldAlt />
+                      </span>
+                      <p>Insurance</p>
+                    </div>
+                    <div className="epm-orbit-node node-9">
+                      <span className="epm-orbit-node-icon">
+                        <MdFamilyRestroom />
+                      </span>
+                      <p>Estate</p>
+                    </div>
+                    <div className="epm-orbit-node node-10">
+                      <span className="epm-orbit-node-icon">
+                        <FaUmbrella />
+                      </span>
+                      <p>Retire</p>
+                    </div>
+                  </div>
+
+                  <div className="epm-orbit-stat epm-orbit-stat-left epm-hero-floating-card">
+                    <h4>30+</h4>
+                    <p>Years of Trust</p>
+                  </div>
+
+                  <div className="epm-orbit-stat epm-orbit-stat-right epm-hero-floating-card">
+                    <h4>2</h4>
+                    <p>Prime Locations</p>
+                  </div>
+
+                  <div
+                    className="epm-hero-overlay-card"
+                    ref={heroOverlayCardRef}
+                  >
+                    <span className="epm-overlay-card-label">
+                      Private Wealth Console
+                    </span>
+                    <h5>
+                      Built for clarity, discipline and long-term compounding.
+                    </h5>
+                    <div className="epm-overlay-progress">
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div className="epm-hero-stat-box">
-            <h4>1000+</h4>
-            <span>Trusted Clients</span>
-          </div>
-
-          <div className="epm-hero-stat-box">
-            <h4>₹150Cr+</h4>
-            <span>Assets Guided</span>
-          </div>
-        </div> */}
-
-        <div className="epm-hero-btn-wrap epm-hero-btn-wrap-left">
-          <Link to="/about" className="epm-liquid-btn epm-liquid-btn-gold">
-            <span className="epm-btn-text">DISCOVER MORE</span>
-            <span className="epm-btn-icon">→</span>
-            <span className="epm-btn-liquid"></span>
-          </Link>
-
-          <Link to="/contact" className="epm-liquid-btn epm-liquid-btn-glass">
-            <span className="epm-btn-text">START A CONVERSATION</span>
-            <span className="epm-btn-icon">→</span>
-            <span className="epm-btn-liquid"></span>
-          </Link>
         </div>
-      </div>
-
-      {/* RIGHT */}
-      <div className="epm-orbit-visual-wrap">
-        <div className="epm-orbit-visual">
-          <span className="epm-orbit-ring epm-orbit-ring-outer"></span>
-          <span className="epm-orbit-ring epm-orbit-ring-middle"></span>
-          <span className="epm-orbit-ring epm-orbit-ring-inner"></span>
-
-          {/* <div className="epm-orbit-stat epm-orbit-stat-left">
-            <h4>85%</h4>
-            <p>Sales Growth</p>
-          </div>
-
-          <div className="epm-orbit-stat epm-orbit-stat-right">
-            <h4>190+</h4>
-            <p>Brands Joined</p>
-          </div> */}
-
-          <div className="epm-orbit-center">
-            <img
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
-              alt="Wealth planning meeting"
-            />
-          </div>
-
-          <div className="epm-orbit-rotator">
-            <div className="epm-orbit-node node-1">
-              <span className="epm-orbit-node-icon"><FaHome /></span>
-              <p>Home</p>
-            </div>
-
-            <div className="epm-orbit-node node-2">
-              <span className="epm-orbit-node-icon"><FaUserMd /></span>
-              <p>Medical</p>
-            </div>
-
-            <div className="epm-orbit-node node-3">
-              <span className="epm-orbit-node-icon"><FaChartLine /></span>
-              <p>Invest</p>
-            </div>
-
-            <div className="epm-orbit-node node-4">
-              <span className="epm-orbit-node-icon"><FaCarSide /></span>
-              <p>Vehicle</p>
-            </div>
-
-            <div className="epm-orbit-node node-5">
-              <span className="epm-orbit-node-icon"><GiBigDiamondRing /></span>
-              <p>Marriage</p>
-            </div>
-
-            <div className="epm-orbit-node node-6">
-              <span className="epm-orbit-node-icon">₹</span>
-              <p>Loan</p>
-            </div>
-
-            <div className="epm-orbit-node node-7">
-              <span className="epm-orbit-node-icon"><FaGraduationCap /></span>
-              <p>Education</p>
-            </div>
-
-            <div className="epm-orbit-node node-8">
-              <span className="epm-orbit-node-icon"><FaShieldAlt /></span>
-              <p>Insurance</p>
-            </div>
-
-            <div className="epm-orbit-node node-9">
-              <span className="epm-orbit-node-icon"><MdFamilyRestroom /></span>
-              <p>Estate</p>
-            </div>
-
-            <div className="epm-orbit-node node-10">
-              <span className="epm-orbit-node-icon"><FaUmbrella /></span>
-              <p>Retire</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       <div className="epm-overlap-stack">
         <section className="epm-stats-section epm-overlap-panel">
@@ -1434,8 +1737,6 @@ const Home = () => {
                 ))}
               </div>
             </div>
-
-        
           </div>
 
           <div className="awards-gallery-section">
