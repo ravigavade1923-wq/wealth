@@ -241,7 +241,7 @@ const Contact = () => {
               </div>
 
               <div className="legacy-form-group full">
-                <label>HOW CAN WE HELP YOU?</label>
+                <label>HOW CAN WE HELP YOU ?</label>
                 <textarea
                   name="message"
                   placeholder="Tell us about your financial goals..."
