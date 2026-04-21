@@ -1081,22 +1081,6 @@ const Home = () => {
           clear advisory, and future-ready financial strategies.
         </p>
 
-        {/* <div className="epm-hero-stat-row">
-          <div className="epm-hero-stat-box">
-            <h4>30+</h4>
-            <span>Years Experience</span>
-          </div>
-
-          <div className="epm-hero-stat-box">
-            <h4>1000+</h4>
-            <span>Trusted Clients</span>
-          </div>
-
-          <div className="epm-hero-stat-box">
-            <h4>₹150Cr+</h4>
-            <span>Assets Guided</span>
-          </div>
-        </div> */}
 
         <div className="epm-hero-btn-wrap epm-hero-btn-wrap-left">
           <Link to="/about" className="epm-liquid-btn epm-liquid-btn-gold">
@@ -1232,7 +1216,7 @@ const Home = () => {
           <div className="solutions-container">
             <div className="solutions-left">
               {/* <span className="solutions-label">SOLUTIONS</span> */}
-              <h2>Because Your Wealth Deserves Excellence</h2>
+              <h2>Wealth Is More Than Just Money...</h2>
               <Link to="/contact" className="solutions-link">
                 START THE CONVERSATION <span>→</span>
               </Link>

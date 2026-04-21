@@ -1442,7 +1442,7 @@ body {
   font-size: 52px;
   font-weight: 500;
   line-height: 1.25;
-  letter-spacing: -0.5px;
+  letter-spacing:0.5px;
   color: #1f2940;
   margin-bottom: 40px;
 }
