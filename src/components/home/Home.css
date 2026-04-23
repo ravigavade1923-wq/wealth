@@ -1168,11 +1168,11 @@ body {
 }
 
 .epm-orbit-node p {
-  margin: 7px 0 0;
-  font-size: 0.74rem;
-  font-weight: 800;
+  margin: 8px 0 0;
+  font-size: 0.77rem;
+  font-weight: 700;
   line-height: 1.15;
-  color: #243248;
+  color: #ffffff;
   animation: epmOrbitCounter 24s linear infinite;
 }
 
