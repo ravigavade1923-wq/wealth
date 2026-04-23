@@ -35,7 +35,6 @@ import featuresImg from "../../assets/feature/features.png";
 import featureImg from "../../assets/feature/feature.png";
 import featuressImg from "../../assets/feature/featuress.png";
 
-
 import articleImg from "../../assets/home/article.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -58,8 +57,7 @@ const features = [
   },
   {
     id: 3,
-    bgImage:
-         featuressImg,
+    bgImage: featuressImg,
     title: "Transparent And Client Centric",
     description: "Track where and how your money is invested at all times",
     meta: "CLIENT-FIRST APPROACH",
@@ -80,8 +78,7 @@ const articles = [
     meta: "CIO'S DESK · 03 MARCH 2026",
     title: "Exclusive insights for enduring wealth",
     desc: "At EPM Wealth, we deliver refined strategies and deep market intelligence tailored for individuals who seek more than just returns — they seek legacy.",
-    image:
-      articleImg,
+    image: articleImg,
     featured: true,
   },
   {
@@ -130,7 +127,6 @@ const awardsData = [
     badge: "🏅",
     subtitle:
       "Our journey began with a strong advisory foundation built on trust, consistency, and personalized wealth planning.",
-   
   },
   {
     year: "2017",
@@ -139,7 +135,6 @@ const awardsData = [
     badge: "🥇",
     subtitle:
       "We strengthened our advisory framework and began scaling a more disciplined and refined client experience.",
-   
   },
   {
     year: "2018",
@@ -148,7 +143,6 @@ const awardsData = [
     badge: "🏆",
     subtitle:
       "This phase reflected our growing focus on structured wealth strategies and high-quality investment planning.",
-  
   },
   {
     year: "2019",
@@ -157,7 +151,6 @@ const awardsData = [
     badge: "🎗️",
     subtitle:
       "A landmark year where our investment planning philosophy gained stronger recognition and credibility.",
-    
   },
   {
     year: "2020",
@@ -166,7 +159,6 @@ const awardsData = [
     badge: "⭐",
     subtitle:
       "We adapted with resilience and strengthened our leadership in wealth management through stability and service quality.",
-   
   },
   {
     year: "2021",
@@ -175,7 +167,6 @@ const awardsData = [
     badge: "🏅",
     subtitle:
       "This year reflected stronger brand credibility, deeper relationships, and a more mature planning ecosystem.",
-    
   },
   {
     year: "2022",
@@ -184,7 +175,6 @@ const awardsData = [
     badge: "🥇",
     subtitle:
       "A year of high-impact execution where our planning quality and service depth stood out meaningfully.",
-   
   },
   {
     year: "2023",
@@ -193,7 +183,6 @@ const awardsData = [
     badge: "🏆",
     subtitle:
       "We continued to elevate our premium positioning with stronger planning quality and trusted execution.",
-  
   },
   {
     year: "2024",
@@ -202,7 +191,6 @@ const awardsData = [
     badge: "💎",
     subtitle:
       "This phase reflected operational refinement, stronger outcomes, and a more elevated advisory presence.",
-   
   },
   {
     year: "2025",
@@ -211,7 +199,6 @@ const awardsData = [
     badge: "🥇",
     subtitle:
       "A year focused on expansion, operational strength, and the continued pursuit of measurable excellence.",
-   
   },
   {
     year: "2026",
@@ -220,7 +207,6 @@ const awardsData = [
     badge: "🏆",
     subtitle:
       "A defining milestone showcasing the firm’s sustained excellence, trusted leadership, and premium advisory impact.",
-    
   },
 ];
 
@@ -493,8 +479,7 @@ const Home = () => {
     const resetTransform = () => {
       const tilt = heroTiltRef.current;
       if (!tilt) return;
-      tilt.style.transform =
-        "translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg)";
+      tilt.style.transform = "translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg)";
     };
 
     const wrap = heroWrapRef.current;
@@ -529,7 +514,6 @@ const Home = () => {
       });
 
       // --- HERO ZOOM-OUT EFFECT ---
-      // This timeline animates the hero scaling down as we scroll through the spacer
       const zoomTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".epm-hero-spacer",
@@ -541,10 +525,11 @@ const Home = () => {
 
       zoomTl.fromTo(
         heroContentRef.current,
-        { scale: 1, borderRadius: "0px" },
+        { scale: 1, borderRadius: "0px", y: 0 },
         {
-          scale: 0.85,
-          borderRadius: "40px",
+          scale: 0.93,
+          borderRadius: "30px",
+          y: -10,
           duration: 1,
           ease: "none",
         },
@@ -1019,207 +1004,219 @@ const Home = () => {
 
   return (
     <div ref={homeRef} className="epm-home-page">
-     <section className="epm-hero-wrap" ref={heroWrapRef} id="home">
-  <div className="epm-social-stick">
-    <a
-      href="https://www.instagram.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Instagram"
-      className="epm-social-btn"
-    >
-      <FaInstagram />
-    </a>
+      <section className="epm-hero-wrap" ref={heroWrapRef} id="home">
+        <div className="epm-hero-bg-image-wrap">
+          <img
+            src="https://i.pinimg.com/webp/1200x/13/62/7a/13627acbaeb8e6fd18c6b9780a093bf4.webp"
+            alt="EPM Wealth hero background"
+            className="epm-hero-bg-image"
+          />
+        </div>
+        <div className="epm-social-stick">
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+            className="epm-social-btn"
+          >
+            <FaInstagram />
+          </a>
 
-    <a
-      href="https://www.youtube.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Youtube"
-      className="epm-social-btn"
-    >
-      <FaYoutube />
-    </a>
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Youtube"
+            className="epm-social-btn"
+          >
+            <FaYoutube />
+          </a>
 
-    <a
-      href="https://www.facebook.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Facebook"
-      className="epm-social-btn"
-    >
-      <FaFacebookF />
-    </a>
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Facebook"
+            className="epm-social-btn"
+          >
+            <FaFacebookF />
+          </a>
 
-    <a
-      href="https://www.linkedin.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="LinkedIn"
-      className="epm-social-btn"
-    >
-      <FaLinkedinIn />
-    </a>
-  </div>
+          <a
+            href="https://www.linkedin.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+            className="epm-social-btn"
+          >
+            <FaLinkedinIn />
+          </a>
+        </div>
 
-    <div className="epm-hero-zoom-wrapper" ref={heroContentRef}>
-      <div className="epm-hero-tilt-wrapper" ref={heroTiltRef}>
-        <div className="epm-hero-crystal epm-crystal-one"></div>
-        <div className="epm-hero-crystal epm-crystal-two"></div>
-        <div className="epm-hero-crystal epm-crystal-three"></div>
+        <div className="epm-hero-zoom-wrapper" ref={heroContentRef}>
+          <div className="epm-hero-tilt-wrapper" ref={heroTiltRef}>
+            <div className="epm-hero-crystal epm-crystal-one"></div>
+            <div className="epm-hero-crystal epm-crystal-two"></div>
+            <div className="epm-hero-crystal epm-crystal-three"></div>
 
-        <div className="epm-hero-light epm-light-one"></div>
-        <div className="epm-hero-light epm-light-two"></div>
-        <div className="epm-hero-light epm-light-three"></div>
+            <div className="epm-hero-light epm-light-one"></div>
+            <div className="epm-hero-light epm-light-two"></div>
+            <div className="epm-hero-light epm-light-three"></div>
 
-        <div className="epm-hero-grid-shine"></div>
-        <div className="epm-hero-noise"></div>
+            <div className="epm-hero-grid-shine"></div>
+            <div className="epm-hero-noise"></div>
 
-        <div className="epm-hero-shell">
-          <div className="epm-hero-split">
-            {/* LEFT */}
-            <div className="epm-hero-left-block" ref={heroCopyRef}>
-              <p className="epm-hero-kicker-alt">
-                SMART STRATEGIES · STRONG FUTURE
-              </p>
+            <div className="epm-hero-shell">
+              <div className="epm-hero-split">
+                {/* LEFT */}
+                <div className="epm-hero-left-block" ref={heroCopyRef}>
+                  <p className="epm-hero-kicker-alt">
+                    SMART STRATEGIES · STRONG FUTURE
+                  </p>
 
-              <h1 className="epm-hero-heading-alt" ref={heroTitleRef}>
-                <span className="epm-hero-line epm-hero-line-one">
-                  BECAUSE YOUR
-                </span>
-                <span className="epm-hero-line epm-hero-line-two">WEALTH</span>
-                <span className="epm-hero-line epm-hero-line-three">
-                  DESERVES <br />
-                  EXCELLENCE
-                </span>
-              </h1>
+                  <h1 className="epm-hero-heading-alt" ref={heroTitleRef}>
+                    <span className="epm-hero-line epm-hero-line-one">
+                      BECAUSE YOUR
+                    </span>
+                    <span className="epm-hero-line epm-hero-line-two">
+                      WEALTH
+                    </span>
+                    <span className="epm-hero-line epm-hero-line-three">
+                      DESERVES <br />
+                      EXCELLENCE
+                    </span>
+                  </h1>
 
-              <div className="epm-typed-wrap epm-typed-wrap-left">
-                <p className="epm-typed-line">
-                  {displayText}
-                  <span className="epm-typed-caret"></span>
-                </p>
-              </div>
+                  <div className="epm-typed-wrap epm-typed-wrap-left">
+                    <p className="epm-typed-line">
+                      {displayText}
+                      <span className="epm-typed-caret"></span>
+                    </p>
+                  </div>
 
-              <p className="epm-hero-desc-alt">
-                At EPM Wealth, we believe your wealth goes beyond money. We
-                prioritize you, your loved ones, and your business with
-                personalized planning, clear advisory, and future-ready
-                financial strategies.
-              </p>
+                  <p className="epm-hero-desc-alt">
+                    At EPM Wealth, we believe your wealth goes beyond money. We
+                    prioritize you, your loved ones, and your business with
+                    personalized planning, clear advisory, and future-ready
+                    financial strategies.
+                  </p>
 
-              <div className="epm-hero-btn-wrap epm-hero-btn-wrap-left">
-                <Link to="/about" className="epm-liquid-btn epm-liquid-btn-gold">
-                  <span className="epm-btn-text">DISCOVER MORE</span>
-                  <span className="epm-btn-icon">→</span>
-                  <span className="epm-btn-liquid"></span>
-                </Link>
+                  <div className="epm-hero-btn-wrap epm-hero-btn-wrap-left">
+                    <Link
+                      to="/about"
+                      className="epm-liquid-btn epm-liquid-btn-gold"
+                    >
+                      <span className="epm-btn-text">DISCOVER MORE</span>
+                      <span className="epm-btn-icon">→</span>
+                      <span className="epm-btn-liquid"></span>
+                    </Link>
 
-                <Link
-                  to="/contact"
-                  className="epm-liquid-btn epm-liquid-btn-glass"
-                >
-                  <span className="epm-btn-text">START A CONVERSATION</span>
-                  <span className="epm-btn-icon">→</span>
-                  <span className="epm-btn-liquid"></span>
-                </Link>
-              </div>
-            </div>
-
-            {/* RIGHT */}
-            <div className="epm-orbit-visual-wrap">
-              <div className="epm-orbit-visual">
-                <span className="epm-orbit-ring epm-orbit-ring-outer"></span>
-                <span className="epm-orbit-ring epm-orbit-ring-middle"></span>
-                <span className="epm-orbit-ring epm-orbit-ring-inner"></span>
-
-                <div className="epm-orbit-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
-                    alt="Wealth planning meeting"
-                  />
+                    <Link
+                      to="/contact"
+                      className="epm-liquid-btn epm-liquid-btn-glass"
+                    >
+                      <span className="epm-btn-text">START A CONVERSATION</span>
+                      <span className="epm-btn-icon">→</span>
+                      <span className="epm-btn-liquid"></span>
+                    </Link>
+                  </div>
                 </div>
 
-                <div className="epm-orbit-rotator">
-                  <div className="epm-orbit-node node-1">
-                    <span className="epm-orbit-node-icon">
-                      <FaHome />
-                    </span>
-                    <p>Home</p>
-                  </div>
+                {/* RIGHT */}
+                <div className="epm-orbit-visual-wrap">
+                  <div className="epm-orbit-visual">
+                    <span className="epm-orbit-ring epm-orbit-ring-outer"></span>
+                    <span className="epm-orbit-ring epm-orbit-ring-middle"></span>
+                    <span className="epm-orbit-ring epm-orbit-ring-inner"></span>
 
-                  <div className="epm-orbit-node node-2">
-                    <span className="epm-orbit-node-icon">
-                      <FaUserMd />
-                    </span>
-                    <p>Medical</p>
-                  </div>
+                    <div className="epm-orbit-center">
+                      <img
+                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+                        alt="Wealth planning meeting"
+                      />
+                    </div>
 
-                  <div className="epm-orbit-node node-3">
-                    <span className="epm-orbit-node-icon">
-                      <FaChartLine />
-                    </span>
-                    <p>Invest</p>
-                  </div>
+                    <div className="epm-orbit-rotator">
+                      <div className="epm-orbit-node node-1">
+                        <span className="epm-orbit-node-icon">
+                          <FaHome />
+                        </span>
+                        <p>Home</p>
+                      </div>
 
-                  <div className="epm-orbit-node node-4">
-                    <span className="epm-orbit-node-icon">
-                      <FaCarSide />
-                    </span>
-                    <p>Vehicle</p>
-                  </div>
+                      <div className="epm-orbit-node node-2">
+                        <span className="epm-orbit-node-icon">
+                          <FaUserMd />
+                        </span>
+                        <p>Medical</p>
+                      </div>
 
-                  <div className="epm-orbit-node node-5">
-                    <span className="epm-orbit-node-icon">
-                      <GiBigDiamondRing />
-                    </span>
-                    <p>Marriage</p>
-                  </div>
+                      <div className="epm-orbit-node node-3">
+                        <span className="epm-orbit-node-icon">
+                          <FaChartLine />
+                        </span>
+                        <p>Invest</p>
+                      </div>
 
-                  <div className="epm-orbit-node node-6">
-                    <span className="epm-orbit-node-icon">₹</span>
-                    <p>Loan</p>
-                  </div>
+                      <div className="epm-orbit-node node-4">
+                        <span className="epm-orbit-node-icon">
+                          <FaCarSide />
+                        </span>
+                        <p>Vehicle</p>
+                      </div>
 
-                  <div className="epm-orbit-node node-7">
-                    <span className="epm-orbit-node-icon">
-                      <FaGraduationCap />
-                    </span>
-                    <p>Education</p>
-                  </div>
+                      <div className="epm-orbit-node node-5">
+                        <span className="epm-orbit-node-icon">
+                          <GiBigDiamondRing />
+                        </span>
+                        <p>Marriage</p>
+                      </div>
 
-                  <div className="epm-orbit-node node-8">
-                    <span className="epm-orbit-node-icon">
-                      <FaShieldAlt />
-                    </span>
-                    <p>Insurance</p>
-                  </div>
+                      <div className="epm-orbit-node node-6">
+                        <span className="epm-orbit-node-icon">₹</span>
+                        <p>Loan</p>
+                      </div>
 
-                  <div className="epm-orbit-node node-9">
-                    <span className="epm-orbit-node-icon">
-                      <MdFamilyRestroom />
-                    </span>
-                    <p>Estate</p>
-                  </div>
+                      <div className="epm-orbit-node node-7">
+                        <span className="epm-orbit-node-icon">
+                          <FaGraduationCap />
+                        </span>
+                        <p>Education</p>
+                      </div>
 
-                  <div className="epm-orbit-node node-10">
-                    <span className="epm-orbit-node-icon">
-                      <FaUmbrella />
-                    </span>
-                    <p>Retire</p>
+                      <div className="epm-orbit-node node-8">
+                        <span className="epm-orbit-node-icon">
+                          <FaShieldAlt />
+                        </span>
+                        <p>Insurance</p>
+                      </div>
+
+                      <div className="epm-orbit-node node-9">
+                        <span className="epm-orbit-node-icon">
+                          <MdFamilyRestroom />
+                        </span>
+                        <p>Estate</p>
+                      </div>
+
+                      <div className="epm-orbit-node node-10">
+                        <span className="epm-orbit-node-icon">
+                          <FaUmbrella />
+                        </span>
+                        <p>Retire</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <div className="epm-hero-spacer"></div>
+      <div className="epm-hero-spacer"></div>
 
-  <div className="epm-overlap-stack">
+      <div className="epm-overlap-stack">
         <section className="epm-stats-section epm-overlap-panel">
           <div className="epm-stats-wrap">
             <div className="epm-stats-card">
@@ -1459,8 +1456,6 @@ const Home = () => {
                 ))}
               </div>
             </div>
-
-        
           </div>
 
           <div className="awards-gallery-section">

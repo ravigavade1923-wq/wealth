@@ -9,6 +9,7 @@ const Navbar = () => {
   const closeMenu = () => setMenuOpen(false);
 
   const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [literacyOpen, setLiteracyOpen] = useState(false);
 
   useEffect(() => {
     closeMenu();
@@ -58,16 +59,21 @@ const Navbar = () => {
             </div>
           </div>
 
-          <Link
-            to="/financial-literacy"
-            onClick={closeMenu}
-            className={
-              location.pathname === "/financial-literacy" ? "active" : ""
-            }
-          >
-            Financial Literacy
-          </Link>
+          <div className="nav-dropdown">
+  <span
+    className={`nav-dropdown-toggle ${
+      location.pathname.includes("/financial-literacy") ? "active" : ""
+    }`}
+  >
+    Financial Literacy ▾
+  </span>
 
+  <div className="nav-dropdown-menu">
+    <Link to="/financialliteracy/seminar-webinar" onClick={closeMenu}>
+      Seminar & Webinar
+    </Link>
+  </div>
+</div>
           <Link
             to="/entrepreneurial-initiative"
             onClick={closeMenu}
@@ -157,19 +163,21 @@ const Navbar = () => {
             </div>
           </div>
 
-          
           <div className="mobile-dropdown">
             <div
               className="mobile-dropdown-title"
-              onClick={() => setSolutionsOpen((prev) => !prev)}
+              onClick={() => setLiteracyOpen((prev) => !prev)}
             >
               Financial Literacy
-              <span className={`dropdown-arrow ${solutionsOpen ? "open" : ""}`}>
+              <span className={`dropdown-arrow ${literacyOpen ? "open" : ""}`}>
                 ▾
               </span>
             </div>
 
-            <div className={`mobile-submenu ${solutionsOpen ? "open" : ""}`}>
+            <div className={`mobile-submenu ${literacyOpen ? "open" : ""}`}>
+              <Link to="/financial-literacy" onClick={closeMenu}>
+                Overview
+              </Link>
               <Link to="/financialliteracy/seminar-webinar" onClick={closeMenu}>
                 Seminar & Webinar
               </Link>

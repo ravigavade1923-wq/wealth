@@ -992,7 +992,7 @@
   align-items: center;
   padding: 12px 18px;
    font-size: 15px;
-  font-weight: 700;
+  font-weight: 700; 
   font-family: "Cormorant Garamond", "Georgia", serif;
   cursor: pointer;
 }

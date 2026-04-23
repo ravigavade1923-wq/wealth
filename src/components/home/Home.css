@@ -187,7 +187,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at center, #ffffff 0%, #f4f7ff 100%);
+  background: radial-gradient(circle at center, #ffffff 0%, #ffffff 100%);
   padding: 118px 28px 72px;
 }
 
@@ -196,8 +196,8 @@ body {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(circle at 18% 22%, rgba(182, 146, 108, 0.12), transparent 30%),
-    radial-gradient(circle at 82% 78%, rgba(204, 172, 122, 0.1), transparent 30%);
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.12), transparent 30%),
+    radial-gradient(circle at 82% 78%, rgba(255, 255, 255, 0.1), transparent 30%);
   pointer-events: none;
   z-index: 0;
 }
@@ -207,8 +207,8 @@ body {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.95), transparent 25%),
-    radial-gradient(circle at 72% 72%, rgba(235, 243, 255, 0.8), transparent 35%);
+    radial-gradient(circle at 50% 35%, rgb(255, 255, 255), transparent 25%),
+    radial-gradient(circle at 72% 72%, rgb(255, 255, 255), transparent 35%);
   pointer-events: none;
   z-index: 0;
 }
@@ -263,7 +263,7 @@ body {
   gap: 12px;
   padding: 14px 24px;
   border-radius: 999px;
-  background: rgba(6, 118, 238, 0.58);
+  background: rgb(255, 255, 255);
   border: 1px solid rgba(183, 146, 99, 0.16);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -661,7 +661,7 @@ body {
   height: 340px;
   top: 6%;
   left: 9%;
-  background: radial-gradient(circle, rgba(214, 231, 255, 0.8) 0%, rgba(186, 212, 255, 0.4) 60%, transparent 80%);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 60%, transparent 80%);
   animation: epmCrystalFloatOne 10s ease-in-out infinite;
 }
 
@@ -670,7 +670,7 @@ body {
   height: 420px;
   top: 18%;
   right: 6%;
-  background: radial-gradient(circle, rgba(255, 246, 230, 0.75) 0%, rgba(255, 230, 190, 0.35) 60%, transparent 80%);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 60%, transparent 80%);
   animation: epmCrystalFloatTwo 12s ease-in-out infinite;
 }
 
@@ -679,7 +679,7 @@ body {
   height: 280px;
   bottom: 8%;
   left: 40%;
-  background: radial-gradient(circle, rgba(230, 240, 255, 0.7) 0%, rgba(200, 220, 255, 0.3) 60%, transparent 80%);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 60%, transparent 80%);
   animation: epmCrystalFloatThree 11s ease-in-out infinite;
 }
 
@@ -703,7 +703,7 @@ body {
   height: 300px;
   right: 18%;
   bottom: 10%;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgb(255, 255, 255);
   animation: epmLightPulse 9s ease-in-out infinite 1s;
 }
 
@@ -712,7 +712,7 @@ body {
   height: 220px;
   left: 50%;
   top: 52%;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgb(255, 255, 255);
   animation: epmLightPulse 10s ease-in-out infinite 1.5s;
 }
 
@@ -993,11 +993,12 @@ body {
   font-family: "Cormorant Garamond", serif;
   font-weight: 900;
   letter-spacing: -1.8px;
+  
 }
 
 .epm-hero-line-one,
 .epm-hero-line-three {
-  font-size: clamp(2.9rem, 5.6vw, 3.8rem);
+  font-size: clamp(2.9rem, 5.6vw, 2.8rem);
   color: #000000;
   text-shadow:
     0 10px 30px rgba(0, 0, 0, 0.226),
@@ -1005,7 +1006,7 @@ body {
 }
 
 .epm-hero-line-two {
-  font-size: clamp(3.1rem, 6.2vw, 4.4rem);
+  font-size: clamp(3.1rem, 6.2vw, 3.8rem);
   background: linear-gradient(90deg, #f4d79d, #a67342, #fceecc, #9a6333);
   background-size: 220% auto;
   -webkit-background-clip: text;
@@ -1027,11 +1028,11 @@ body {
 .epm-hero-desc-alt {
   max-width: 680px;
   margin-top: 20px;
-  font-size: 1.13rem;
-  line-height: 1.9;
+  font-size: 1.30rem;
+  line-height: 1.5;
   color: #000000;
   font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .epm-hero-stat-row {
@@ -5432,3 +5433,454 @@ video {
 
 
 
+/* =========================================
+   HERO FINAL FIX
+   paste at very bottom of Home.css
+========================================= */
+
+/* 1. Remove hero main title shadow completely */
+.epm-title-main,
+.epm-hero-line-one,
+.epm-hero-line-two,
+.epm-hero-line-three {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* 2. Better spacing so badge never merges into heading */
+.epm-hero-left-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.epm-hero-mini-badge {
+  position: relative;
+  z-index: 8;
+  margin: 0 0 34px 0 !important;
+  flex-shrink: 0;
+  transform: translateZ(120px);
+}
+
+.epm-hero-heading-alt {
+  position: relative;
+  z-index: 6;
+  margin: 0 0 18px 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 12px !important;   /* important */
+  line-height: 0.95 !important;
+}
+
+.epm-hero-line {
+  display: block;
+  margin: 0;
+  line-height: 1.04 !important;
+}
+
+.epm-hero-desc-alt {
+  margin-top: 18px !important;
+  position: relative;
+  z-index: 5;
+}
+
+/* 3. Prevent zoom-out overlap feeling */
+.epm-hero-content,
+.epm-hero-copy,
+.epm-hero-left-block {
+  transform-origin: left center;
+  will-change: transform;
+}
+
+/* 4. Professional hero image styling */
+.epm-orbit-center {
+  width: 76%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 4;
+  border: 10px solid rgba(255, 255, 255, 0.7);
+  background: linear-gradient(135deg, rgba(255,255,255,0.55), rgba(255,255,255,0.18));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.22),
+    0 12px 30px rgba(183, 122, 69, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.epm-orbit-center img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.05);
+  filter: contrast(1.04) saturate(1.04);
+}
+
+/* Optional luxury glow behind image */
+.epm-orbit-visual::before {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(198, 142, 88, 0.22) 0%,
+    rgba(198, 142, 88, 0.08) 38%,
+    transparent 72%
+  );
+  filter: blur(28px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .epm-hero-mini-badge {
+    margin-bottom: 18px !important;
+  }
+
+  .epm-hero-heading-alt {
+    gap: 8px !important;
+    line-height: 1.04 !important;
+  }
+
+  .epm-orbit-center {
+    width: 82%;
+    border-width: 7px;
+  }
+}
+
+@media (max-width: 768px) {
+  .epm-hero-mini-badge {
+    margin-bottom: 16px !important;
+  }
+
+  .epm-hero-heading-alt {
+    margin-bottom: 14px !important;
+  }
+
+  .epm-orbit-center {
+    width: 84%;
+  }
+}
+
+
+
+
+
+
+/* =========================================
+   HERO FULL BACKGROUND IMAGE + 3D TILT
+========================================= */
+
+.epm-hero-wrap {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  margin-top: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f1722;
+  isolation: isolate;
+  perspective: 1800px;
+}
+
+/* full bg image layer */
+.epm-hero-bg-image-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.epm-hero-bg-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* background:
+    linear-gradient(
+      110deg,
+      rgba(8, 14, 28, 0.72) 0%,
+      rgba(12, 20, 36, 0.55) 35%,
+      rgba(14, 22, 36, 0.38) 60%,
+      rgba(7, 12, 24, 0.66) 100%
+    ),
+    radial-gradient(
+      circle at 78% 28%,
+      rgba(198, 142, 88, 0.16),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 18% 82%,
+      rgba(255, 255, 255, 0.10),
+      transparent 24%
+    ); */
+  z-index: 2;
+  pointer-events: none;
+}
+
+.epm-hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.06);
+  filter: brightness(0.88) contrast(1.06) saturate(1.04);
+  animation: epmHeroBgZoom 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* zoom wrapper */
+.epm-hero-zoom-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-origin: center center;
+  will-change: transform;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 118px 28px 72px;
+  z-index: 3;
+  background: transparent !important;
+}
+
+.epm-hero-zoom-wrapper::before,
+.epm-hero-zoom-wrapper::after {
+  display: none !important;
+}
+
+/* real 3d tilt layer */
+.epm-hero-tilt-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.22s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  will-change: transform;
+}
+
+/* content on top */
+.epm-hero-shell {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: center;
+}
+
+.epm-hero-left-block,
+.epm-hero-content,
+.epm-hero-content-left {
+  position: relative;
+  z-index: 6;
+  transform-style: preserve-3d;
+}
+
+.epm-hero-mini-badge {
+  position: relative;
+  z-index: 9;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #ffffff;
+  box-shadow:
+    0 12px 34px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.epm-hero-kicker-alt {
+  color: rgba(255, 245, 232, 0.9);
+}
+
+.epm-hero-line-one,
+.epm-hero-line-three {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+.epm-hero-line-two {
+  background: linear-gradient(90deg, #f4d79d, #b77a45, #fff3dc, #a86a38);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: epmGoldShift 6s linear infinite;
+  filter: none !important;
+}
+
+.epm-hero-desc-alt {
+  color: rgba(255, 255, 255, 0.88) !important;
+  max-width: 680px;
+}
+
+.epm-typed-line {
+  color: #ffffff !important;
+}
+
+.epm-title-sub,
+.epm-title-sub.card {
+  color: #ffffff !important;
+}
+
+.epm-title-sub.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.08) 100%
+  ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.14);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* orbit image panel more premium */
+.epm-orbit-visual-wrap {
+  position: relative;
+  width: 82%;
+  display: flex;
+  justify-content: center;
+  margin-left: 30px;
+  z-index: 6;
+  transform-style: preserve-3d;
+}
+
+.epm-orbit-visual {
+  --orbit-size: 620px;
+  position: relative;
+  width: min(100%, var(--orbit-size));
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  isolation: isolate;
+  transform: translateZ(60px);
+}
+
+.epm-orbit-center {
+  position: relative;
+  width: 74%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 3;
+  border: 8px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 26px 60px rgba(0, 0, 0, 0.22),
+    0 12px 30px rgba(183, 122, 69, 0.16),
+    inset 0 2px 10px rgba(255, 255, 255, 0.34);
+  animation: epmCenterFloat 6s ease-in-out infinite;
+}
+
+.epm-orbit-center img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.04);
+  animation: epmCenterZoom 9s ease-in-out infinite;
+}
+
+/* floating glow */
+.epm-hero-crystal {
+  opacity: 0.65;
+}
+
+.epm-crystal-one {
+  width: 340px;
+  height: 340px;
+  top: 6%;
+  left: 9%;
+  background: radial-gradient(circle, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 58%, transparent 80%);
+}
+
+.epm-crystal-two {
+  width: 420px;
+  height: 420px;
+  top: 18%;
+  right: 6%;
+  background: radial-gradient(circle, rgba(198,142,88,0.24) 0%, rgba(198,142,88,0.10) 58%, transparent 80%);
+}
+
+.epm-crystal-three {
+  width: 280px;
+  height: 280px;
+  bottom: 8%;
+  left: 40%;
+  background: radial-gradient(circle, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.06) 58%, transparent 80%);
+}
+
+/* background zoom animation */
+@keyframes epmHeroBgZoom {
+  0% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1.11);
+  }
+}
+
+/* responsive */
+@media (max-width: 1200px) {
+  .epm-hero-split {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    margin-left: 0;
+  }
+
+  .epm-hero-left-block {
+    max-width: 100%;
+  }
+
+  .epm-orbit-visual-wrap {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .epm-hero-bg-image {
+    object-position: center center;
+    transform: scale(1.08);
+  }
+
+  .epm-hero-zoom-wrapper {
+    padding: 110px 18px 42px;
+  }
+
+  .epm-hero-line-one,
+  .epm-hero-line-two,
+  .epm-hero-line-three {
+    line-height: 1.05;
+  }
+
+  .epm-hero-desc-alt {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .epm-orbit-visual {
+    --orbit-size: 360px;
+  }
+
+  .epm-orbit-center {
+    width: 78%;
+    border-width: 6px;
+  }
+}

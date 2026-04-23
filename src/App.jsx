@@ -9,26 +9,45 @@ import WealthCreation from "./components/solutions/WealthCreation";
 import WealthProtection from "./components/solutions/WealthProtection";
 import PortfolioConsultant from "./components/solutions/PortfolioConsultant";
 import WealthManagement from "./components/solutions/WealthManagement";
+import SeminarWebinar from "./components/financial/SeminarWebinar";
+import EntrepreneurialInitiative from "./components/entrepreneurial/EntrepreneurialInitiative";
 // import LuxuryCursor from "./components/LuxuryCursor";
-
 
 const App = () => {
   return (
     <>
-    {/* <LuxuryCursor/> */}
+      {/* <LuxuryCursor/> */}
       <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About/>} />
+        <Route path="/about" element={<About />} />
         <Route path="/solutions/wealth-creation" element={<WealthCreation />} />
-        <Route path="/solutions/wealth-protection" element={<WealthProtection />} />
-        <Route path="/solutions/portfolio-consultant" element={<PortfolioConsultant />} />
-        <Route path="/solutions/wealth-management" element={<WealthManagement />} />
+        <Route
+          path="/solutions/wealth-protection"
+          element={<WealthProtection />}
+        />
+        <Route
+          path="/solutions/portfolio-consultant"
+          element={<PortfolioConsultant />}
+        />
+        <Route
+          path="/solutions/wealth-management"
+          element={<WealthManagement />}
+        />
+        <Route
+          path="/financialliteracy/seminar-webinar"
+          element={<SeminarWebinar />}
+        />
+
+        <Route
+          path="/entrepreneurial-initiative"
+          element={<EntrepreneurialInitiative />}
+        />
       </Routes>
 
-      <Footer/>
+      <Footer />
     </>
   );
 };
