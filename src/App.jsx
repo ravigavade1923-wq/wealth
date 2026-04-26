@@ -11,6 +11,7 @@ import PortfolioConsultant from "./components/solutions/PortfolioConsultant";
 import WealthManagement from "./components/solutions/WealthManagement";
 import SeminarWebinar from "./components/financial/SeminarWebinar";
 import EntrepreneurialInitiative from "./components/entrepreneurial/EntrepreneurialInitiative";
+import ScrollToTop from "./components/ScrollToTop";
 // import LuxuryCursor from "./components/LuxuryCursor";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
     <>
       {/* <LuxuryCursor/> */}
       <Navbar />
+      <ScrollToTop/>
 
       <Routes>
         <Route path="/" element={<Home />} />

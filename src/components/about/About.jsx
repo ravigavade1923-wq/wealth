@@ -39,22 +39,9 @@ const teamMembers = [
       { label: "INDUSTRY KNOWLEDGE", value: "75" },
     ],
   },
+  
   {
     id: 3,
-    name: "CA Yogesh Garg",
-    role: "Equity Strategic Analyst",
-    image: "https://new-epm-rk.vercel.app/yogesh-garg.jpg",
-    stats: [
-      { label: "YEARS IN INDUSTRY", value: "30+" },
-      { label: "YEARS IN WM", value: "25+" },
-      { label: "CREATIVITY", value: "20" },
-      { label: "TEA MAKING SKILLS", value: "0" },
-      { label: "TRAININGS GIVEN", value: "10+" },
-      { label: "INDUSTRY KNOWLEDGE", value: "100" },
-    ],
-  },
-  {
-    id: 4,
     name: "Rajesh Jain",
     role: "Marketing Head",
     image: "https://new-epm-rk.vercel.app/Rajesh-Jain.jpg",
@@ -68,7 +55,7 @@ const teamMembers = [
     ],
   },
   {
-    id: 5,
+    id: 4,
     name: "CA Ajay Jain",
     role: "Equity Strategic Analyst",
     image: "https://new-epm-rk.vercel.app/Ajay-Jain.jpg",

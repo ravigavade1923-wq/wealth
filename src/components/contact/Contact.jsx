@@ -220,7 +220,7 @@ const Contact = () => {
                 <div className="legacy-info-content">
                   <span>GENERAL CONTACT</span>
                   <p>
-                    +91 0120 426 4717
+                    +91 0120-666-2012
                     <br />
                     +91 9899939333
                   </p>
