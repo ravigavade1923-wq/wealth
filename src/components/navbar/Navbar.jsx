@@ -199,9 +199,7 @@ const Navbar = () => {
             </div>
 
             <div className={`mobile-submenu ${literacyOpen ? "open" : ""}`}>
-              <Link to="/financial-literacy" onClick={closeMenu}>
-                Overview
-              </Link>
+             
               <Link to="/financialliteracy/seminar-webinar" onClick={closeMenu}>
                 Seminar & Webinar
               </Link>

@@ -1,15 +1,29 @@
-* {
-  box-sizing: border-box;
-  scroll-timeline: none;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
   overflow-x: hidden;
-  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.epm-overlap-panel,
+.epm-stats-section,
+.solutions-section,
+.decision-section,
+.vault-section,
+.awards-showcase-section,
+.core-values-section {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 /* video */
@@ -39,12 +53,23 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  /* background: linear-gradient(
-    120deg,
-    rgba(10, 20, 40, 0.75),
-    rgba(10, 20, 40, 0.55)
-  ); */
   z-index: 1;
+
+  background: linear-gradient(
+      120deg,
+      rgba(5, 10, 20, 0.519),
+      rgba(10, 20, 40, 0.54)
+    ),
+    radial-gradient(
+      circle at 70% 30%,
+      rgba(198, 141, 88, 0.167),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(198, 141, 88, 0.111),
+      transparent 40%
+    );
 }
 
 /* ensure content above video */
@@ -368,10 +393,10 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: clamp(2.02rem, 1.7vw, 2.34rem);
+  font-size: clamp(2.02rem, 1.7vw, 2.54rem);
   line-height: 1.6;
   color: #000000;
-  font-weight: 800;
+  font-weight: 900;
   font-family: "Cormorant Garamond", serif;
   letter-spacing: 0.2px;
   text-shadow: #000000 2px 2px 4px;
@@ -4909,7 +4934,7 @@ video {
   }
 
   .epm-typed-line {
-    font-size: clamp(1rem, 4.5vw, 1.4rem);
+    font-size: clamp(1rem, 4.5vw, 1.5rem);
     margin-left: 0 !important;
   }
 
@@ -6420,9 +6445,9 @@ body {
 /* typing */
 .epm-typed-line {
   color: #ffffff;
-  font-weight: 400;
+  font-weight: 600;
   margin-top: 10px;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 /* animation */
@@ -6572,5 +6597,45 @@ body {
   .epm-stats-section.epm-overlap-panel {
     margin-top: 0 !important;
     border-radius: 28px 28px 0 0 !important;
+  }
+}
+
+
+
+
+
+
+/* PERFORMANCE FIX */
+.epm-hero-wrap,
+.epm-hero-zoom-wrapper,
+.epm-hero-tilt-wrapper,
+.epm-overlap-panel {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.epm-hero-video {
+  will-change: transform;
+  transform: translateZ(0);
+  filter: brightness(0.42) contrast(1.08);
+}
+
+@media (max-width: 768px) {
+  .epm-hero-video,
+  .epm-orbit-rotator,
+  .epm-orbit-ring,
+  .epm-hero-crystal,
+  .epm-hero-light,
+  .epm-hero-content {
+    animation: none !important;
+  }
+
+  .epm-hero-wrap {
+    position: relative;
+    min-height: auto;
+  }
+
+  .epm-hero-zoom-wrapper {
+    min-height: 100vh;
   }
 }
