@@ -6639,3 +6639,93 @@ body {
     min-height: 100vh;
   }
 }
+
+
+
+
+
+/* ===============================
+   LUXURY HERO OPENING 3D EFFECT
+================================ */
+
+.epm-hero-wrap {
+  transform-style: preserve-3d;
+  perspective: 1800px;
+}
+
+.epm-hero-zoom-wrapper {
+  animation: epmLuxuryHeroOpen 1.6s ease forwards;
+}
+
+.epm-hero-left-block {
+  transform-style: preserve-3d;
+}
+
+.epm-orbit-visual-wrap {
+  transform-style: preserve-3d;
+  animation: epmHeroVisualEntrance 1.8s ease forwards;
+}
+
+.epm-hero-line {
+  animation: epmHeroTextLuxuryReveal 1.15s ease forwards;
+}
+
+.epm-hero-line-one {
+  animation-delay: 0.15s;
+}
+
+.epm-hero-line-two {
+  animation-delay: 0.3s;
+}
+
+.epm-hero-line-three {
+  animation-delay: 0.45s;
+}
+
+@keyframes epmLuxuryHeroOpen {
+  0% {
+    opacity: 0;
+    transform: scale(1.16) rotateX(14deg);
+    filter: blur(18px) brightness(0.8);
+  }
+
+  55% {
+    opacity: 1;
+    transform: scale(0.98) rotateX(0deg);
+    filter: blur(3px) brightness(1.05);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateX(0deg);
+    filter: blur(0) brightness(1);
+  }
+}
+
+@keyframes epmHeroVisualEntrance {
+  0% {
+    opacity: 0;
+    transform: translateX(90px) translateY(30px) rotateY(-28deg) scale(0.86);
+    filter: blur(12px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotateY(0deg) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes epmHeroTextLuxuryReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(55px) translateZ(-80px) rotateX(-18deg);
+    filter: blur(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateZ(0) rotateX(0deg);
+    filter: blur(0);
+  }
+}

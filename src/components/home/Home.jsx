@@ -435,6 +435,71 @@ const Home = () => {
   const activeData =
     awardsData.find((item) => item.year === activeYear) || awardsData[0];
 
+
+
+    useEffect(() => {
+  const ctx = gsap.context(() => {
+    const tl = gsap.timeline({
+      defaults: { ease: "power4.out" },
+    });
+
+    tl.fromTo(
+      heroWrapRef.current,
+      {
+        opacity: 0,
+        scale: 1.18,
+        rotateX: 12,
+        filter: "blur(18px)",
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        rotateX: 0,
+        filter: "blur(0px)",
+        duration: 1.35,
+      }
+    )
+      .fromTo(
+        heroCopyRef.current,
+        {
+          opacity: 0,
+          y: 90,
+          rotateX: -18,
+          scale: 0.94,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          rotateX: 0,
+          scale: 1,
+          duration: 1,
+        },
+        "-=0.8"
+      )
+      .fromTo(
+        heroVisualRef.current,
+        {
+          opacity: 0,
+          x: 80,
+          rotateY: -24,
+          scale: 0.88,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          rotateY: 0,
+          scale: 1,
+          duration: 1.15,
+        },
+        "-=0.85"
+      );
+  }, homeRef);
+
+  return () => ctx.revert();
+}, []);
+
+
+
   useEffect(() => {
     const currentLine = heroLines[lineIndex];
     let timeout;
