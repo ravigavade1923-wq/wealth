@@ -500,9 +500,8 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-      if (window.innerWidth <= 768) return;
+    if (window.innerWidth <= 768) return;
     const ctx = gsap.context(() => {
-      
       gsap.fromTo(
         heroCopyRef.current,
         { opacity: 0, y: 70 },
@@ -1030,8 +1029,8 @@ const Home = () => {
         </div>
 
         <div className="epm-full-hero-flow"></div>
-<div className="epm-full-hero-orbit"></div>
-<div className="epm-full-hero-spark"></div>
+        <div className="epm-full-hero-orbit"></div>
+        <div className="epm-full-hero-spark"></div>
 
         <div className="epm-social-stick">
           <a
@@ -1076,32 +1075,36 @@ const Home = () => {
         </div>
 
         <div className="epm-hero-overlay-right">
-  <div className="epm-hero-left-block" ref={heroCopyRef}>
-   
+          <div className="epm-hero-left-block" ref={heroCopyRef}>
+            <h1 className="epm-hero-heading-alt" ref={heroTitleRef}>
+              <span className="epm-hero-line epm-hero-line-one">
+                BECAUSE YOUR
+              </span>
 
-    <h1 className="epm-hero-heading-alt" ref={heroTitleRef}>
-      <span className="epm-hero-line epm-hero-line-one">BECAUSE YOUR</span>
+              <span className="epm-hero-line epm-hero-line-two">WEALTH</span>
 
-      <span className="epm-hero-line epm-hero-line-two">
-        WEALTH
-      </span>
+              <span className="epm-hero-line epm-hero-line-three">
+                DESERVES <br /> EXCELLENCE
+              </span>
+            </h1>
 
-      <span className="epm-hero-line epm-hero-line-three">
-        DESERVES <br /> EXCELLENCE
-      </span>
-    </h1>
+            <div className="epm-typed-wrap epm-typed-wrap-left">
+              <p className="epm-typed-line">
+                {displayText}
+                <span className="epm-typed-caret"></span>
+              </p>
+            </div>
 
-    <div className="epm-typed-wrap epm-typed-wrap-left">
-      <p className="epm-typed-line">
-        {displayText}
-        <span className="epm-typed-caret"></span>
-      </p>
-    </div>
-
-    
-  </div>
-</div>
-
+            <div className="epm-hero-desc">
+              <p>
+                At EPM Wealth, we believe your wealth goes beyond money. We
+                prioritize you, your loved ones, and your business with
+                personalized planning, elear advisory, and future-ready
+                financial strategies.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <div className="epm-hero-spacer"></div>

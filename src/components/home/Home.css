@@ -374,17 +374,20 @@ body {
   font-weight: 800;
   font-family: "Cormorant Garamond", serif;
   letter-spacing: 0.2px;
+  text-shadow: #000000 2px 2px 4px;
   /* margin-left: 50px; */
 }
 
 .epm-hero-desc {
-  max-width: 720px;
-  font-size: clamp(1rem, 1.25vw, 1.85rem);
+  max-width: 920px;
+  font-size: clamp(1rem, 1.25vw, 1.95rem);
   line-height: 1.95;
-  color: rgb(0, 0, 0);
-  font-weight: 600;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
   font-family: "Cormorant Garamond", serif;
   transform: translateZ(25px);
+  margin-right: 30%;
+  text-shadow: #000000 3px 3px 5px;
 }
 
 .epm-hero-btn-wrap {
@@ -990,7 +993,7 @@ body {
 
 .epm-hero-line {
   display: block;
-  font-family: "Cormorant Garamond", serif;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 900;
   letter-spacing: -1.8px;
   
@@ -1001,7 +1004,7 @@ body {
   font-size: clamp(2.9rem, 5.6vw, .8rem);
   color: #000000;
   text-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.226),
+    0 10px 30px rgb(0, 0, 0),
     0 18px 45px rgba(5, 8, 19, 0.17);
 }
 
@@ -5472,6 +5475,7 @@ video {
   flex-direction: column;
   gap: 12px !important;   /* important */
   line-height: 0.95 !important;
+  
 }
 
 .epm-hero-line {

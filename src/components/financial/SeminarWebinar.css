@@ -222,7 +222,7 @@
   color: #f3e7da;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 500;
-  font-family: "Cormorant Garamond", serif;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .sw-stat p {
