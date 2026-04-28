@@ -245,21 +245,9 @@ body {
   z-index: 2;
 }
 
-.wm-core-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--wm-gold-soft);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-}
+.wm-core-content h2{
+  color: white;
+} 
 
 .wm-core-content h3 {
   margin: 0 0 12px;
@@ -378,9 +366,9 @@ body {
 
 .wm-section-tag {
   display: inline-block;
-  margin-bottom: 18px;
+  margin-left: 18px;
   color: #9e714d;
-  font-size: 0.76rem;
+  font-size: 0.86rem;
   font-weight: 800;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -404,10 +392,11 @@ body {
 
 .wm-pillars-intro {
   max-width: 640px;
-  color: #536176;
-  font-size: 1rem;
+  color: #22272f;
+  font-size: 1.2rem;
   line-height: 1.95;
   padding-top: 32px;
+  font-family:  "Cormorant Garamond", serif;
 }
 
 .wm-pillars-list {

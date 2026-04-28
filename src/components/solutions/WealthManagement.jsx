@@ -100,11 +100,9 @@ const WealthManagement = () => {
               <div className="wm-core-sphere">
                 <div className="wm-core-glow"></div>
                 <div className="wm-core-content">
-                  <span className="wm-core-badge">
-                    <Sparkles size={15} />
-                    Wealth Architecture
-                  </span>
-                  <h3>360° Financial Confidence</h3>
+                  
+                  <h2>360°</h2>
+                  <h3> Financial Confidence</h3>
                   <p>
                     A refined framework that helps you grow wealth, reduce
                     stress, and prepare for the future with confidence.
