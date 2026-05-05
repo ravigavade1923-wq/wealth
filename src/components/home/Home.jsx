@@ -225,6 +225,14 @@ const galleryImages = [
 
 const duplicatedGalleryImages = [...galleryImages, ...galleryImages];
 
+const TYPED_LINES = [
+  "It all begins with you.",
+  "Attaining Financial Freedom.",
+  "Making Your Money Work For You.",
+  "Saving Taxes.",
+  "Meeting Your Goals.",
+];
+
 const coreValuesData = [
   {
     id: 1,
@@ -381,29 +389,16 @@ const useCountUp = (end, duration = 2200, suffix = "", prefix = "") => {
 };
 
 const Home = () => {
-  const heroLines = [
-    "It all begins with you.",
-    "Attaining Financial Freedom.",
-    "Making Your Money Work For You.",
-    "Saving Taxes.",
-    "Meeting Your Goals.",
-  ];
-
-  const heroBgRef = useRef(null);
-  const heroEngineRef = useRef(null);
-
   const homeRef = useRef(null);
   const heroWrapRef = useRef(null);
-  const heroVisualRef = useRef(null);
-  const heroTitleRef = useRef(null);
-  const heroCopyRef = useRef(null);
-  const heroContentRef = useRef(null);
-  const heroTiltRef = useRef(null);
+  const videoRef = useRef(null);
+  const videoContainerRef = useRef(null);
+  const revealOverlayRef = useRef(null);
+  const heroTextRef = useRef(null);
 
-  const [lineIndex, setLineIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [videoEnded, setVideoEnded] = useState(false);
+  const [showTyped, setShowTyped] = useState(false);
+  const [typedText, setTypedText] = useState("");
 
   const [experience, ref1] = useCountUp(30, 2000, "+");
   const [clients, ref2] = useCountUp(1000, 2400, "+");
@@ -437,175 +432,11 @@ const Home = () => {
 
 
 
-    useEffect(() => {
-  const ctx = gsap.context(() => {
-    const tl = gsap.timeline({
-      defaults: { ease: "power4.out" },
-    });
 
-    tl.fromTo(
-      heroWrapRef.current,
-      {
-        opacity: 0,
-        scale: 1.18,
-        rotateX: 12,
-        filter: "blur(18px)",
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        rotateX: 0,
-        filter: "blur(0px)",
-        duration: 1.35,
-      }
-    )
-      .fromTo(
-        heroCopyRef.current,
-        {
-          opacity: 0,
-          y: 90,
-          rotateX: -18,
-          scale: 0.94,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          rotateX: 0,
-          scale: 1,
-          duration: 1,
-        },
-        "-=0.8"
-      )
-      .fromTo(
-        heroVisualRef.current,
-        {
-          opacity: 0,
-          x: 80,
-          rotateY: -24,
-          scale: 0.88,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          rotateY: 0,
-          scale: 1,
-          duration: 1.15,
-        },
-        "-=0.85"
-      );
-  }, homeRef);
-
-  return () => ctx.revert();
-}, []);
-
-
-
-  useEffect(() => {
-    const currentLine = heroLines[lineIndex];
-    let timeout;
-
-    if (!isDeleting && charIndex < currentLine.length) {
-      timeout = setTimeout(() => {
-        setDisplayText(currentLine.slice(0, charIndex + 1));
-        setCharIndex((prev) => prev + 1);
-      }, 45);
-    } else if (!isDeleting && charIndex === currentLine.length) {
-      timeout = setTimeout(() => {
-        setIsDeleting(true);
-      }, 1600);
-    } else if (isDeleting && charIndex > 0) {
-      timeout = setTimeout(() => {
-        setDisplayText(currentLine.slice(0, charIndex - 1));
-        setCharIndex((prev) => prev - 1);
-      }, 22);
-    } else if (isDeleting && charIndex === 0) {
-      setIsDeleting(false);
-      setLineIndex((prev) => (prev + 1) % heroLines.length);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, lineIndex, heroLines]);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      const wrap = heroWrapRef.current;
-      const tilt = heroTiltRef.current;
-      if (!wrap || !tilt) return;
-
-      const rect = wrap.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const rotateY = (x / rect.width - 0.5) * 10;
-      const rotateX = (y / rect.height - 0.5) * -8;
-
-      tilt.style.transform = `
-        translate3d(0, 0, 0)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-      `;
-    };
-
-    const resetTransform = () => {
-      const tilt = heroTiltRef.current;
-      if (!tilt) return;
-      tilt.style.transform = "translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg)";
-    };
-
-    const wrap = heroWrapRef.current;
-    if (!wrap) return;
-
-    wrap.addEventListener("mousemove", handleMouseMove);
-    wrap.addEventListener("mouseleave", resetTransform);
-
-    return () => {
-      wrap.removeEventListener("mousemove", handleMouseMove);
-      wrap.removeEventListener("mouseleave", resetTransform);
-    };
-  }, []);
 
   useEffect(() => {
     if (window.innerWidth <= 768) return;
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        heroCopyRef.current,
-        { opacity: 0, y: 70 },
-        { opacity: 1, y: 0, duration: 1.05, ease: "power3.out" },
-      );
-
-      gsap.to(heroTitleRef.current, {
-        yPercent: -12,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroWrapRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
-
-      // --- HERO ZOOM-OUT EFFECT ---
-      const zoomTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".epm-hero-spacer",
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-        },
-      });
-
-      zoomTl.fromTo(
-        heroContentRef.current,
-        { scale: 1, y: 0, borderRadius: "0px" },
-        {
-          scale: 0.88,
-          y: -18,
-          borderRadius: "34px",
-          duration: 1,
-          ease: "none",
-        },
-      );
-      // ----------------------------
 
       gsap.utils.toArray(".epm-reveal-section").forEach((section) => {
         gsap.fromTo(
@@ -889,6 +720,57 @@ const Home = () => {
     }
   };
 
+  const handleVideoEnd = () => {
+    setVideoEnded(true);
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    tl.to(revealOverlayRef.current, {
+      opacity: 1,
+      duration: 1.4,
+      ease: "power2.out",
+    })
+    .fromTo(
+      ".epm-hero-text-line",
+      { opacity: 0, y: 80, rotateX: -55, filter: "blur(12px)", transformOrigin: "50% 100%" },
+      { opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)", duration: 1.1, stagger: 0.22 },
+      "-=0.8"
+    )
+    .call(() => { setShowTyped(true); }, null, "+=0.5");
+  };
+
+  useEffect(() => {
+    if (!showTyped) return;
+    let cancelled = false;
+    let lineIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    let tid;
+    const tick = () => {
+      if (cancelled) return;
+      const line = TYPED_LINES[lineIdx];
+      if (!isDeleting) {
+        charIdx++;
+        setTypedText(line.slice(0, charIdx));
+        if (charIdx === line.length) {
+          tid = setTimeout(() => { isDeleting = true; tick(); }, 1600);
+          return;
+        }
+        tid = setTimeout(tick, 45);
+      } else {
+        charIdx--;
+        setTypedText(line.slice(0, charIdx));
+        if (charIdx === 0) {
+          isDeleting = false;
+          lineIdx = (lineIdx + 1) % TYPED_LINES.length;
+          tid = setTimeout(tick, 320);
+          return;
+        }
+        tid = setTimeout(tick, 22);
+      }
+    };
+    tid = setTimeout(tick, 400);
+    return () => { cancelled = true; clearTimeout(tid); };
+  }, [showTyped]);
+
   const handleSubscribe = async (e) => {
     e.preventDefault();
 
@@ -1076,99 +958,45 @@ const Home = () => {
   return (
     <div ref={homeRef} className="epm-home-page">
       <section className="epm-hero-wrap" ref={heroWrapRef} id="home">
-        {/* <div className="epm-hero-bg-image-wrap">
-          <img
-            src="https://i.pinimg.com/webp/1200x/13/62/7a/13627acbaeb8e6fd18c6b9780a093bf4.webp"
-            alt="EPM Wealth hero background"
-            className="epm-hero-bg-image"
+        {/* ── Video Layer ── */}
+        <div className="epm-hero-video-wrap" ref={videoContainerRef}>
+          <video
+            ref={videoRef}
+            className="epm-hero-video"
+            src="/videos/hero-video.mp4"
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            onEnded={handleVideoEnd}
+            onError={handleVideoEnd}
           />
-        </div> */}
-
-        <div className="epm-hero-bg-image-wrap" ref={heroBgRef}>
-          <img
-            src={heroVaultImg}
-            alt="EPM Wealth Private Vault"
-            className="epm-hero-bg-image"
-          />
-          {/* <div className="epm-vault-engine-glow" ref={heroEngineRef}></div> */}
         </div>
 
-        <div className="epm-full-hero-flow"></div>
-        <div className="epm-full-hero-orbit"></div>
-        <div className="epm-full-hero-spark"></div>
-
-        <div className="epm-social-stick">
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-            className="epm-social-btn"
-          >
-            <FaInstagram />
-          </a>
-
-          <a
-            href="https://www.youtube.com/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Youtube"
-            className="epm-social-btn"
-          >
-            <FaYoutube />
-          </a>
-
-          <a
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Facebook"
-            className="epm-social-btn"
-          >
-            <FaFacebookF />
-          </a>
-
-          <a
-            href="https://www.linkedin.com/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn"
-            className="epm-social-btn"
-          >
-            <FaLinkedinIn />
-          </a>
-        </div>
-
-        <div className="epm-hero-overlay-right">
-          <div className="epm-hero-left-block" ref={heroCopyRef}>
-            <h1 className="epm-hero-heading-alt" ref={heroTitleRef}>
-              <span className="epm-hero-line epm-hero-line-one">
-                BECAUSE YOUR
-              </span>
-
-              <span className="epm-hero-line epm-hero-line-two">WEALTH</span>
-
-              <span className="epm-hero-line epm-hero-line-three">
-                DESERVES <br /> EXCELLENCE
-              </span>
-            </h1>
-
-            <div className="epm-typed-wrap epm-typed-wrap-left">
-              <p className="epm-typed-line">
-                {displayText}
-                <span className="epm-typed-caret"></span>
-              </p>
-            </div>
-
-            <div className="epm-hero-desc">
-              <p>
-                At EPM Wealth, we believe your wealth goes beyond money. We
-                prioritize you, your loved ones, and your business with
-                personalized planning, elear advisory, and future-ready
-                financial strategies.
-              </p>
+        {/* ── Post-video 3D Reveal ── */}
+        <div className="epm-hero-reveal-overlay" ref={revealOverlayRef}>
+          <div className="epm-hero-3d-scene">
+            <div className="epm-hero-3d-text" ref={heroTextRef}>
+              <span className="epm-hero-text-line epm-line-because">BECAUSE YOUR</span>
+              <span className="epm-hero-text-line epm-line-wealth">WEALTH</span>
+              <span className="epm-hero-text-line epm-line-deserves">DESERVES</span>
+              <span className="epm-hero-text-line epm-line-excellence">EXCELLENCE</span>
+              {showTyped && (
+                <div className="epm-hero-typed-row">
+                  <span className="epm-hero-typed-text">{typedText}</span>
+                  <span className="epm-typed-caret" />
+                </div>
+              )}
             </div>
           </div>
+        </div>
+
+        {/* ── Social Links ── */}
+        <div className="epm-social-stick">
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" className="epm-social-btn"><FaInstagram /></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noreferrer" aria-label="Youtube" className="epm-social-btn"><FaYoutube /></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook" className="epm-social-btn"><FaFacebookF /></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="epm-social-btn"><FaLinkedinIn /></a>
         </div>
       </section>
 
